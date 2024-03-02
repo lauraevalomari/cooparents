@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_01_121440) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_02_143326) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,105 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_01_121440) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "appointment_contacts", force: :cascade do |t|
+    t.bigint "appointment_id", null: false
+    t.bigint "contact_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["appointment_id"], name: "index_appointment_contacts_on_appointment_id"
+    t.index ["contact_id"], name: "index_appointment_contacts_on_contact_id"
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.string "title"
+    t.date "date"
+    t.string "start_time"
+    t.string "time"
+    t.time "end_time"
+    t.string "address"
+    t.float "location_latitude"
+    t.float "location_longitude"
+    t.string "category"
+    t.boolean "child_presence_mandatory"
+    t.text "details"
+    t.bigint "appointment_creator_id", null: false
+    t.bigint "parent_in_charge_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["appointment_creator_id"], name: "index_appointments_on_appointment_creator_id"
+    t.index ["parent_in_charge_id"], name: "index_appointments_on_parent_in_charge_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
+
+  create_table "children", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birth_date"
+    t.string "birth_place"
+    t.string "school"
+    t.bigint "first_parent_id", null: false
+    t.bigint "second_parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["first_parent_id"], name: "index_children_on_first_parent_id"
+    t.index ["second_parent_id"], name: "index_children_on_second_parent_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "phone_number"
+    t.string "email"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "custody_timeframes", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "parent_in_charge_id", null: false
+    t.bigint "custody_creator_id", null: false
+    t.bigint "child_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_custody_timeframes_on_child_id"
+    t.index ["custody_creator_id"], name: "index_custody_timeframes_on_custody_creator_id"
+    t.index ["parent_in_charge_id"], name: "index_custody_timeframes_on_parent_in_charge_id"
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string "title"
+    t.date "added_date"
+    t.string "category"
+    t.text "details"
+    t.bigint "child_id", null: false
+    t.bigint "document_creator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_documents_on_child_id"
+    t.index ["document_creator_id"], name: "index_documents_on_document_creator_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.date "deadline"
+    t.text "requirements"
+    t.boolean "status"
+    t.string "category"
+    t.text "details"
+    t.bigint "task_creator_id", null: false
+    t.bigint "parent_in_charge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_in_charge_id"], name: "index_tasks_on_parent_in_charge_id"
+    t.index ["task_creator_id"], name: "index_tasks_on_task_creator_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -56,4 +155,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_01_121440) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "appointment_contacts", "appointments"
+  add_foreign_key "appointment_contacts", "contacts"
+  add_foreign_key "appointments", "users"
+  add_foreign_key "appointments", "users", column: "appointment_creator_id"
+  add_foreign_key "appointments", "users", column: "parent_in_charge_id"
+  add_foreign_key "children", "users", column: "first_parent_id"
+  add_foreign_key "children", "users", column: "second_parent_id"
+  add_foreign_key "custody_timeframes", "children"
+  add_foreign_key "custody_timeframes", "users", column: "custody_creator_id"
+  add_foreign_key "custody_timeframes", "users", column: "parent_in_charge_id"
+  add_foreign_key "documents", "children"
+  add_foreign_key "documents", "users", column: "document_creator_id"
+  add_foreign_key "tasks", "users", column: "parent_in_charge_id"
+  add_foreign_key "tasks", "users", column: "task_creator_id"
 end
