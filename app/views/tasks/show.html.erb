@@ -1,2 +1,9 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<h1><%= @task.title %></h1>
+<p><%= @task.requirements %></p>
+<p><%= @task.details %></p>
+<p><%= @task.deadline %></p>
+
+<p><%= link_to "Retour à mes tâches", tasks_path %></p>
+<p><%= link_to "Supprimer cette tâche",
+      task_path(@task),
+      data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr(e)?"} %></p>
