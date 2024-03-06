@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+puts "Cleaning Database..."
+User.destroy_all
+puts "Database cleaned..."
+
+puts "Creating users..."
+anna = User.create!(email: 'anna@lewagon.fr', password: 'anna123')
+aaron = User.create!(email: 'aaron@lewagon.fr', password: 'aaron123')
+puts "#{User.count} users created!"
