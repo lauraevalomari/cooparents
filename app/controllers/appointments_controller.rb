@@ -3,6 +3,10 @@ class AppointmentsController < ApplicationController
     @appointments = Appointment.all
   end
 
+  def my_appointments
+    @appointments = Appointment.where(parent_in_charge_id: current_user_id)
+  end
+
   def create
     @appointment = Appointment.new(params[:appointment])
     @appointment.save
