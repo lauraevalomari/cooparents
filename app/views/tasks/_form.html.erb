@@ -1,0 +1,9 @@
+<% simple_form_for(@task) do |f| %>
+  <%= f.input :title, :label => 'Intitulé de la tâche' %>
+  <%= f.input :requirements, :label => "Prérequis", placeholder: "Indiquez les prérequis nécessaires à la réalisation de cette tâche" %>
+  <%= f.input :category, :label => 'Catégorie' %>
+  <%= f.input :details, :label => 'Détails' %>
+  <%= f.input :parent_in_charge_id, :label => 'Parent en charge de cette tâche' %>
+  <%= f.input :deadline, :label => "Date d'échéance" %>
+  <%= f.input :status, :label => 'Statut' %>
+<% end %>
