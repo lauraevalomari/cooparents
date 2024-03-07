@@ -11,7 +11,7 @@ export default class extends Controller {
       // "plugins": [new rangePlugin({ input: "#secondRangeInput"})],
       // mode: "range",
       dateFormat: "d-m-Y",
-      altInput: true,
+      // altInput: true,
       // enableTime: true,
       weekNumbers: true,
       time_24hr: true,
@@ -20,14 +20,14 @@ export default class extends Controller {
       // "plugins": [new confirmDatePlugin({})],
     })
     flatpickr(this.startTimeTarget, {
-      altInput: true,
+      // altInput: true,
       enableTime: true,
       noCalendar: true,
       time_24hr: true,
       // "plugins": [new confirmDatePlugin({})]
     })
     flatpickr(this.endTimeTarget, {
-      altInput: true,
+      // altInput: true,
       enableTime: true,
       noCalendar: true,
       time_24hr: true,
