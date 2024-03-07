@@ -1,0 +1,6 @@
+<%= simple_form_for @appointment, data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "date" }, id: 'date' } %>
+  <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" }, id: 'start_time' } %>
+  <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+  <%= f.submit 'Schedule your appointment' %>
+<% end %>
