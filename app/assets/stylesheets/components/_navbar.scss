@@ -1,12 +1,23 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.footer {
+  background-color: $gray;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.footer-nav {
+  display: flex;
+  justify-content: space-around;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-nav a i {
+  margin-right: 5px;
 }
