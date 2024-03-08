@@ -1,9 +1,23 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antic&family=Protest+Riot&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Antic", "Helvetica", "sans-serif";
+$headers-font: "Protect Riot", "Helvetica", "sans-serif";
+
+// .antic-regular {
+//   font-family: "Antic", sans-serif;
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+// .protest-riot-regular {
+//   font-family: "Protest Riot", sans-serif;
+//   font-weight: 400;
+//   font-style: normal;
+// }
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

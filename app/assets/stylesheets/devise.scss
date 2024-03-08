@@ -1,4 +1,3 @@
-// Graphical variables
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
@@ -13,4 +12,4 @@
 
 // Your CSS partials
 @import "components/index";
-@import "pages/index";
+@import "devise/devise_forms";

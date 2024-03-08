@@ -1,0 +1,90 @@
+.devise-container body {
+  background-color: #F4B7B6;
+}
+
+  h2 {
+    font-size: 25px;
+    font-weight: bolder;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Protest Riot';
+  }
+
+  .form-design {
+    background-color: white;
+    padding: 30px 30px 30px 30px;
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    border-radius: 16px;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
+}
+
+input {
+  border-color: #F4B7B6;
+}
+
+input:hover {
+  border-color: #AFA6F9;
+}
+
+.form-control {
+  border-color: #F4B7B6;
+  background-color: white;
+}
+
+.form-check-input:hover {
+  border-color: #81EDAE;
+  box-shadow: 0 0 0 0.25rem rgba(129, 237, 174, 0.25);
+}
+
+.form-control:focus {
+  border-color: #81EDAE;
+  box-shadow: 0 0 0 0.25rem rgba(129, 237, 174, 0.25);
+}
+
+.form-check-input:checked {
+  background-color: #81EDAE;
+  border-color: #81EDAE;
+  box-shadow: 0 0 0 0.25rem rgba(129, 237, 174, 0.25);
+}
+
+.form-check-input {
+  background-color: white;
+  border-color: #F4B7B6;
+}
+
+.btn {
+  width: 80%;
+  margin-bottom: 20px;
+  background-color: #AFA6F9;
+  border-color: #AFA6F9;
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+}
+
+.btn:hover {
+  background-color: #81EDAE;
+  background-blend-mode: lighten;
+  border-color: #81EDAE;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.form-links {
+  text-align: center;
+}
+
+.form-links > a {
+  text-align: center;
+  color: grey;
+  text-decoration: none;
+}
+
+.form-links > a:hover {
+  color: #AFA6F9;
+  text-decoration:underline;
+}
