@@ -1,6 +1,6 @@
-<div class="container">
+<div class="devise-container">
   <div class="row justify-content-center">
-    <div class="col-12 col-sm-8">
+    <div class="col-12 col-sm-4">
       <div class="form-design">
         <h2>Connexion</h2>
             <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -16,7 +16,7 @@
               </div>
 
               <div class="form-actions">
-                <%= f.button :submit, "Connexion", class: "btn btn-primary btn-lg" %>
+                <%= f.button :submit, "Me connecter", class: "btn btn-primary btn-lg" %>
               <% end %>
               </div>
 

@@ -1,26 +1,24 @@
-<div class="container">
   <div class="row justify-content-center">
-    <div class="col-12 col-sm-8">
+      <div class="col-12 col-sm-4">
 
-
-<div class="form-design">
-  <h2>Vous avez oublié votre mot de passe?</h2>
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.input :email, :label => 'Adresse e-mail',
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+        <div class="form-design">
+            <h2>Vous avez oublié votre mot de passe?</h2>
+            <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <%= f.error_notification %>
+            <div class="form-inputs">
+              <%= f.input :email, :label => 'Adresse e-mail',
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Envoyez-moi un lien" %>
+              <% end %>
+            </div>
+            <div class="form-links">
+          <%= render "devise/shared/links" %>
+            </div>
+        </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Recevoir un lien" %>
-  </div>
-<% end %>
-
-<div class="form-links">
-  <%= render "devise/shared/links" %>
-</div>
-
 </div>

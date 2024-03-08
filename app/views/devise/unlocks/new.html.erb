@@ -1,19 +1,25 @@
-<h2>Renvoi des instructions de déblocage de compte</h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+      <div class="form-design">
+        <h2>Renvoi des instructions de déblocage de compte</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :unlock_token %>
+      <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+        <%= f.error_notification %>
+        <%= f.full_error :unlock_token %>
 
-  <div class="form-inputs">
-    <%= f.input :email, :label => 'Adresse mail',
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-  </div>
+        <div class="form-inputs">
+          <%= f.input :email, :label => 'Adresse mail',
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+        </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Renvoi des instructions de déblocage" %>
-  </div>
-<% end %>
+        <div class="form-actions">
+          <%= f.button :submit, "Renvoi des instructions de déblocage", class: "btn btn-primary btn-lg" %>
+        <% end %>
+        </div>
 
-<%= render "devise/shared/links" %>
+      <div class="form-links">
+      <%= render "devise/shared/links" %>
+      </div>

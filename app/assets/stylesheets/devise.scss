@@ -1,0 +1,15 @@
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap";
+@import "font-awesome";
+@import "simple_calendar";
+
+// @import "flatpickr/dist/themes/airbnb";
+// @import "/flatpickr/dist/l10n/fr.ts";
+
+// Your CSS partials
+@import "components/index";
+@import "devise/devise_forms";
