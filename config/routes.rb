@@ -15,10 +15,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :appointments do
-    collection do
-      get :my_appointments
-    end
-  end
+  resources :appointments
+
   resources :tasks
 end
