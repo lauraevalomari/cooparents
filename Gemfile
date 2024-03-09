@@ -53,6 +53,7 @@ gem "sassc-rails"
 gem "cloudinary"
 gem "simple_calendar", "~> 2.4"
 gem 'faker'
+gem 'geocoder'
 
 group :development, :test do
   gem "dotenv-rails"
