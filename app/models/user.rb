@@ -16,4 +16,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def children
+    Child.where("first_parent_id = ? OR second_parent_id = ?", id, id)
+  end
 end
