@@ -38,12 +38,12 @@ puts "Now creating children..."
   )
 end
 
-Appointment.create!(
-  title:
-  date:
-  start_time:
-  end_time:
-  category:
-  )
-end
+# Appointment.create!(
+#   title:
+#   date:
+#   start_time:
+#   end_time:
+#   category:
+#   )
+# end
 puts 'Finished!'
