@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 puts "Cleaning Database..."
+Appointment.destroy_all
 Child.destroy_all
 User.destroy_all
 puts "Database cleaned..."
@@ -26,8 +27,8 @@ puts "#{User.count} users created!"
 # end
 
 puts "Now creating children..."
-2.times do
-  Child.create!(
+
+gabriel = Child.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     birth_date: Faker::Date.birthday(min_age: 0, max_age: 12),
@@ -36,14 +37,30 @@ puts "Now creating children..."
     first_parent_id: anna.id,
     second_parent_id: aaron.id
   )
-end
 
-# Appointment.create!(
-#   title:
-#   date:
-#   start_time:
-#   end_time:
-#   category:
-#   )
-# end
-puts 'Finished!'
+jade = Child.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  birth_date: Faker::Date.birthday(min_age: 0, max_age: 12),
+  birth_place: "Paris",
+  school: Faker::Educator.primary_school,
+  first_parent_id: anna.id,
+  second_parent_id: aaron.id
+)
+
+puts "...and appointments..."
+foot_appointment = Appointment.create!(
+  title: "Match de foot",
+  date: Date.new(2024,03,24),
+  start_time: DateTime.strptime("03/24/2024 10:00", "%m/%d/%Y %H:%M"),
+  end_time: DateTime.strptime("03/24/2024 12:00", "%m/%d/%Y %H:%M"),
+  category: "Football",
+  address: "261 Boulevard de Tournai, 59650 Villeneuve d'Ascq",
+  appointment_creator_id: anna.id,
+  parent_in_charge_id: aaron.id,
+  user_id: anna.id,
+  child_id: gabriel.id,
+  details: "Match de foot avec Paul en entraîneur (groupe 2B). Ne pas oublier le sac avec la tenue, les crampons, serviette et gourde!",
+  )
+
+puts '...Finished!'

@@ -28,6 +28,8 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @children = current_user.children
+    @parents = @children.map(&:parents).flatten.uniq
   end
 
   def create
@@ -50,13 +52,13 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
-    @marker = @appointment.geocoded.map do |appointment|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {appointment: appointment})
-      }
-    end
+    # @markers = @appointments.geocoded.map do |appointment|
+    #   {
+    #     lat: appointment.latitude,
+    #     lng: appointment.longitude,
+    #     info_window_html: render_to_string(partial: "info_window", locals: {appointment: appointment})
+    #   }
+    # end
   end
 
   def destroy
