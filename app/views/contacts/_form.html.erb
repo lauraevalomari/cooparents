@@ -1,0 +1,15 @@
+<div class="form-container">
+  <div class="form-design">
+    <%= simple_form_for @contact do |f| %>
+      <div class="form-inputs">
+        <%= f.input :first_name, label: 'Prénom', input_html: { id: 'first_name' } %>
+        <%= f.input :last_name, label: 'Nom', input_html: { id: 'last_name' } %>
+        <%= f.input :address, label: 'Adresse', input_html: { id: 'address' } %>
+        <%= f.input :phone_number, label: 'Numéro de téléphone', input_html: { id: 'phone_number' } %>
+        <%= f.input :email, label: 'Email', input_html: { id: 'email' } %>
+        <%= f.input :category, label: 'Catégorie', as: :select, collection: Contact::CATEGORIES %>
+      </div>
+      <%= f.submit 'Enregistrer le contact', class: "btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
+</div>
