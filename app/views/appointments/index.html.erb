@@ -1,5 +1,13 @@
 <h1>Tous les rendez-vous</h1>
 
-<%= month_calendar do |date| %>
-  <%= date %>
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<% @appointments.each do |appointment| %>
+  <div>
+    <%= appointment.title %>
+    <%= link_to 'Show', appointment_path(appointment) %>
+  </div>
 <% end %>

@@ -15,6 +15,7 @@ class CreateAppointments < ActiveRecord::Migration[7.1]
       t.references :appointment_creator, foreign_key: { to_table: :users }, null: false
       t.references :parent_in_charge, foreign_key: { to_table: :users }, null: false
       t.references :user, null: false, foreign_key: true
+      t.references :child, null: false, foreign_key: true
 
       t.timestamps
     end
