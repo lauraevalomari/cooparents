@@ -1,7 +1,7 @@
-<%# <div class="form-container"> %>
+<div class="form-container">
   <div class="form-design">
    <%= simple_form_for [@user, @appointment], data: { controller: 'flatpickr' } do |f| %>
-  <%# <div class="form-inputs"> %>
+  <div class="form-inputs">
     <%= f.input :title, label: 'Objet', as: :string, input_html: { id: 'Objet' } %>
     <%= f.input :category, label: 'Catégorie', as: :select, collection: Appointment::CATEGORIES %>
     <%= f.association :child, label: 'Enfant concerné', collection: @children.map(&:first_name) %>
@@ -20,6 +20,3 @@
 </form>
 </div>
   </div>
-<%# <form action="appointment"> %>
-
- <%# input_html: { multiple: true } %>
