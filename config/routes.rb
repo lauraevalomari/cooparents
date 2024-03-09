@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     # collection do
     #   get :my_appointments
     #   get :childs_appointments
-    # end
+
   # end
 
   resources :tasks
