@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 puts "Cleaning Database..."
+Child.destroy_all
 User.destroy_all
 puts "Database cleaned..."
 
