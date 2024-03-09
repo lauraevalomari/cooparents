@@ -27,6 +27,8 @@ class AppointmentsController < ApplicationController
   end
 
   def new
+    @children = current_user.children
+    @parents = @children.map(&:parents).flatten.uniq
     @appointment = Appointment.new
   end
 

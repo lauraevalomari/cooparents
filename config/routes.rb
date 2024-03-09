@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'contacts/index'
+  get 'contacts/show'
+  get 'contacts/new'
+  get 'contacts/create'
+  get 'contacts/edit'
+  get 'contacts/update'
+  get 'contacts/destroy'
   get 'tasks/index'
   get 'tasks/show'
   get 'tasks/new'
@@ -24,4 +31,5 @@ Rails.application.routes.draw do
 
   resources :tasks
   resources :children
+  resources :contacts
 end

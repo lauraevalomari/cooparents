@@ -20,8 +20,4 @@ class User < ApplicationRecord
   def children
     Child.where("first_parent_id = ? OR second_parent_id = ?", id, id)
   end
-
-  def parents
-    Child.
-  end
 end
