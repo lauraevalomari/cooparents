@@ -27,6 +27,8 @@ class AppointmentsController < ApplicationController
   end
 
   def new
+    @children = current_user.children
+    @parents = @children.map(&:parents).flatten.uniq
     @appointment = Appointment.new
     @children = current_user.children
     @parents = @children.map(&:parents).flatten.uniq
@@ -71,6 +73,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:title, :child_id, :date, :start_time, :end_time, :rating)
+    params.require(:appointment).permit(:title, :child, :date, :start_time, :end_time, :parent_in_charge, :address, :category)
   end
 end
