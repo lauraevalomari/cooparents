@@ -5,4 +5,8 @@ class Child < ApplicationRecord
   has_many :appointments
   has_many :documents
   has_many :custody_timeframes
+
+  def parents
+    [first_parent, second_parent]
+  end
 end

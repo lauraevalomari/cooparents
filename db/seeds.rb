@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 puts "Cleaning Database..."
+Child.destroy_all
 User.destroy_all
 puts "Database cleaned..."
 
@@ -36,4 +37,13 @@ puts "Now creating children..."
     second_parent_id: aaron.id
   )
 end
+
+# Appointment.create!(
+#   title:
+#   date:
+#   start_time:
+#   end_time:
+#   category:
+#   )
+# end
 puts 'Finished!'

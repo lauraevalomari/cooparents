@@ -3,15 +3,23 @@
    <%= simple_form_for [@user, @appointment], data: { controller: 'flatpickr' } do |f| %>
   <%# <div class="form-inputs"> %>
     <%= f.input :title, label: 'Objet', as: :string, input_html: { id: 'Objet' } %>
-    <%# <%= f.input :child, as: :select, collection: current_user.children.map { |child| [child.first_name, child.id] }, input_html: { multiple: true }%>
+    <%= f.input :category, label: 'Catégorie', as: :select, collection: Appointment::CATEGORIES %>
+    <%= f.association :child, label: 'Enfant concerné', collection: @children.map(&:first_name) %>
     <%= f.input :child_presence_mandatory, label: 'Présence de l\'enfant obligatoire?', as: :boolean, input_html: { id: 'Présence_enfant_obligatoire?' } %>
-    <%= f.input :parent_in_charge, label: 'Parent en charge', as: :string, input_html: { id: 'Qui_doit_être_présent?' } %>
+    <%= f.association :parent_in_charge, as: :select, collection:  @parents.map(&:email), label: 'Parent en charge' %>
     <%= f.input :date, label: 'Date du rendez-vous', as: :string, input_html: { data: { flatpickr_target: "date" }, id: 'date' } %>
     <%= f.input :start_time, label: 'Heure de début', as: :string, input_html: { data: { flatpickr_target: "startTime" }, id: 'start_time' } %>
     <%= f.input :end_time, label: 'Heure de fin', as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+          <%= f.input :address, :label => 'Adresse',
+                      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                      wrapper_html: {data: {controller: "address-autocomplete",
+                                            address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
+    <%= f.input :details, label: 'Détails', as: :text, input_html: { id: 'détails' } %>
     <%= f.submit 'Enregistrer le rendez-vous', class: "btn btn-primary btn-lg" %>
     <% end %>
 </form>
 </div>
   </div>
 <%# <form action="appointment"> %>
+
+ <%# input_html: { multiple: true } %>

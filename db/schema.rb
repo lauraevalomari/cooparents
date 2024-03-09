@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_08_154553) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_09_105552) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,9 +67,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_08_154553) do
     t.bigint "appointment_creator_id", null: false
     t.bigint "parent_in_charge_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "child_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["appointment_creator_id"], name: "index_appointments_on_appointment_creator_id"
+    t.index ["child_id"], name: "index_appointments_on_child_id"
     t.index ["parent_in_charge_id"], name: "index_appointments_on_parent_in_charge_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
@@ -147,10 +152,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_08_154553) do
     t.boolean "status"
     t.string "category"
     t.text "details"
+    t.bigint "child_id", null: false
     t.bigint "task_creator_id", null: false
     t.bigint "parent_in_charge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_tasks_on_child_id"
     t.index ["parent_in_charge_id"], name: "index_tasks_on_parent_in_charge_id"
     t.index ["task_creator_id"], name: "index_tasks_on_task_creator_id"
   end
@@ -171,6 +178,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_08_154553) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointment_contacts", "appointments"
   add_foreign_key "appointment_contacts", "contacts"
+  add_foreign_key "appointments", "children"
   add_foreign_key "appointments", "users"
   add_foreign_key "appointments", "users", column: "appointment_creator_id"
   add_foreign_key "appointments", "users", column: "parent_in_charge_id"
@@ -181,10 +189,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_08_154553) do
   add_foreign_key "custody_timeframes", "users", column: "parent_in_charge_id"
   add_foreign_key "documents", "children"
   add_foreign_key "documents", "users", column: "document_creator_id"
-  add_foreign_key "notifications", "contacts"
-  add_foreign_key "notifications", "documents"
-  add_foreign_key "notifications", "tasks"
-  add_foreign_key "notifications", "users"
+  add_foreign_key "tasks", "children"
   add_foreign_key "tasks", "users", column: "parent_in_charge_id"
   add_foreign_key "tasks", "users", column: "task_creator_id"
 end

@@ -1,0 +1,8 @@
+<h2>Mon Rendez-vous</h2>
+
+<p><%= @appointment %></p>
+
+  <div id="map" class="mt-3" style="width: 80px"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
