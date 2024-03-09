@@ -1,2 +1,10 @@
 // Import page-specific CSS files here.
 @import "home";
+
+body.home {
+  background-color: white;
+}
+
+body.form-container {
+  background-color: aqua;
+}

@@ -11,7 +11,7 @@ class ChildrenController < ApplicationController
 
   def create
     @child = Child.new(child_params)
-    @child.first_parent_id = current_user_id
+    @child.first_parent_id = @current_user.id
     if @child.save
       redirect_to child_path(@child.id), notice: "Enfant ajouté !"
     else
@@ -20,6 +20,7 @@ class ChildrenController < ApplicationController
   end
 
   def show
+    set_child
   end
 
   def edit

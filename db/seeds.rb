@@ -15,3 +15,25 @@ puts "Creating users..."
 anna = User.create!(email: 'anna@lewagon.fr', password: 'anna123')
 aaron = User.create!(email: 'aaron@lewagon.fr', password: 'aaron123')
 puts "#{User.count} users created!"
+
+# puts 'Creating 2 cooparents...'
+# 2.times do
+#   User.create!(
+#     email: Faker::Company.name,
+#     password: Faker::Alphanumeric.alpha(number: 10)
+#   )
+# end
+
+puts "Now creating children..."
+2.times do
+  Child.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    birth_date: Faker::Date.birthday(min_age: 0, max_age: 12),
+    birth_place: "Paris",
+    school: Faker::Educator.primary_school,
+    first_parent_id: anna.id,
+    second_parent_id: aaron.id
+  )
+end
+puts 'Finished!'

@@ -1,5 +1,14 @@
-.devise-container body {
-  background-color: #F4B7B6;
+.form-container {
+  // display: flex;
+  // background-color: #F4B7B6;
+  height: 835px;
+  // min-height: 100%;
+  margin-bottom: 0%;
+  overflow-block:clip;
+  // position: absolute;
+  // bottom: 0%;
+  // flex: 1;
+  // justify-content: center;
 }
 
   h2 {
@@ -11,6 +20,8 @@
   }
 
   .form-design {
+    // display: flex;
+    align-items: center;
     background-color: white;
     padding: 30px 30px 30px 30px;
     margin-top: 50px;
@@ -62,6 +73,8 @@ input:hover {
   text-align: center;
   color: white;
   font-weight: bolder;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn:hover {

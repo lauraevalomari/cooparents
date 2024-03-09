@@ -1,18 +1,4 @@
-<div class="form-container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center form-container">
     <div class="col-12 col-sm-4">
-      <div class="form-design">
       <h2>Créer un nouveau rendez-vous</h2>
-
-<%= simple_form_for @appointment, data: { controller: 'flatpickr' } do |f| %>
-          <div class="form-inputs">
-  <%= f.input :title, label: 'Objet', as: :string, input_html: { id: 'Objet' } %>
-  <%# <%= f.association :child %> %>
-  <%= f.input :child, label: 'Enfant(s) concerné(s)', as: :string, input_html: { id: 'Enfant concerné' } %>
-  <%= f.input :child_presence_mandatory, label: 'Présence de l\'enfant obligatoire?', as: :boolean, input_html: { id: 'Présence_enfant_obligatoire?' } %>
-  <%= f.input :parent_in_charge, label: 'Parent en charge', as: :string, input_html: { id: 'Qui_doit_être_présent?' } %>
-  <%= f.input :date, label: 'Date du rendez-vous', as: :string, input_html: { data: { flatpickr_target: "date" }, id: 'date' } %>
-  <%= f.input :start_time, label: 'Heure de début', as: :string, input_html: { data: { flatpickr_target: "startTime" }, id: 'start_time' } %>
-  <%= f.input :end_time, label: 'Heure de fin', as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
-  <%= f.submit 'Enregistrer le rendez-vous', class: "btn btn-primary btn-lg" %>
-<% end %>
+        <%= render "form", appointment: @appointment %>
