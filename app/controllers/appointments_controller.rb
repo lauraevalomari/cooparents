@@ -11,12 +11,14 @@ class AppointmentsController < ApplicationController
   end
 
   def my_appointments
-    @appointments = Appointment.where(parent_in_charge_id: current_user_id)
+    @appointments = Appointment.where(parent_in_charge_id: current_user.id)
   end
 
-  # def childs_appointments
-
-  # end
+  def childs_appointments
+    @children = Child.where("first_parent_id = ? OR second_parent_id = ?", current_user.id, current_user.id)
+    child_ids = @children.pluck(:id)
+    @appointments = Appointment.where(child_id: child_ids)
+  end
 
   def new
     @appointment = Appointment.new
@@ -24,8 +26,8 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params)
+    @appointment.appointment_creator_id = current_user.id
     @appointment.save
-    # No need for app/views/restaurants/create.html.erb
     redirect_to appointment_path(@appointment)
   end
 
