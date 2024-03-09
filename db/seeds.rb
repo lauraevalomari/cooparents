@@ -36,4 +36,13 @@ puts "Now creating children..."
     second_parent_id: aaron.id
   )
 end
+
+Appointment.create!(
+  title:
+  date:
+  start_time:
+  end_time:
+  category:
+  )
+end
 puts 'Finished!'
