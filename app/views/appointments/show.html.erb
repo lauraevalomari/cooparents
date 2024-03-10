@@ -1,8 +1,34 @@
-<h2>Mon Rendez-vous</h2>
+<div class="row justify-content-center form-container">
+  <div class="col-12 col-sm-4">
+    <h2>Mon Rendez-vous</h2>
+      <div class="mb-2 flexbox">
+        <% if @appointment.category == "Football" %>
+          <img src="https://images.teamshirts.net/image/upload/c_crop,w_5184,h_2206,x_0,y_231/q_auto,fl_lossy,f_auto,w_1920/New%20Landingpages/FR/maillots-enfant-personnalises" alt="">
+        <% end %>
+      </div>
+    <div class="appointments-infos">
+      <div class="appointments-title-parent">
+        <p><i class="fa-regular fa-bookmark" style="color: #FADFB9"></i> <%= @appointment.title %></p>
+        <p><img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-circle img-avatar"> <%= @appointment.parent_in_charge.email.split('@').first.capitalize %></p>
+      </div>
 
-<p><%= @appointment %></p>
+      <p><i class="fa-solid fa-calendar-days" style="color: #81EDAE"></i> <%= @appointment.date.strftime ("%d/%m/%Y") %></p>
+      <p><i class="fa-regular fa-clock" style="color: #FDF7C8"></i> <%= @appointment.start_time.strftime("%H:%M") %> à <%= @appointment.end_time.strftime("%H:%M") %></p>
 
-  <div id="map" class="mt-3" style="width: 80px"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <p>Ce rendez-vous concerne: <%= @appointment.child.first_name %> <img src="https://images.unsplash.com/photo-1570045006801-08ec03621a42?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-circle img-avatar"></p>
+      <p class="appointments-details">Détails</p>
+      <p><%= @appointment.details %></p>
+
+      <p><i class="fa-solid fa-location-dot" style="color: #AFA6F9"></i> <%= @appointment.address %></p>
+
+        <div id="map" class="mt-3" style="width: 80px"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+    </div>
+    <div class="d-flex justify-content-center">
+      <%= link_to "Retour à ma liste de rendez-vous", appointments_path, class: "btn" %>
+    </div>
+  </div>
+</div>
