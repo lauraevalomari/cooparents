@@ -1,22 +1,6 @@
 class AppointmentsController < ApplicationController
   def index
-    # @appointments = Appointment.geocoded
-    # @markers = @appointments.map do |appointment|
-    #   {
-    #     lat: appointment.latitude,
-    #     lng: appointment.longitude,
-    #     info_window_html: render_to_string(partial: "info_window", locals: { appointment: appointment }),
-    #     marker_html: render_to_string(partial: "marker")
-    #   }
-    # end
-      # Scope your query to the dates being shown:
-      # start_date = params.fetch(:date, Date.today).to_date
-
-      # # For a monthly view:
-      # @appointments = Appointment.where(starts_at: date.beginning_of_month.beginning_of_week..date.end_of_month.end_of_week)
-
-      # # Or, for a weekly view:
-      #   @appointments = Appointment.where(starts_at: date.beginning_of_week..start_date.end_of_week)
+    @appointments = Appointment.where(date: Date.today).order(:start_time)
   end
 
   def my_appointments
@@ -51,13 +35,13 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
-    @marker = @appointment.geocoded.map do |appointment|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {appointment: appointment})
-      }
-    end
+    # @markers = @appointments.geocoded.map do |appointment|
+    #   {
+    #     lat: appointment.latitude,
+    #     lng: appointment.longitude,
+    #     info_window_html: render_to_string(partial: "info_window", locals: {appointment: appointment})
+    #   }
+    # end
   end
 
   def destroy
