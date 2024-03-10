@@ -20,9 +20,8 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params)
-    parent_in_charge = User.find_by(email: params[:appointment][:parent_in_charge_id])
-    @appointment.parent_in_charge_id = parent_in_charge.id
-    @appointment.appointment_creator = current_user
+    @appointment.user_id = current_user.id
+    @appointment.appointment_creator_id = current_user.id
     if @appointment.save
       redirect_to appointment_path(@appointment)
     else
@@ -57,6 +56,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:title, :child, :date, :start_time, :end_time, :parent_in_charge, :address, :category)
+    params.require(:appointment).permit(:title, :category, :child_id, :child_presence_mandatory, :date, :start_time, :end_time, :parent_in_charge_id, :address, :details)
   end
 end
