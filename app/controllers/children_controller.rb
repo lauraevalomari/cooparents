@@ -14,6 +14,7 @@ class ChildrenController < ApplicationController
     @child.first_parent_id = @current_user.id
     if @child.save
       redirect_to child_path(@child.id), notice: "Enfant ajouté !"
+      raise
     else
       render :new, status: :unprocessable_entity
     end

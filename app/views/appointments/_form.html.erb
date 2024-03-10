@@ -4,9 +4,9 @@
   <div class="form-inputs">
     <%= f.input :title, label: 'Objet', as: :string, input_html: { id: 'Objet' } %>
     <%= f.input :category, label: 'Catégorie', as: :select, collection: Appointment::CATEGORIES %>
-    <%= f.association :child, label: 'Enfant concerné', collection: @children.map(&:first_name) %>
+    <%= f.association :child, as: :select, label: 'Enfant concerné', collection: @children.map { |child| [child.first_name, child.id] } %>
     <%= f.input :child_presence_mandatory, label: 'Présence de l\'enfant obligatoire?', as: :boolean, input_html: { id: 'Présence_enfant_obligatoire?' } %>
-    <%= f.association :parent_in_charge, as: :select, collection:  @parents.map(&:email), label: 'Parent en charge' %>
+    <%= f.association :parent_in_charge, as: :select, collection:  @parents.map { |parent| [parent.email, parent.id] } , label: 'Parent en charge' %>
     <%= f.input :date, label: 'Date du rendez-vous', as: :string, input_html: { data: { flatpickr_target: "date" }, id: 'date' } %>
     <%= f.input :start_time, label: 'Heure de début', as: :string, input_html: { data: { flatpickr_target: "startTime" }, id: 'start_time' } %>
     <%= f.input :end_time, label: 'Heure de fin', as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
