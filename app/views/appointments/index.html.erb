@@ -1,13 +1,16 @@
-<h1>Tous les rendez-vous</h1>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-<% @appointments.each do |appointment| %>
-  <div>
-    <%= appointment.title %>
-    <%= link_to 'Show', appointment_path(appointment) %>
-  </div>
+<% if @appointments.any? %>
+  <h2>Rendez-vous pour aujourd'hui :</h2>
+   <ul>
+    <% @appointments.each do |appointment| %>
+      <li>
+        <strong><%= appointment.title %></strong> -
+        <%= appointment.start_time.strftime('%H:%M') %> à <%= appointment.end_time.strftime('%H:%M') %><br>
+        Catégorie : <%= appointment.category %><br>
+        Enfant concerné : <%= appointment.child.first_name %><br>
+        Adresse : <%= appointment.address %><br>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h2>Aucun rendez-vous prévu pour aujourd'hui.</h2>
 <% end %>

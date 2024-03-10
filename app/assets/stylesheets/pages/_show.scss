@@ -1,0 +1,30 @@
+img {
+  border-radius: 5px;
+  width: 400px;
+  height: 180px;
+}
+.img-avatar {
+  width: 30px;
+  height: 30px;
+}
+.appointments-details {
+  border-bottom: 1px solid black;
+}
+.flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.appointments-infos {
+  margin-top: 20px;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+.appointments-infos p {
+  font-size: 12px;
+}
+.appointments-title-parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

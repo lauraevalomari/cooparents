@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_09_105552) do
+
+ActiveRecord::Schema[7.1].define(version: 2024_03_09_161624) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,7 +56,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_105552) do
   create_table "appointments", force: :cascade do |t|
     t.string "title"
     t.date "date"
-    t.string "start_time"
     t.string "time"
     t.time "end_time"
     t.string "address"
@@ -71,6 +72,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_105552) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.time "start_time"
     t.index ["appointment_creator_id"], name: "index_appointments_on_appointment_creator_id"
     t.index ["child_id"], name: "index_appointments_on_child_id"
     t.index ["parent_in_charge_id"], name: "index_appointments_on_parent_in_charge_id"
