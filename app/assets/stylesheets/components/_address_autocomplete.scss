@@ -1,10 +1,15 @@
 .mapboxgl-ctrl-geocoder {
   max-width: none;
   width: 100%;
-  border: 1px solid lightgrey;
+  border: 1px solid #F4B7B6;
   box-shadow: none;
   background-color: transparent;
 }
+
+.mapboxgl-ctrl-geocoder:hover {
+  border-color: #AFA6F9;
+};
+
 
 .mapboxgl-ctrl-geocoder--input {
   width: 100%;
@@ -15,4 +20,20 @@
 }
 .mapboxgl-ctrl-geocoder--icon-search {
   display: none
+}
+
+.mapboxgl-ctrl-geocoder:focus {
+  border-color: #81EDAE;
+  box-shadow: 0 0 0 0.25rem rgba(129, 237, 174, 0.25);
+}
+
+.mapboxgl-ctrl-geocoder:checked {
+  background-color: #81EDAE;
+  border-color: #81EDAE;
+  box-shadow: 0 0 0 0.25rem rgba(129, 237, 174, 0.25);
+}
+
+.mapboxgl-ctrl-geocoder:hover {
+  border-color: #81EDAE;
+  box-shadow: 0 0 0 0.25rem rgba(129, 237, 174, 0.25);
 }

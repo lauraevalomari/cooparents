@@ -20,4 +20,12 @@ class User < ApplicationRecord
   def children
     Child.where("first_parent_id = ? OR second_parent_id = ?", id, id)
   end
+
+  def appointments
+    Appointment.where("parent_in_charge_id = ?", id)
+  end
+
+  def tasks
+    Task.where("parent_in_charge_id = ?", id)
+  end
 end
