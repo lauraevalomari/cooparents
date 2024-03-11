@@ -9,4 +9,12 @@ class Child < ApplicationRecord
   def parents
     [first_parent, second_parent]
   end
+
+  def appointments
+    Appointment.where("child_id = ?", id)
+  end
+
+  def tasks
+    Task.where("child_id = ?", id)
+  end
 end
