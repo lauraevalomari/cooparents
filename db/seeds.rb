@@ -51,9 +51,9 @@ jade = Child.create!(
 puts "...and appointments..."
 foot_appointment = Appointment.create!(
   title: "Match de foot",
-  date: Date.new(2024,04,10),
-  start_time: DateTime.strptime("04/10/2024 11:40", "%m/%d/%Y %H:%M"),
-  end_time: DateTime.strptime("04/10/2024 12:00", "%m/%d/%Y %H:%M"),
+  date: Date.new(2024,03,11),
+  start_time: DateTime.strptime("03/11/2024 11:40", "%m/%d/%Y %H:%M"),
+  end_time: DateTime.strptime("03/11/2024 12:00", "%m/%d/%Y %H:%M"),
   category: "Football",
   address: "261 Boulevard de Tournai, 59650 Villeneuve d'Ascq",
   appointment_creator_id: anna.id,

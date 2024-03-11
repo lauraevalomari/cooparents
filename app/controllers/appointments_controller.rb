@@ -1,6 +1,11 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointments = Appointment.where(date: Date.today).order(:start_time)
+    if params[:date].present?
+      selected_date = Date.parse(params[:date])
+      @appointments = Appointment.where(date: selected_date.beginning_of_day..selected_date.end_of_day)
+    else
+      @appointments = Appointment.where('date >= ? AND date <= ? AND start_time >= ?', Date.today.beginning_of_day, Date.today.end_of_day, Time.now).order(:start_time)
+    end
   end
 
   def my_appointments
