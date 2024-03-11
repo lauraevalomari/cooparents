@@ -41,13 +41,13 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
-    # @markers = @appointments.geocoded.map do |appointment|
-    #   {
-    #     lat: appointment.latitude,
-    #     lng: appointment.longitude,
-    #     info_window_html: render_to_string(partial: "info_window", locals: {appointment: appointment})
-    #   }
-    # end
+    @markers = [
+      {
+        lat: @appointment.latitude,
+        lng: @appointment.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {appointment: @appointment})
+      }
+    ]
   end
 
   def destroy
