@@ -1,8 +1,8 @@
-<% if @appointments.any? %>
+<div class="form-design">
   <div class="appointments-header">
     <div class="row">
       <div class="col-md-6">
-        <h1 class="date-header"><%= l(Date.today, format: "%A %d %B %Y").capitalize %></h1>
+        <h1 class="date-header"><%= Date.today.strftime('%A %-d %B %Y').capitalize %></h1>
       </div>
       <div class="col-md-6 text-md-end">
         <a href="<%= new_appointment_path %>" class="btn btn-primary">Ajouter un rendez-vous</a>
@@ -12,12 +12,10 @@
       <div class="col-md-12">
         <div class="calendar-container">
           <div class="calendar-header">
-            <% I18n.with_locale(:fr) do %>
-              <% Date::ABBR_DAYNAMES.each do |day| %>
-                <div class="day">
-                  <%= day %>
-                </div>
-              <% end %>
+            <% Date::ABBR_DAYNAMES.each do |day| %>
+              <div class="day text-center">
+                <%= day %>
+              </div>
             <% end %>
           </div>
           <div class="date-numbers">
@@ -31,64 +29,34 @@
       </div>
     </div>
   </div>
-  <h2>Rendez-vous pour aujourd'hui :</h2>
-  <div class="appointment-cards">
-    <% @appointments.sort_by(&:start_time).each do |appointment| %>
-      <div class="card mb-3">
-        <div class="card-body d-flex justify-content-between align-items-center">
-          <div class="time-box">
-            <span class="fw-bold"><%= appointment.start_time.strftime('%H:%M') %></span> -
-            <span class="fw-light"><%= appointment.end_time.strftime('%H:%M') %></span>
-          </div>
-          <div class="appointment-details">
-            <h5 class="card-title">
-              <strong><%= appointment.title %></strong>
-            </h5>
-            <p class="card-text">
-              <span class="fw-bold">Catégorie :</span> <%= appointment.category %><br>
-              <span class="fw-bold">Enfant concerné :</span> <%= appointment.child.first_name %><br>
-              <span class="fw-bold">Adresse :</span> <%= appointment.address %><br>
-            </p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-<% else %>
-  <div class="appointments-header">
-    <div class="row">
-      <div class="col-md-6">
-        <h1 class="date-header"><%= l(Date.today, format: "%A %d %B %Y").capitalize %></h1>
-      </div>
-      <div class="col-md-6 text-md-end">
-        <a href="<%= new_appointment_path %>" class="btn btn-primary">Nouveau rendez-vous</a>
-      </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-md-12">
-        <div class="calendar-container">
-          <div class="calendar-header">
-            <% I18n.with_locale(:fr) do %>
-              <% Date::ABBR_DAYNAMES.each do |day| %>
-                <div class="day">
-                  <%= day %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="date-numbers">
-            <% (Date.today..Date.today+6).each do |date| %>
-              <a href="<%= appointments_path(date: date) %>" class="date-number <%= 'primary' if date == Date.today %>">
-                <%= date.strftime('%d') %>
-              </a>
-            <% end %>
+
+  <% if @appointments.any? %>
+    <h2>Rendez-vous pour aujourd'hui :</h2>
+    <div class="appointment-cards">
+      <% @appointments.sort_by(&:start_time).each do |appointment| %>
+        <div class="card mb-3">
+          <div class="card-body d-flex justify-content-between align-items-center">
+            <div class="time-box">
+              <span class="fw-bold"><%= appointment.start_time.strftime('%H:%M') %></span> -
+              <span class="fw-light"><%= appointment.end_time.strftime('%H:%M') %></span>
+            </div>
+            <div class="appointment-details">
+              <h5 class="card-title">
+                <strong><%= appointment.title %></strong>
+              </h5>
+              <p class="card-text">
+                <span class="fw-bold">Catégorie :</span> <%= appointment.category %><br>
+                <span class="fw-bold">Enfant concerné :</span> <%= appointment.child.first_name %><br>
+                <span class="fw-bold">Adresse :</span> <%= appointment.address %><br>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
-  </div>
-  <div class="no-appointments">
-    <h2>Aucun rendez-vous prévu pour aujourd'hui.</h2>
-  </div>
-<% end %>
+  <% else %>
+    <div class="no-appointments">
+      <h2>Aucun rendez-vous prévu pour aujourd'hui.</h2>
+    </div>
+  <% end %>
 </div>

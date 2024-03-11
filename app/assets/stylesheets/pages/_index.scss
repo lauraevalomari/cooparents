@@ -3,14 +3,14 @@
 @import "pages/show";
 
 .date-header {
-  margin-bottom: 20px; /* Added margin-bottom */
+  margin-bottom: 20px;
 }
 
 .calendar-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the calendar */
-  margin-bottom: 20px; /* Added margin-bottom */
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .calendar-header {
@@ -30,15 +30,15 @@
   padding: 5px 10px;
   border: 1px solid #ccc;
   margin-right: 10px;
-  text-decoration: none; /* Remove default link underline */
+  text-decoration: none;
 }
 
 .date-number:hover {
-  background-color: #f0f0f0; /* Change background color on hover */
+  background-color: #f0f0f0;
 }
 
 .primary {
-  background-color: #007bff;
+  background-color: #afa6f9;
   color: white;
 }
 
