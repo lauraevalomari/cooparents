@@ -54,6 +54,8 @@ gem "cloudinary"
 gem "simple_calendar", "~> 2.4"
 gem 'faker'
 gem 'geocoder'
+gem 'i18n'
+gem 'rails-i18n'
 
 group :development, :test do
   gem "dotenv-rails"
