@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :set_locale
 
-  # def my_children
-  #  @children = Child.where("first_parent_id = ? OR second_parent_id = ?", current_user.id, current_user.id)
-  # end
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
 end

@@ -1,0 +1,20 @@
+.greeting {
+  margin-bottom: 20px ;
+  border-style: dashed;
+  border-radius: 16px;
+  border-color: $purple;
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  font-variant: small-caps;
+  font-weight: bolder;
+  background-color: white;
+  padding: 10px;
+}
+
+.greeting:hover {
+  background-color: #8ae6b0;
+
+}

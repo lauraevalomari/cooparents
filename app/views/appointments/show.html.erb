@@ -1,6 +1,7 @@
 <div class="row justify-content-center form-container">
   <div class="col-12 col-sm-4">
-    <h2>Mon Rendez-vous</h2>
+  <div class="form-design">
+        <h2>Mon Rendez-vous</h2>
       <div class="mb-2 flexbox">
         <% if @appointment.category == "Football" %>
           <img src="https://images.teamshirts.net/image/upload/c_crop,w_5184,h_2206,x_0,y_231/q_auto,fl_lossy,f_auto,w_1920/New%20Landingpages/FR/maillots-enfant-personnalises" alt="">
@@ -30,5 +31,7 @@
     <div class="d-flex justify-content-center">
       <%= link_to "Retour à ma liste de rendez-vous", appointments_path, class: "btn" %>
     </div>
+  </div>
+
   </div>
 </div>
