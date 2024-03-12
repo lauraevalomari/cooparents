@@ -34,9 +34,21 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
+    @appointment = Appointment.find(params[:id])
+    @children = current_user.children
+    @parents = @children.map(&:parents).flatten.uniq
   end
 
   def update
+    @appointment = Appointment.find(params[:id])
+    @children = current_user.children
+    @parents = @children.map(&:parents).flatten.uniq
+
+    if @appointment.update(appointment_params)
+      redirect_to appointment_path(@appointment), notice: "Changements enregistrés avec succès."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -51,6 +63,9 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
+    @appointment = Appointment.find(params[:id])
+    @appointment.destroy
+    redirect_to appointments_path(date: params[:date]), notice: "Rendez-vous supprimé avec succès."
   end
 
   private
