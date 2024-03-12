@@ -51,9 +51,9 @@ jade = Child.create!(
 puts "...and appointments..."
 foot_appointment = Appointment.create!(
   title: "Match de foot",
-  date: Date.new(2024,03,11),
-  start_time: DateTime.strptime("03/11/2024 11:40", "%m/%d/%Y %H:%M"),
-  end_time: DateTime.strptime("03/11/2024 12:00", "%m/%d/%Y %H:%M"),
+  date: Date.new(2024,03,12),
+  start_time: DateTime.parse("12/03/2024 20:40"),
+  end_time: DateTime.parse("12/03/2024 22:00"),
   category: "Football",
   address: "261 Boulevard de Tournai, 59650 Villeneuve d'Ascq",
   appointment_creator_id: anna.id,
@@ -62,5 +62,33 @@ foot_appointment = Appointment.create!(
   child_id: gabriel.id,
   details: "Match de foot avec Paul en entraîneur (groupe 2B). Ne pas oublier le sac avec la tenue, les crampons, serviette et gourde!",
   )
+
+  dentist_appointment = Appointment.create!(
+    title: "Dentist",
+    date: Date.new(2024,03,12),
+    start_time: DateTime.parse("12/03/2024 22:30"),
+    end_time: DateTime.parse("12/03/2024 23:00"),
+    category: "Santé",
+    address: "4 Allée de la chambre, 33160 Bordeaux",
+    appointment_creator_id: anna.id,
+    parent_in_charge_id: aaron.id,
+    user_id: anna.id,
+    child_id: gabriel.id,
+    details: "La prochaine fois tu te laveras les dents",
+    )
+
+    maths_appointment = Appointment.create!(
+      title: "Maths Class",
+      date: Date.new(2024,03,13),
+      start_time: DateTime.parse("13/03/2024 17:30"),
+      end_time: DateTime.parse("13/03/2024 19:00"),
+      category: "Scolarité",
+      address: "En Ligne",
+      appointment_creator_id: anna.id,
+      parent_in_charge_id: aaron.id,
+      user_id: anna.id,
+      child_id: gabriel.id,
+      details: "Préparation pour le partiel de maths à la fin du mois",
+      )
 
 puts '...Finished!'
