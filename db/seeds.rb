@@ -54,7 +54,7 @@ foot_appointment = Appointment.create!(
   date: Date.new(2024,03,12),
   start_time: DateTime.parse("12/03/2024 20:40"),
   end_time: DateTime.parse("12/03/2024 22:00"),
-  category: "Football",
+  category: "Activité",
   address: "261 Boulevard de Tournai, 59650 Villeneuve d'Ascq",
   appointment_creator_id: anna.id,
   parent_in_charge_id: aaron.id,

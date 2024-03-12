@@ -1,4 +1,4 @@
- <h1>Hello <%= current_user %> </h1>
+ <h1>Hello <%= current_user.email.split('@').first.capitalize %> </h1>
 
 <div class="notification-icon">
   <i class="fas fa-bell"></i>
