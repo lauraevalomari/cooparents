@@ -5,6 +5,8 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
     @tasks = Task.all
     @tasks_to_do_today = Task.where("due_date = ?", Date.today).count
     @tasks_preview = Task.where("due_date = ?", Date.today).order(created_at: :desc).limit(2)
+    @tasks_completed_today = Task.where("due_date = ? AND status = ?", Date.today, "completed").count
+    @percentage_completed = (@tasks_completed_today.to_f / @tasks_to_do_today.to_f) * 100
   end
 
   def show
