@@ -1,4 +1,4 @@
- <h2>Bonjour <%# <%= current_user.email.split('@').first.capitalize %> </h2>
+<h2>Bonjour <%# <%= current_user.email.split('@').first.capitalize %> </h2>
 
 <div class="notification-icon">
   <i class="fas fa-bell"></i>
@@ -27,13 +27,14 @@
     </ul>
   </div>
 
-  <div class="appointment">
-    <h2>Prochain rendez-vous à venir :</h2>
-    <% if @next_appointment.present? %>
-      <p><%= @next_appointment.appointment_date.strftime("%A %d %B %Y") %></p>
-      <p><%= @next_appointment.appointment_time.strftime("%H:%M") %></p>
-    <% else %>
-      <p>Aucun rendez-vous à venir.</p>
-    <% end %>
-  </div>
+<div class="appointment">
+  <h2>Prochain rendez-vous à venir :</h2>
+  <% if @first_appointment_today.present? %>
+    <p><%= @first_appointment_today.title %></p>
+    <p>Date: <%= @first_appointment_today.date.strftime("%d/%m/%Y") %></p>
+    <p>Heure: <%= @first_appointment_today.start_time.strftime("%H:%M") %> - <%= @first_appointment_today.end_time.strftime("%H:%M") %></p>
+  <% else %>
+    <p>Aucun rendez-vous prévu pour aujourd'hui.</p>
+  <% end %>
+</div>
 </div>

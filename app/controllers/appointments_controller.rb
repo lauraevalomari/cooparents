@@ -4,10 +4,8 @@ class AppointmentsController < ApplicationController
       selected_date = Date.parse(params[:date])
       @appointments = Appointment.where(date: selected_date.beginning_of_day..selected_date.end_of_day)
     else
-      @appointments = Appointment.where('date >= ? AND date <= ? AND start_time >= ?', Date.today.beginning_of_day, Date.today.end_of_day, Time.now).order(:start_time)
+      @appointments = Appointment.daily_appointments(current_user)
     end
-
-    @next_appointment = Appointment.where("date >= ? AND start_time >= ?", Date.today, Time.now).order(date: :asc, start_time: :asc).first
   end
 
   def my_appointments
@@ -21,7 +19,6 @@ class AppointmentsController < ApplicationController
     @children = current_user.children
     @parents = @children.map(&:parents).flatten.uniq
     @appointment = Appointment.new
-
   end
 
   def create
