@@ -66,8 +66,8 @@ foot_appointment = Appointment.create!(
   dentist_appointment = Appointment.create!(
     title: "Dentist",
     date: Date.new(2024,03,12),
-    start_time: DateTime.parse("12/03/2024 22:30"),
-    end_time: DateTime.parse("12/03/2024 23:00"),
+    start_time: DateTime.parse("13/03/2024 22:30"),
+    end_time: DateTime.parse("13/03/2024 23:00"),
     category: "Santé",
     address: "4 Allée de la chambre, 33160 Bordeaux",
     appointment_creator_id: anna.id,

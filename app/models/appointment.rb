@@ -7,6 +7,8 @@ class Appointment < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   CATEGORIES = ['Santé', 'Scolarité', 'Activités', 'Juridique', 'Autres']
 
+  scope :daily_appointments, ->(current_user) { where('start_time >= ? AND end_time <= ? AND parent_in_charge_id = ?', Date.today.beginning_of_day, Date.today.end_of_day, current_user)}
+
   validates :title, presence: true
   validates :date, presence: true
   validates :start_time, :end_time, presence: true

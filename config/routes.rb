@@ -1,18 +1,4 @@
 Rails.application.routes.draw do
-  get 'contacts/index'
-  get 'contacts/show'
-  get 'contacts/new'
-  get 'contacts/create'
-  get 'contacts/edit'
-  get 'contacts/update'
-  get 'contacts/destroy'
-  get 'tasks/index'
-  get 'tasks/show'
-  get 'tasks/new'
-  get 'tasks/create'
-  get 'tasks/edit'
-  get 'tasks/update'
-  get 'tasks/destroy'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

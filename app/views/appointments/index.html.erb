@@ -51,7 +51,7 @@
               </div>
               <div class="d-flex justify-content-between align-items-center px-3 py-2">
                 <%= link_to "Modifier", edit_appointment_path(appointment), class: "btn btn-primary btn-sm" %>
-                <%= link_to "Supprimer", appointments_path(date: params[:date]), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer ce rendez-vous ?" }, class: "btn btn-primary btn-sm" %>
+                <%= link_to "Supprimer", appointment_path(id: appointment.id, date: params[:date]), data: { turbo_method: :delete, confirm: "Êtes-vous sûr de vouloir supprimer ce rendez-vous ?" }, class: "btn btn-primary btn-sm" %>
               </div>
             </div>
           <% end %>
