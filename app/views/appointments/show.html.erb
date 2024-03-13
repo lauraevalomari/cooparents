@@ -1,8 +1,7 @@
-<div class="row justify-content-center form-container">
+<div class="row justify-content-center">
   <div class="col-12 col-sm-4">
   <div class="form-design">
-        <h2>Mon Rendez-vous</h2>
-      <div class="mb-2 flexbox">
+       <div class="mb-2 flexbox">
         <% if @appointment.category == "Activités" %>
           <img src="https://images.teamshirts.net/image/upload/c_crop,w_5184,h_2206,x_0,y_231/q_auto,fl_lossy,f_auto,w_1920/New%20Landingpages/FR/maillots-enfant-personnalises" alt="">
         <% elsif @appointment.category == 'Scolarité'%>
@@ -33,7 +32,7 @@
         <% if @appointment.address == "En Ligne" %>
           <img src="https://www.gigamedia.fr/images/blog/20201216-informatique-enfant.jpg" alt="" style="width: 300px; height: 200px">
         <% elsif %>
-        <div id="map" class="mt-3 mb-5" style="width: 300px; height: 200px;"
+        <div id="map" class="mt-3 mb-5" style="width: 230px; height: 160px;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

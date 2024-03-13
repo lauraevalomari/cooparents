@@ -17,8 +17,8 @@ img {
 }
 .appointments-infos {
   margin-top: 20px;
-  margin-left: 35px;
-  margin-right: 35px;
+  margin-left: 25px;
+  margin-right: 20px;
 }
 .appointments-infos p {
   font-size: 12px;
@@ -27,4 +27,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.appointments-title-parent p {
+  font-size: 14px
 }
