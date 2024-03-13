@@ -1,39 +1,11 @@
- <h2>Bonjour <%# <%= current_user.email.split('@').first.capitalize %> </h2>
-
-<div class="notification-icon">
-  <i class="fas fa-bell"></i>
-</div>
-
-<div class="container">
-
-  <div class="tasks">
-    <h2>Nombre de tâches à effectuer aujourd'hui : <%= @tasks_to_do_today %></h2>
+<div class="container text-center mt-5">
+  <h2>Cooparents</h2>
+  <%= image_tag("children.png", alt: "Logo Cooparents", class: "mt-3", style: "max-width: 200px; height: auto;") %>
+  <div class="mt-5">
+    <%= link_to "Se connecter", new_user_session_path, class: "btn btn-primary btn-lg mr-3" %>
+    <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-secondary btn-lg" %>
   </div>
-
-  <div class="circle">
-    <div class="percentage"><%= @percentage_completed %>%</div>
-  </div>
-
-  <div class="dashboard">
-    <h2>Aperçu des tâches pour aujourd'hui :</h2>
-    <ul>
-        <% if @tasks_preview.present? %>
-          <% @tasks_preview.each do |task| %>
-            <li><%= task.title %></li>
-          <% end %>
-        <% else %>
-          <p>Aucune tâche à afficher pour aujourd'hui.</p>
-        <% end %>
-    </ul>
-  </div>
-
-  <div class="appointment">
-    <h2>Prochain rendez-vous à venir :</h2>
-    <% if @next_appointment.present? %>
-      <p><%= @next_appointment.appointment_date.strftime("%A %d %B %Y") %></p>
-      <p><%= @next_appointment.appointment_time.strftime("%H:%M") %></p>
-    <% else %>
-      <p>Aucun rendez-vous à venir.</p>
-    <% end %>
-  </div>
+  <% if user_signed_in? %>
+    <%= link_to "Tableau de bord", dashboard_path, class: "btn btn-success btn-lg mt-3" %>
+  <% end %>
 </div>

@@ -1,0 +1,39 @@
+ <h2>Bonjour <%# <%= current_user.email.split('@').first.capitalize %> </h2>
+
+<div class="notification-icon">
+  <i class="fas fa-bell"></i>
+</div>
+
+<div class="container">
+
+  <div class="tasks">
+    <h2>Nombre de tâches à effectuer aujourd'hui : <%= @tasks_to_do_today %></h2>
+  </div>
+
+  <div class="circle">
+    <div class="percentage"><%= @percentage_completed %>%</div>
+  </div>
+
+  <div class="dashboard">
+    <h2>Aperçu des tâches pour aujourd'hui :</h2>
+    <ul>
+        <% if @tasks_preview.present? %>
+          <% @tasks_preview.each do |task| %>
+            <li><%= task.title %></li>
+          <% end %>
+        <% else %>
+          <p>Aucune tâche à afficher pour aujourd'hui.</p>
+        <% end %>
+    </ul>
+  </div>
+
+  <div class="appointment">
+    <h2>Prochain rendez-vous à venir :</h2>
+    <% if @next_appointment.present? %>
+      <p><%= @next_appointment.appointment_date.strftime("%A %d %B %Y") %></p>
+      <p><%= @next_appointment.appointment_time.strftime("%H:%M") %></p>
+    <% else %>
+      <p>Aucun rendez-vous à venir.</p>
+    <% end %>
+  </div>
+</div>

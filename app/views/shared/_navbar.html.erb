@@ -1,8 +1,10 @@
-<footer class="footer">
-  <div class="footer-nav">
-    <a href="pages#home" class="<%= 'active' if current_page?(root_path) %>"><i class="fas fa-home"></i> Accueil</a>
-    <a href="#" class="<%= 'active' if current_page?('tasks/index') %>"><i class="far fa-calendar"></i> Calendrier</a>
-    <a href="#" class="<%= 'active' if current_page?('contacts/index') %>"><i class="far fa-envelope"></i> Messagerie</a>
-    <a href="#" class="<%= 'active' if current_page?('contacts/index') %>"><i class="far fa-user"></i> Profil</a>
-  </div>
-</footer>
+<% unless current_page?(root_path) %>
+  <footer class="footer">
+    <div class="footer-nav">
+      <a href="pages#home" class="<%= 'active' if current_page?(root_path) %>"><i class="fas fa-home"></i> Accueil</a>
+      <a href="#" class="<%= 'active' if current_page?('tasks/index') %>"><i class="far fa-calendar"></i> Calendrier</a>
+      <a href="#" class="<%= 'active' if current_page?('contacts/index') %>"><i class="far fa-envelope"></i> Messagerie</a>
+      <a href="#" class="<%= 'active' if current_page?('contacts/index') %>"><i class="far fa-user"></i> Profil</a>
+    </div>
+  </footer>
+<% end %>
