@@ -54,7 +54,7 @@ foot_appointment = Appointment.create!(
   date: Date.new(2024,03,12),
   start_time: DateTime.parse("12/03/2024 20:40"),
   end_time: DateTime.parse("12/03/2024 22:00"),
-  category: "Activité",
+  category: "Activités",
   address: "261 Boulevard de Tournai, 59650 Villeneuve d'Ascq",
   appointment_creator_id: anna.id,
   parent_in_charge_id: aaron.id,
@@ -90,5 +90,19 @@ foot_appointment = Appointment.create!(
       child_id: gabriel.id,
       details: "Préparation pour le partiel de maths à la fin du mois",
       )
+
+    birthday_appointment = Appointment.create!(
+      title: "Anniversaire des 8 ans d'Inès",
+      date: Date.new(2024,03,16),
+      start_time: DateTime.parse("16/03/2024 14:00"),
+      end_time: DateTime.parse("16/03/2024 17:00"),
+      category: "Autres",
+      address: "4 rue du Professeur Langevin, 59000 LILLE",
+      appointment_creator_id: anna.id,
+      parent_in_charge_id: aaron.id,
+      user_id: anna.id,
+      child_id: jade.id,
+      details: "Anniversaire à l'Île de Tortuga. Prévoir un cadeau! Inès aime les activités manuelles. Prévoir une tenue décontractée (jogging + chaussettes).",
+    )
 
 puts '...Finished!'
