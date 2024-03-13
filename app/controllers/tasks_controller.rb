@@ -3,6 +3,8 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
 
   def index
     @tasks = Task.all
+    @tasks_to_do_today = Task.where("due_date = ?", Date.today).count
+    @tasks_preview = Task.where("due_date = ?", Date.today).order(created_at: :desc).limit(2)
   end
 
   def show
