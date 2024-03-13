@@ -6,6 +6,8 @@ class AppointmentsController < ApplicationController
     else
       @appointments = Appointment.where('date >= ? AND date <= ? AND start_time >= ?', Date.today.beginning_of_day, Date.today.end_of_day, Time.now).order(:start_time)
     end
+
+    @next_appointment = Appointment.where("date >= ? AND start_time >= ?", Date.today, Time.now).order(date: :asc, start_time: :asc).first
   end
 
   def my_appointments

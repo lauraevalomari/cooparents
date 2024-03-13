@@ -20,3 +20,13 @@
       <% end %>
   </ul>
 </div>
+
+<div class="appointment">
+  <h2>Prochain rendez-vous à venir :</h2>
+  <% if @next_appointment.present? %>
+    <p><%= @next_appointment.appointment_date.strftime("%A %d %B %Y") %></p>
+    <p><%= @next_appointment.appointment_time.strftime("%H:%M") %></p>
+  <% else %>
+    <p>Aucun rendez-vous à venir.</p>
+  <% end %>
+</div>
