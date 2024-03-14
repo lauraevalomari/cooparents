@@ -1,10 +1,17 @@
-<div class="row justify-content-center form-container">
+<div class="row justify-content-center main-container">
   <div class="col-12 col-sm-4">
   <div class="form-design">
-        <h2>Mon Rendez-vous</h2>
-      <div class="mb-2 flexbox">
-        <% if @appointment.category == "Football" %>
+       <div class="mb-2 flexbox">
+        <% if @appointment.category == "Activités" %>
           <img src="https://images.teamshirts.net/image/upload/c_crop,w_5184,h_2206,x_0,y_231/q_auto,fl_lossy,f_auto,w_1920/New%20Landingpages/FR/maillots-enfant-personnalises" alt="">
+        <% elsif @appointment.category == 'Scolarité'%>
+          <img src="https://static.mamanpourlavie.com/uploads/images/articles.cache/2010/03/12/file_main_image_4037_1_enfant_adaptation_ecole_4037_01_1500X1000_cache_640x360.jpg" alt="">
+        <% elsif @appointment.category == 'Santé'%>
+          <img src="https://www.lagazettedescommunes.com/wp-content/uploads/2018/10/enfant-docteur-pmi-sante-medecin-380x252.jpg" alt="">
+        <% elsif @appointment.category == 'Autres'%>
+          <img src="https://miro.medium.com/v2/resize:fit:4096/format:webp/1*xwBJM2CEBZh0m02gYDMY6g.jpeg" alt="">
+        <% elsif @appointment.category == 'Juridique'%>
+          <img src="https://www.cabinet-bertolino.com/uploads/_common/phototheque_v2/photos/Photos-148.jpg" alt="">
         <% end %>
       </div>
     <div class="appointments-infos">
@@ -22,13 +29,16 @@
 
       <p><i class="fa-solid fa-location-dot" style="color: #AFA6F9"></i> <%= @appointment.address %></p>
 
-        <div id="map" class="mt-3" style="width: 80px"
+        <% if @appointment.address == "En Ligne" %>
+          <img src="https://www.gigamedia.fr/images/blog/20201216-informatique-enfant.jpg" alt="" style="width: 300px; height: 200px">
+        <% elsif %>
+        <div id="map" class="mt-3 mb-5" style="width: 230px; height: 160px;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
+        <% end %>
     </div>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center mt-3 mb-5">
       <%= link_to "Retour à ma liste de rendez-vous", appointments_path, class: "btn" %>
     </div>
   </div>

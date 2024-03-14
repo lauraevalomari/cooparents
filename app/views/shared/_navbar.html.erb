@@ -1,8 +1,16 @@
 <footer class="footer">
   <div class="footer-nav">
-      <a href="#"><i class="fas fa-home"></i> Accueil</a>
-      <a href="#"><i class="far fa-calendar"></i> Calendrier</a>
-      <a href="#"><i class="far fa-envelope"></i> Messagerie</a>
-      <a href="#"><i class="far fa-user"></i> Profil</a>
+     <%= link_to root_path do %>
+     <i class="fas fa-home"></i>
+    <% end %>
+     <%= link_to appointments_path do %>
+     <i class="far fa-calendar"></i>
+    <% end %>
+     <%= link_to root_path do %>
+     <i class="far fa-envelope"></i>
+    <% end %>
+     <%= link_to root_path do %>
+     <i class="far fa-user"></i>
+    <% end %>
   </div>
-</footer>
+  </footer>

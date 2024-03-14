@@ -2,6 +2,47 @@
 @import "home";
 @import "pages/show";
 
+.date-header {
+  margin-bottom: 20px;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header {
+  display: flex;
+}
+
+.day {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+}
+
+.date-numbers {
+  display: flex;
+}
+
+.date-number {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.date-number:hover {
+  background-color: #f0f0f0;
+}
+
+.primary {
+  background-color: #afa6f9;
+  color: white;
+}
+
+
 // body.home {
 //   background-color: white;
 // }

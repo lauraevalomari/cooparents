@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_09_161624) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_13_204011) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,9 +53,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_161624) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "title"
-    t.date "date"
+    t.datetime "date"
     t.string "time"
-    t.time "end_time"
     t.string "address"
     t.float "location_latitude"
     t.float "location_longitude"
@@ -70,7 +69,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_161624) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.time "start_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.index ["appointment_creator_id"], name: "index_appointments_on_appointment_creator_id"
     t.index ["child_id"], name: "index_appointments_on_child_id"
     t.index ["parent_in_charge_id"], name: "index_appointments_on_parent_in_charge_id"
@@ -128,6 +128,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_161624) do
     t.datetime "updated_at", null: false
     t.index ["child_id"], name: "index_documents_on_child_id"
     t.index ["document_creator_id"], name: "index_documents_on_document_creator_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "action"
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
+    t.bigint "document_id", null: false
+    t.bigint "contact_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_notifications_on_contact_id"
+    t.index ["document_id"], name: "index_notifications_on_document_id"
+    t.index ["task_id"], name: "index_notifications_on_task_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|

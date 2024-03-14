@@ -1,0 +1,55 @@
+.calendar-container {
+  border: 1px solid $white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $white;
+  border-bottom: 1px solid $light-gray;
+  padding: 10px 0;
+}
+
+.day {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 0;
+  margin: 2px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+
+.date-number {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  text-align: center;
+  padding: 15px 0;
+  border-right: 1px solid $light-gray;
+  border-bottom: 1px solid $light-gray;
+  background-color: $white;
+  transition: background-color 0.3s ease;
+  color: $purple;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.date-number:hover {
+  background-color: $orange;
+}
+
+.date-number.primary {
+  background-color: $purple;
+  color: $white;
+}
+
+.date-number.primary:hover {
+  background-color: $orange;
+}

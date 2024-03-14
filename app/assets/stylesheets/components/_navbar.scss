@@ -1,11 +1,12 @@
 .footer {
-  background-color: $gray;
-  color: #fff;
+  background-color: $white;
+  color: $medium-gray;
   text-align: center;
   padding: 20px;
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 999;
 }
 
 .footer-nav {
@@ -14,10 +15,14 @@
 }
 
 .footer-nav a {
-  color: #fff;
+  color: $medium-gray;
   text-decoration: none;
 }
 
 .footer-nav a i {
   margin-right: 5px;
+}
+
+.footer-nav .active {
+  color: $pink;
 }

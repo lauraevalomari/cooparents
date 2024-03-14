@@ -1,6 +1,11 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointments = Appointment.where(date: Date.today).order(:start_time)
+    if params[:date].present?
+      selected_date = Date.parse(params[:date])
+      @appointments = Appointment.where(date: selected_date.beginning_of_day..selected_date.end_of_day)
+    else
+      @appointments = Appointment.daily_appointments(current_user)
+    end
   end
 
   def my_appointments
@@ -14,7 +19,6 @@ class AppointmentsController < ApplicationController
     @children = current_user.children
     @parents = @children.map(&:parents).flatten.uniq
     @appointment = Appointment.new
-
   end
 
   def create
@@ -29,23 +33,38 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
+    @appointment = Appointment.find(params[:id])
+    @children = current_user.children
+    @parents = @children.map(&:parents).flatten.uniq
   end
 
   def update
+    @appointment = Appointment.find(params[:id])
+    @children = current_user.children
+    @parents = @children.map(&:parents).flatten.uniq
+
+    if @appointment.update(appointment_params)
+      redirect_to appointment_path(@appointment), notice: "Changements enregistrés avec succès."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def show
     @appointment = Appointment.find(params[:id])
-    # @markers = @appointments.geocoded.map do |appointment|
-    #   {
-    #     lat: appointment.latitude,
-    #     lng: appointment.longitude,
-    #     info_window_html: render_to_string(partial: "info_window", locals: {appointment: appointment})
-    #   }
-    # end
+    @markers = [
+      {
+        lat: @appointment.latitude,
+        lng: @appointment.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {appointment: @appointment})
+      }
+    ]
   end
 
   def destroy
+    @appointment = Appointment.find(params[:id])
+    @appointment.destroy
+    redirect_to appointments_path(date: params[:date]), notice: "Rendez-vous supprimé avec succès."
   end
 
   private
