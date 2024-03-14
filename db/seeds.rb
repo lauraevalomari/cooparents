@@ -51,9 +51,9 @@ jade = Child.create!(
 puts "...and appointments..."
 foot_appointment = Appointment.create!(
   title: "Match de foot",
-  date: Date.new(2024,03,12),
-  start_time: DateTime.parse("12/03/2024 20:40"),
-  end_time: DateTime.parse("12/03/2024 22:00"),
+  date: Date.new(2024,03,14),
+  start_time: DateTime.parse("14/03/2024 20:40"),
+  end_time: DateTime.parse("14/03/2024 22:00"),
   category: "Activités",
   address: "261 Boulevard de Tournai, 59650 Villeneuve d'Ascq",
   appointment_creator_id: anna.id,
@@ -65,9 +65,9 @@ foot_appointment = Appointment.create!(
 
   dentist_appointment = Appointment.create!(
     title: "Dentist",
-    date: Date.new(2024,03,12),
-    start_time: DateTime.parse("13/03/2024 22:30"),
-    end_time: DateTime.parse("13/03/2024 23:00"),
+    date: Date.new(2024,03,14),
+    start_time: DateTime.parse("14/03/2024 22:30"),
+    end_time: DateTime.parse("14/03/2024 23:00"),
     category: "Santé",
     address: "4 Allée de la chambre, 33160 Bordeaux",
     appointment_creator_id: anna.id,
@@ -79,9 +79,9 @@ foot_appointment = Appointment.create!(
 
     maths_appointment = Appointment.create!(
       title: "Maths Class",
-      date: Date.new(2024,03,13),
-      start_time: DateTime.parse("13/03/2024 17:30"),
-      end_time: DateTime.parse("13/03/2024 19:00"),
+      date: Date.new(2024,03,15),
+      start_time: DateTime.parse("14/03/2024 17:30"),
+      end_time: DateTime.parse("14/03/2024 19:00"),
       category: "Scolarité",
       address: "En Ligne",
       appointment_creator_id: anna.id,
