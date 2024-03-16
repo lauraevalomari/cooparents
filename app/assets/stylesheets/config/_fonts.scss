@@ -2,10 +2,21 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Antic&family=Protest+Riot&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora&family=Roboto:wght@100;700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Antic", "Helvetica", "sans-serif";
-$headers-font: "Protect Riot", "Helvetica", "sans-serif";
+// $body-font: "Antic", "Helvetica", "sans-serif";
+// $headers-font: "Protect Riot", "Helvetica", "sans-serif";
+
+p {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 10px !important;
+  line-height: 1.2;
+}
+
+
 
 // .antic-regular {
 //   font-family: "Antic", sans-serif;
