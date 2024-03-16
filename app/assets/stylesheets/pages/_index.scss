@@ -1,9 +1,22 @@
-// Import page-specific CSS files here.
+/* Import page-specific CSS files here. */
 @import "home";
 @import "pages/show";
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
 .date-header {
   margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
 }
 
 .calendar-container {
@@ -11,6 +24,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  overflow-x: auto;
 }
 
 .calendar-header {
@@ -18,8 +32,16 @@
 }
 
 .day {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  font-weight: bold;
+  color: #555;
+}
+
+.day:hover {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+  cursor: pointer;
 }
 
 .date-numbers {
@@ -27,26 +49,137 @@
 }
 
 .date-number {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border: 1px solid transparent;
   margin-right: 10px;
   text-decoration: none;
+  font-size: 16px;
+  color: #555;
 }
 
 .date-number:hover {
   background-color: #f0f0f0;
+  border-color: #ccc;
 }
 
-.primary {
-  background-color: #afa6f9;
+.date-selector {
+  background-color: #f0f0f0;
+  color: #555;
+}
+
+.appointment-section {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 20px;
+  color: #333;
+}
+
+.card-text {
+  font-size: 16px;
+  color: #555;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: #f4b7b6;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #81edae;
+}
+
+.btn-modifier {
+  background-color: #f4b7b6;
+}
+
+.btn-modifier:hover {
+  background-color: #81edae;
+}
+
+.btn-supprimer {
+  margin-left: 10px;
+}
+
+.no-appointments {
+  text-align: center;
+  color: #777;
+  font-size: 18px;
+}
+
+.no-appointments h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.new-appointment-btn {
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.current-date-selected .date-number {
+  background-color: #f4b7b6;
   color: white;
 }
 
+.current-date-selected .date-number:hover {
+  background-color: #81edae;
+}
 
-// body.home {
-//   background-color: white;
-// }
+.flex-hour {
+  display: flex;
+}
 
-// body.form-container {
-//   background-color: aqua;
-// }
+.smaller-card {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.text-black {
+  color: #000 !important;
+}
+
+.text-grey {
+  color: #777 !important;
+}
+
+@media screen and (max-width: 767px) {
+
+  .calendar-container {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}

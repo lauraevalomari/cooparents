@@ -1,11 +1,10 @@
-<div class="form-design">
-  <div class="appointments-header">
+<div class="appointments-header">
     <div class="row">
-      <div class="col-md-6">
-        <h1 class="date-header"><%= I18n.l(Date.today, format: '%A %-d %B %Y', locale: :fr).capitalize %></h1>
+      <div class="col-md-6 text-center">
+        <h1 class="date-header mt-4"><%= I18n.l(Date.today, format: '%A %-d %B %Y', locale: :fr).split(' ').map(&:capitalize).join(' ')%></h1>
       </div>
-      <div class="col-md-6 text-md-end">
-        <a href="<%= new_appointment_path %>" class="btn btn-primary">Ajouter un rendez-vous</a>
+      <div class="col-md-6 text-center">
+        <a href="<%= new_appointment_path %>" class="btn btn-primary new-appointment-btn mt-4">Ajouter un rendez-vous</a>
       </div>
     </div>
     <div class="row mt-4">
@@ -13,10 +12,10 @@
         <div class="calendar-container">
           <div class="date-numbers">
             <% (Date.today..Date.today+6).each do |date| %>
-              <a href="<%= appointments_path(date: date) %>" class="date-number <%= 'primary' if date == Date.today %>">
+              <a href="<%= appointments_path(date: date) %>" class="date-number <%= 'date-selector' if date == Date.today %> <%= 'current-date-selected' if date == Date.today %>">
                 <div class="date-wrap">
-                  <span class="day-abbr"><%= date.strftime('%a') %></span>
-                  <span class="date-number"><%= date.strftime('%-d') %></span>
+                  <span class="day-abbr"><%= I18n.l(date, format: '%a ', locale: :fr).capitalize%></span>
+                  <span class="date-number"><%= I18n.l(date, format: '%d ', locale: :fr).capitalize%></span>
                 </div>
               </a>
             <% end %>
@@ -31,13 +30,14 @@
       <h2 class="text-center">Rendez-vous pour aujourd'hui :</h2>
       <div class="appointment-cards">
         <% @appointments.sort_by(&:start_time).each do |appointment| %>
+        <div class= "flex-hour">
+          <div class="time-box text-center">
+            <span class="fw-bold text-black"><%= appointment.start_time.strftime('%H:%M') %></span>
+            <span class="fw-light text-grey"><%= appointment.end_time.strftime('%H:%M') %></span>
+          </div>
           <%= link_to appointment_path(appointment), class: "text-decoration-none" do %>
-            <div class="card mb-3 shadow rounded">
-              <div class="card-body d-flex justify-content-between align-items-center">
-                <div class="time-box text-center">
-                  <span class="fw-bold"><%= appointment.start_time.strftime('%H:%M') %></span> -
-                  <span class="fw-light"><%= appointment.end_time.strftime('%H:%M') %></span>
-                </div>
+            <div class="card mb-3 shadow rounded smaller-card">
+              <div class="card-body d-flex justify-content-center align-items-center text-center">
                 <div class="appointment-details">
                   <h5 class="card-title">
                     <strong><%= appointment.title %></strong>
@@ -50,11 +50,12 @@
                 </div>
               </div>
               <div class="d-flex justify-content-between align-items-center px-3 py-2">
-                <%= link_to "Modifier", edit_appointment_path(appointment), class: "btn btn-primary btn-sm" %>
-                <%= link_to "Supprimer", appointment_path(id: appointment.id, date: params[:date]), data: { turbo_method: :delete, confirm: "Êtes-vous sûr de vouloir supprimer ce rendez-vous ?" }, class: "btn btn-primary btn-sm" %>
+                <%= link_to "Modifier", edit_appointment_path(appointment), class: "btn btn-primary btn-sm btn-modifier" %>
+                <%= link_to "Supprimer", appointment_path(id: appointment.id, date: params[:date]), data: { turbo_method: :delete, confirm: "Êtes-vous sûr de vouloir supprimer ce rendez-vous ?" }, class: "btn btn-primary btn-sm btn-supprimer" %>
               </div>
             </div>
           <% end %>
+          </div>
         <% end %>
       </div>
     </div>
