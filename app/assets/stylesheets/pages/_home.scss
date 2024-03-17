@@ -1,37 +1,138 @@
 // Specific CSS for your home-page
-.form-design {
-  // display: flex;
-  align-items: center;
-  background-color: white;
-  padding: 30px 30px 30px 30px;
-  margin-top: 50px;
-  margin-left: 30px;
-  margin-right: 30px;
-  border-radius: 16px;
-  box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
-  text-align: center;
-}
 
 .container {
   background-color: $white;
-  color: $purple;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  padding: 15px 15px 20px 20px;
+}
+.welcome p {
+  color: #8C8C8C;
+}
+.welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.img-avatar-home {
+  width: 50px;
+  height: 50px;
+}
+.card-appointment-violet {
+  overflow: hidden;
+  background: #7F86FF;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // border: 1px solid $light-gray;
+  border-radius: 16px;
+  width: 90%;
+  padding: 20px;
+  color: white;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+}
+.card-appointment-violet a {
+  color: white;
+}
+.card-appointment-turquoise {
+  overflow: hidden;
+  background: #96CCE2;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // border: 1px solid $light-gray;
+  border-radius: 16px;
+  width: 90%;
+  padding: 20px;
+  color: white;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+}
+.card-appointment-turquoise a {
+  color: white;
+}
+.card-appointment-pink {
+  overflow: hidden;
+  background: #EFCED4;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // border: 1px solid $light-gray;
+  border-radius: 16px;
+  width: 90%;
+  padding: 20px;
+  color: white;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+}
+.card-appointment-pink a {
+  color: white;
+}
+.card-appointment-yellow {
+  overflow: hidden;
+  background: #EACF99;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // border: 1px solid $light-gray;
+  border-radius: 16px;
+  width: 90%;
+  padding: 20px;
+  color: white;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+}
+.card-appointment-yellow a {
+  color: white;
+}
+.card-appointment-green {
+  overflow: hidden;
+  background: #588157;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // border: 1px solid $light-gray;
+  border-radius: 16px;
+  width: 90%;
+  padding: 20px;
+  color: white;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+}
+.card-appointment-green a {
+  color: white;
+}
+.card-appointment-infos {
+  margin-bottom: 30px;
 }
 
-.circle {
-  width: 100px;
-  height: 100px;
-  background-color: $light-yellow;
-  border-radius: 50%;
-  position: relative;
-}
+// .form-design {
+//   // display: flex;
+//   align-items: center;
+//   background-color: white;
+//   padding: 30px 30px 30px 30px;
+//   margin-top: 50px;
+//   margin-left: 30px;
+//   margin-right: 30px;
+//   border-radius: 16px;
+//   box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
+//   text-align: center;
+// }
 
-.percentage {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  color: $mint-green;
-}
+// .circle {
+//   width: 100px;
+//   height: 100px;
+//   background-color: $light-yellow;
+//   border-radius: 50%;
+//   position: relative;
+// }
+
+// .percentage {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   font-size: 24px;
+//   color: $mint-green;
+// }
