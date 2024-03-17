@@ -9,6 +9,7 @@
 #   end
 puts "Cleaning Database..."
 Appointment.destroy_all
+Task.destroy_all
 Child.destroy_all
 User.destroy_all
 puts "Database cleaned..."
@@ -103,6 +104,30 @@ foot_appointment = Appointment.create!(
       user_id: anna.id,
       child_id: jade.id,
       details: "Anniversaire à l'Île de Tortuga. Prévoir un cadeau! Inès aime les activités manuelles. Prévoir une tenue décontractée (jogging + chaussettes).",
+    )
+
+    puts "...now tasks..."
+
+    homework_task = Task.create!(
+      title: "Devoir d'histoire",
+      category: "Scolarité",
+      details: "Préparer l'exposé sur la Révolution Française. Il faut que l'exposé repose sur 2 supports et dure maximum 15 minutes.",
+      requirements: "Livre d'histoire, ressources internet",
+      deadline: Date.new(2024,03,16),
+      parent_in_charge_id: anna.id,
+      child_id: jade.id,
+      task_creator_id: anna.id
+    )
+
+    geek_task = Task.create!(
+      title: "Sortie exposition geek days",
+      category: "Autres",
+      details: "Prévoir une sortie pour cette fameuse expo! ",
+      requirements: "Avoir de bonnes notes à l'école...",
+      deadline: Date.new(2024,03,16),
+      parent_in_charge_id: aaron.id,
+      child_id: jade.id,
+      task_creator_id: aaron.id
     )
 
 puts '...Finished!'
