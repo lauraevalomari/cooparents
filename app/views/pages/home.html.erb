@@ -13,25 +13,29 @@
 
     <div class="tasks">
       <p style="font-size: 28px; margin-bottom: 0px !important;">Vous avez</p>
-      <p style="font-size: 28px; color: #F4B7B6"><%= @tasks_to_do_today %> tâches aujourd'hui</p>
+      <p style="font-size: 28px; color: #F4B7B6"><%= @two_first_tasks_count %> tâches aujourd'hui</p>
+    </div>
+
+    <div id="progressbar" data-controller="progressbar" data-progressbar-percentage-value="<%= @percentage_completed %>">
+      <%  %>
     </div>
 
     <div class="circle">
-      <div class="percentage"><%= @percentage_completed %></div>
+      <div class="percentage"></div>
     </div>
 
-    <div class="dashboard mt-4">
+    <div class="dashboard">
       <p style="font-size: 24px; margin-bottom: 0px !important">Tableau de bord</p>
       <p style="font-size: 15px; color: #B3B3B3">Les tâches à réaliser</p>
-      <ul>
-          <% if @tasks_preview.present? %>
-            <% @tasks_preview.each do |task| %>
-              <li><%= task.title %></li>
+      <ol>
+          <% if @two_first_tasks_for_user.present? %>
+            <% @two_first_tasks_for_user.each do |task| %>
+              <li><p><%= task.title %></p></li>
             <% end %>
           <% else %>
             <p style="color: #bc6c25">Pas de tâche pour aujourd'hui!</p>
           <% end %>
-      </ul>
+      </ol>
     </div>
 
 
