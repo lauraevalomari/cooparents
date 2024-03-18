@@ -3,7 +3,7 @@
   <div class="form-design">
         <div class="header-show">
           <p>Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
-          <%= link_to "Retour", appointments_path, class: "btn-back" %>
+          <%= link_to "Retour", :back %>
         </div>
         <div class="mb-2 mt-2 flexbox">
         <% if @appointment.category == "Activités" %>

@@ -130,4 +130,15 @@ foot_appointment = Appointment.create!(
       task_creator_id: aaron.id
     )
 
+    gift_task = Task.create!(
+      title: "Trouver un cadeau pour Inès",
+      category: "Autres",
+      details: "Chercher cadeau pour l'anniversaire",
+      requirements: "Elle aime les licornes. Et les bonbons.",
+      deadline: Date.new(2024,03,16),
+      parent_in_charge_id: aaron.id,
+      child_id: jade.id,
+      task_creator_id: aaron.id
+    )
+
 puts '...Finished!'
