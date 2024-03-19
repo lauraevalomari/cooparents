@@ -25,90 +25,36 @@
   width: 50px;
   height: 50px;
 }
-.card-appointment-violet {
+.card-appointment {
   overflow: hidden;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // border: 1px solid $light-gray;
+  border-radius: 16px;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+}
+.card-appointment a {
+  color: white;
+}
+.violet {
   background: #7F86FF;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  // border: 1px solid $light-gray;
-  border-radius: 16px;
-  width: 90%;
-  padding: 20px;
-  color: white;
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 13px;
 }
-.card-appointment-violet a {
-  color: white;
-}
-.card-appointment-turquoise {
-  overflow: hidden;
+.turquoise {
   background: #96CCE2;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  // border: 1px solid $light-gray;
-  border-radius: 16px;
-  width: 90%;
-  padding: 20px;
-  color: white;
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 13px;
 }
-.card-appointment-turquoise a {
-  color: white;
-}
-.card-appointment-pink {
-  overflow: hidden;
+.pink {
   background: #EFCED4;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  // border: 1px solid $light-gray;
-  border-radius: 16px;
-  width: 90%;
-  padding: 20px;
-  color: white;
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 13px;
 }
-.card-appointment-pink a {
-  color: white;
-}
-.card-appointment-yellow {
-  overflow: hidden;
+.yellow {
   background: #EACF99;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  // border: 1px solid $light-gray;
-  border-radius: 16px;
-  width: 90%;
-  padding: 20px;
-  color: white;
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 13px;
 }
-.card-appointment-yellow a {
-  color: white;
-}
-.card-appointment-green {
-  overflow: hidden;
+.green {
   background: #588157;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  // border: 1px solid $light-gray;
-  border-radius: 16px;
-  width: 90%;
-  padding: 20px;
-  color: white;
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 13px;
-}
-.card-appointment-green a {
-  color: white;
 }
 .card-appointment-infos {
   margin-bottom: 30px;
