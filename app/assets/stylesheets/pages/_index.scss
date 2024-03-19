@@ -1,3 +1,4 @@
+/* Your existing CSS */
 /* Import page-specific CSS files here. */
 @import "home";
 @import "pages/show";
@@ -25,23 +26,6 @@ body {
   align-items: center;
   margin-bottom: 20px;
   overflow-x: auto;
-}
-
-.calendar-header {
-  display: flex;
-}
-
-.day {
-  padding: 10px 20px;
-  border: 1px solid transparent;
-  font-weight: bold;
-  color: #555;
-}
-
-.day:hover {
-  background-color: #f0f0f0;
-  border-color: #ccc;
-  cursor: pointer;
 }
 
 .date-numbers {
@@ -87,7 +71,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   overflow: hidden;
-  position: relative; 
+  position: relative;
 }
 
 .card-body {
@@ -107,13 +91,14 @@ body {
 
 .btn {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s;
+  margin-right: 10px; 
 }
 
 .btn-primary {
@@ -123,18 +108,6 @@ body {
 
 .btn-primary:hover {
   background-color: #81edae;
-}
-
-.btn-modifier {
-  background-color: #f4b7b6;
-}
-
-.btn-modifier:hover {
-  background-color: #81edae;
-}
-
-.btn-supprimer {
-  margin-left: 10px;
 }
 
 .no-appointments {
@@ -150,8 +123,6 @@ body {
 
 .new-appointment-btn {
   margin-top: 20px;
-  margin-right: 10px;
-  margin-left: 10px;
 }
 
 .current-date-selected .date-number {
@@ -165,6 +136,7 @@ body {
 
 .flex-hour {
   display: flex;
+  position: relative;
 }
 
 .smaller-card {
@@ -191,4 +163,8 @@ body {
 .delete-icon {
   top: auto;
   bottom: 10px;
+}
+
+.new-appointment-btn {
+  padding-right: 25px;
 }
