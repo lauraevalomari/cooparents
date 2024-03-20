@@ -46,18 +46,7 @@
           <!-- TODO : itérer sur l'ensemble des appointements d'un utilisateur -->
           <div class="card-appointment">
             <% @five_appointments_to_come.each do |appointment| %>
-              <% if appointment.category == "Scolarité" %>
-                <div class="card-appointment violet">
-              <% elsif appointment.category == "Santé" %>
-                <div class="card-appointment turquoise">
-              <% elsif appointment.category == "Activités" %>
-                <div class="card-appointment pink">
-              <% elsif appointment.category == "Juridique" %>
-                <div class="card-appointment yellow">
-              <% elsif appointment.category == "Autres" %>
-                <div class="card-appointment green">
-              <% end %>
-
+                <div class="card-appointment <%= appointment.set_category_color %>">
                 <div class="card-appointment-infos">
                   <p style="font-size: 17px"><%= link_to appointment.title, appointment_path(appointment.id) %></p>
                   <p><%= appointment.category %></p>
