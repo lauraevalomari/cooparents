@@ -114,6 +114,7 @@ foot_appointment = Appointment.create!(
       details: "Préparer l'exposé sur la Révolution Française. Il faut que l'exposé repose sur 2 supports et dure maximum 15 minutes.",
       requirements: "Livre d'histoire, ressources internet",
       deadline: Date.new(2024,03,16),
+      status: false,
       parent_in_charge_id: anna.id,
       child_id: jade.id,
       task_creator_id: anna.id
@@ -125,6 +126,7 @@ foot_appointment = Appointment.create!(
       details: "Prévoir une sortie pour cette fameuse expo! ",
       requirements: "Avoir de bonnes notes à l'école...",
       deadline: Date.new(2024,03,16),
+      status: true,
       parent_in_charge_id: aaron.id,
       child_id: jade.id,
       task_creator_id: aaron.id
@@ -136,6 +138,7 @@ foot_appointment = Appointment.create!(
       details: "Chercher cadeau pour l'anniversaire",
       requirements: "Elle aime les licornes. Et les bonbons.",
       deadline: Date.new(2024,03,16),
+      status: false,
       parent_in_charge_id: aaron.id,
       child_id: jade.id,
       task_creator_id: aaron.id
