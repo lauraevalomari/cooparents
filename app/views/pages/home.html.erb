@@ -30,7 +30,7 @@
       <ol>
           <% if @two_first_tasks_for_user.present? %>
             <% @two_first_tasks_for_user.each do |task| %>
-              <li><p><%= task.title %></p></li>
+              <li><p><%= link_to task.title, task_path(task.id) %></p></li>
             <% end %>
           <% else %>
             <p style="color: #bc6c25">Pas de tâche pour aujourd'hui!</p>
