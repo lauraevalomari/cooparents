@@ -16,4 +16,18 @@ class Appointment < ApplicationRecord
   validates :start_time, :end_time, presence: true
 
   validates :start_time, uniqueness: { scope: :parent_in_charge && :date, message: "Ce parent est déjà occupé. Choisissez un autre créneau" }
+
+  def set_category_color
+    if category == "Scolarité"
+      "violet"
+    elsif category == "Santé"
+      "turquoise"
+    elsif category == "Activités"
+      "pink"
+    elsif category == "Juridique"
+      "yellow"
+    elsif category == "Autres"
+      "green"
+    end
+  end
 end
