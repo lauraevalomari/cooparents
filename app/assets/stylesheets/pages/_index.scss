@@ -116,6 +116,14 @@ body {
 
 .new-appointment-btn {
   margin-top: 20px;
+  margin-left: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  max-width: 150px;
+}
+
+.new-appointment-btn .fa-plus {
+  margin-right: 4px;
 }
 
 .current-date-selected .date-number {
@@ -157,8 +165,4 @@ body {
 .delete-icon {
   top: auto;
   bottom: 10px;
-}
-
-.new-appointment-btn {
-  padding-right: 25px;
 }
