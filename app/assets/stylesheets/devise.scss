@@ -13,3 +13,23 @@
 // Your CSS partials
 @import "components/index";
 @import "devise/devise_forms";
+
+.welcome-container {
+  text-align: center;
+  background-color: #AFA6F9;
+  padding: 20px;
+  z-index: 999;
+  height: 100vh;
+}
+
+.welcome-message {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  max-width: 200px;
+  border-radius: 30%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
