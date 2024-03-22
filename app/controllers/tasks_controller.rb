@@ -28,7 +28,9 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
   end
 
   def update
-    @task.update(params[:task])
+    @task.update(status: true) if params[:status]
+    @task.update(params[:task]) if params[:task]
+    redirect_to task_path(@task)
   end
 
   def destroy
