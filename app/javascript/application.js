@@ -4,3 +4,7 @@ import "controllers"
 import "@popperjs/core"
 import "bootstrap"
 import "mapbox-gl"
+import "@hotwired/turbo-rails";
+import "@popperjs/core";
+import "bootstrap";
+import "mapbox-gl";
