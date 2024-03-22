@@ -126,7 +126,7 @@ foot_appointment = Appointment.create!(
       details: "Prévoir une sortie pour cette fameuse expo! ",
       requirements: "Avoir de bonnes notes à l'école...",
       deadline: Date.new(2024,03,16),
-      status: true,
+      status: false,
       parent_in_charge_id: aaron.id,
       child_id: jade.id,
       task_creator_id: aaron.id
