@@ -1,6 +1,6 @@
 .footer {
-  background-color: $white;
-  color: $medium-gray;
+  background-color: #ffffff;
+  color: #777777;
   text-align: center;
   padding: 20px;
   position: fixed;
@@ -15,14 +15,19 @@
 }
 
 .footer-nav a {
-  color: $medium-gray;
+  color: #777777;
   text-decoration: none;
 }
 
 .footer-nav a i {
   margin-right: 5px;
+  color: $medium-gray;
 }
 
-.footer-nav .active {
-  color: $pink;
+.footer-nav a.active i {
+  color: #fadfb9;
+}
+
+.margin-footer {
+  margin-bottom: 40px;
 }
