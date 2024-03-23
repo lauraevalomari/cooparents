@@ -3,6 +3,7 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
 
   def index
     @tasks = Task.all
+    @all_tasks_for_user = Task.all_tasks_for_user(current_user) if current_user
   end
 
   def show
