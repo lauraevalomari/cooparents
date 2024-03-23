@@ -6,6 +6,9 @@ class PagesController < ApplicationController
     @two_first_tasks_for_user = Task.two_first_tasks_for_user(current_user) if current_user
     @two_first_tasks_count = @two_first_tasks_for_user.count if current_user
 
+    @all_tasks_for_user = Task.all_tasks_for_user(current_user) if current_user
+    @all_tasks_count = @all_tasks_for_user.count if current_user
+
     total_tasks = Task.where(parent_in_charge: current_user).count
     completed_tasks = Task.where(parent_in_charge: current_user, status: true).count
     @percentage_completed = ((completed_tasks.to_f / total_tasks.to_f)*100).to_i
