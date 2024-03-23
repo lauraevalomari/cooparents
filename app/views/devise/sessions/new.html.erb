@@ -1,9 +1,9 @@
-<div class="welcome-container" data-controller="welcome" data-welcome-target="welcome">
-  <h1 class="welcome-message">Bienvenue sur</h1>
-  <%= image_tag("icons/apple-icon-152x152.png", alt: "Cooparents Logo", class: "logo") %>
+<div data-controller="welcome">
+<div class="welcome-container" data-welcome-target="welcome">
+  <%= image_tag("icons/CooParents.webp", alt: "Cooparents Logo", class: "logo") %>
 </div>
 
-<div class="devise-container">
+<div class="devise-container d-none" data-welcome-target="devise">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
       <div class="form-design">
@@ -31,4 +31,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
