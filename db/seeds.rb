@@ -80,9 +80,9 @@ foot_appointment = Appointment.create!(
 
     maths_appointment = Appointment.create!(
       title: "Soutien de maths",
-      date: Date.new(2024,04,03),
-      start_time: DateTime.parse("03/04/2024 17:30"),
-      end_time: DateTime.parse("03/04/2024 19:00"),
+      date: Date.new(2024,03,23),
+      start_time: DateTime.parse("23/03/2024 17:30"),
+      end_time: DateTime.parse("23/03/2024 19:00"),
       category: "Scolarité",
       address: "En Ligne",
       appointment_creator_id: anna.id,
@@ -94,9 +94,9 @@ foot_appointment = Appointment.create!(
 
     birthday_appointment = Appointment.create!(
       title: "Anniversaire des 8 ans d'Inès",
-      date: Date.new(2024,04,02),
-      start_time: DateTime.parse("02/04/2024 14:00"),
-      end_time: DateTime.parse("02/04/2024 17:00"),
+      date: Date.new(2024,03,23),
+      start_time: DateTime.parse("23/03/2024 14:00"),
+      end_time: DateTime.parse("23/03/2024 17:00"),
       category: "Autres",
       address: "4 rue du Professeur Langevin, 59000 LILLE",
       appointment_creator_id: anna.id,
@@ -113,7 +113,7 @@ foot_appointment = Appointment.create!(
       category: "Scolarité",
       details: "Préparer l'exposé sur la Révolution Française. Il faut que l'exposé repose sur 2 supports et dure maximum 15 minutes.",
       requirements: "Livre d'histoire, ressources internet",
-      deadline: Date.new(2024,04,06),
+      deadline: Date.new(2024,03,23),
       status: false,
       parent_in_charge_id: anna.id,
       child_id: jade.id,
@@ -125,7 +125,7 @@ foot_appointment = Appointment.create!(
       category: "Autres",
       details: "Prévoir une sortie pour cette fameuse expo! ",
       requirements: "Avoir de bonnes notes à l'école...",
-      deadline: Date.new(2024,04,05),
+      deadline: Date.new(2024,03,23),
       status: false,
       parent_in_charge_id: aaron.id,
       child_id: jade.id,
