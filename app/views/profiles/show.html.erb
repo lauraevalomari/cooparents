@@ -1,0 +1,43 @@
+<div class="profile-design">
+  <div class="mb-5">
+    <h3 class="mt-2 mb-3" style="font-weight: bold">Mon profil</h3>
+    <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", class: "avatar-profile"%>
+  </div>
+
+   <div class="card-profile">
+      <div class="div">
+        <p><i class="fa-solid fa-user fa-xl"></i> Prénom</p>
+      </div>
+      <div class="div">
+        <p><%= current_user.email.split('@').first.capitalize %></p>
+      </div>
+   </div>
+
+   <div class="card-profile">
+      <div class="div">
+        <p><i class="fa-solid fa-at fa-xl"></i> E-mail</p>
+      </div>
+      <div class="div">
+        <p><%= current_user.email %></p>
+      </div>
+   </div>
+
+   <div class="card-profile">
+      <div class="div">
+        <p><i class="fa-solid fa-children fa-xl"></i> Mes enfants</p>
+      </div>
+      <div class="div">
+        <p><%= @list_children.join(", ") %></p>
+      </div>
+    </div>
+
+  <div class="user-access">
+    <div class="card-profile-task">
+      <p><%= link_to "Mes tâches", tasks_path %></p>
+   </div>
+
+    <div class="card-profile-task">
+      <p><%= link_to "Mes contacts", tasks_path %></p>
+    </div>
+  </div>
+</div>
