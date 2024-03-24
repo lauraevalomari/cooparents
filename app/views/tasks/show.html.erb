@@ -3,7 +3,7 @@
     <div class="form-design">
           <div class="header-show">
             <p style="font-weight: bold; margin-top: 5px">Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
-            <%= link_to "Retour", :back, class: "btn-back" %>
+            <%= link_to "Retour", tasks_path, class: "btn-back" %>
           </div>
 
       <h3 class="mt-2" style="font-weight: bold">Ma tâche</h3>
@@ -49,7 +49,7 @@
             class: "btn-delete",
             data: { turbo_method: :patch, turbo_confirm: "Êtes-vous sûr(e)?"} %></div>
        <% else %>
-          <span class="btn-update mt-5">Terminée!</span>
+          <div class="btn-delete mt-5">Terminée!</div>
        <% end %>
 
         <div class="mt-4"><%= link_to "Supprimer cette tâche",

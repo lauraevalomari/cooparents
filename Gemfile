@@ -56,6 +56,7 @@ gem 'faker'
 gem 'geocoder'
 gem 'i18n'
 gem 'rails-i18n'
+gem 'sweetalert2'
 
 group :development, :test do
   gem "dotenv-rails"
