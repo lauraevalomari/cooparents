@@ -3,7 +3,7 @@
     <div class="form-design">
           <div class="header-show">
             <p style="font-weight: bold; margin-top: 5px">Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
-            <%= link_to "Annuler", tasks_path, class: "btn-back" %>
+            <%= link_to "Annuler", task_path(@task), class: "btn-back" %>
           </div>
       <h3 class="mt-2 mb-5" style="font-weight: bold">Modification de tâche</h3>
 

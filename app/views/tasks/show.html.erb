@@ -2,12 +2,21 @@
   <div class="col-12 col-sm-4">
     <div class="form-design">
           <div class="header-show">
-            <p style="font-weight: bold; margin-top: 5px">Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
-            <%= link_to "Retour", tasks_path, class: "btn-back" %>
+            <div style="font-weight: bold">
+              <p style="font-weight: bold; margin-top: 5px; margin-bottom: 0px !important">Aujourd'hui,</p>
+              <p style="font-weight: bold"><%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
+            </div>
+            <%= link_to edit_task_path(@task), style: "color: black !important", class: "text-decoration-none" do %>
+              <i class="fas fa-ellipsis-vertical" title="Clique pour modifier" style="font-size: 25px; margin-top: 10px"></i>
+            <% end %>
           </div>
+      <div>
+        <h3 class="mt-3" style="font-weight: bold">Ma tâche</h3>
+        <h4 class="mt-2" style="font-size: 18px"><%= @task.title %></h4>
+      </div>
+      <div>
 
-      <h3 class="mt-2" style="font-weight: bold">Ma tâche</h3>
-      <h4 class="mt-2" style="font-size: 18px"><%= @task.title %></h4>
+      </div>
       <div class="flexbox card-task pt-4">
         <p><%= image_tag "children.png", width: 30, height: 40 %></p>
         <p><%= @task.child.first_name %></p>
@@ -42,7 +51,7 @@
         <p style="text-align: end"><%= @task.requirements %></p>
       </div>
 
-      <div class="margin-top: 50px !important">
+      <div>
        <% unless @task.status? %>
         <div class="mt-5"><%= link_to "Marquer comme terminée",
             task_path(id: @task, status: true),
@@ -51,18 +60,22 @@
        <% else %>
           <div class="btn-delete mt-5">Terminée!</div>
        <% end %>
-
-      <div class="mt-4"><%= link_to "Modifier",
-          edit_task_path(@task),
-          class: "btn-delete"%>
       </div>
 
-      <div class="mt-4"><%= link_to "Supprimer cette tâche",
-          task_path(@task),
-          class: "btn-delete",
-          data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr(e)?"} %>
+      <div class="show-icons mt-5">
+            <%= link_to tasks_path, style: "color: black !important", class: "text-decoration-none" do %>
+              <i class="fa-solid fa-arrow-left" style="color: #89DB93; font-size: 30px; margin-top: 10px"></i>
+            <% end %>
+
+            <%= link_to task_path(@task),
+                style: "color: black !important",
+                class: "text-decoration-none",
+                data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr(e)?" } do %>
+              <%= image_tag "souriant.png", width: 40, height: 40 %>
+            <% end %>
+
       </div>
-      </div>
+
     </div>
   </div>
 </div>
