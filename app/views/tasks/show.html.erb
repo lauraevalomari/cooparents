@@ -53,12 +53,13 @@
 
       <div>
        <% unless @task.status? %>
-        <div class="mt-5"><%= link_to "Marquer comme terminée",
+        <div class="mt-5" style="width: 100%"><%= link_to "Marquer comme terminée",
             task_path(id: @task, status: true),
-            class: "btn-delete",
+            class: "btn-update",
+            style: "width: 100% !important",
             data: { turbo_method: :patch, turbo_confirm: "Êtes-vous sûr(e)?"} %></div>
        <% else %>
-          <div class="btn-delete mt-5">Terminée!</div>
+          <div class="btn-complete mt-5", style="width: 100%">Terminée <span style="font-size: 20px">&#129395</span></div>
        <% end %>
       </div>
 

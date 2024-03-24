@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   resources :children
   resources :contacts
   get "/profile", to: "profiles#show"
+  get "/profile/edit", to: "profiles#edit"
+  patch "/profile", to: "profiles#update"
 end

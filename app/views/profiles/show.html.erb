@@ -1,15 +1,19 @@
 <div class="profile-design">
+  <%= link_to profile_edit_path, style: "color: black !important", class: "text-decoration-none" do %>
+    <i class="fas fa-ellipsis-vertical edit-icon" style="font-size: 25px; margin-top: 10px"></i>
+  <% end %>
   <div class="mb-5">
     <h3 class="mt-2 mb-3" style="font-weight: bold">Mon profil</h3>
     <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", class: "avatar-profile"%>
   </div>
+
 
    <div class="card-profile">
       <div class="div">
         <p><%= image_tag "parent.png", width: 30, height: 40 %></p>
       </div>
       <div class="div">
-        <p><%= current_user.email.split('@').first.capitalize %></p>
+        <p><%= current_user.first_name %></p>
       </div>
    </div>
 
@@ -19,6 +23,24 @@
       </div>
       <div class="div">
         <p><%= current_user.email %></p>
+      </div>
+   </div>
+
+    <div class="card-profile">
+      <div class="div">
+        <p><%= image_tag "appel.png", width: 30, height: 40 %></p>
+      </div>
+      <div class="div">
+        <p><%= current_user.phone_number %></p>
+      </div>
+   </div>
+
+    <div class="card-profile">
+      <div class="div">
+        <p><%= image_tag "mot-de-passe.png", width: 30, height: 40 %></p>
+      </div>
+      <div class="div">
+        <p><%= current_user.password %></p>
       </div>
    </div>
 

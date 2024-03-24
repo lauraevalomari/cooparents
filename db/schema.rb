@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_13_204011) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_24_225827) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -130,20 +130,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_204011) do
     t.index ["document_creator_id"], name: "index_documents_on_document_creator_id"
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.string "action"
-    t.bigint "user_id", null: false
-    t.bigint "task_id", null: false
-    t.bigint "document_id", null: false
-    t.bigint "contact_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["contact_id"], name: "index_notifications_on_contact_id"
-    t.index ["document_id"], name: "index_notifications_on_document_id"
-    t.index ["task_id"], name: "index_notifications_on_task_id"
-    t.index ["user_id"], name: "index_notifications_on_user_id"
-  end
-
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.date "deadline"
@@ -169,6 +155,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_204011) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
