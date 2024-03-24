@@ -15,8 +15,8 @@ User.destroy_all
 puts "Database cleaned..."
 
 puts "Creating users..."
-anna = User.create!(email: 'anna@lewagon.fr', password: 'anna123')
-aaron = User.create!(email: 'aaron@lewagon.fr', password: 'aaron123')
+anna = User.create!(first_name: 'Anna', email: 'anna@lewagon.fr', password: 'anna123', phone_number: "06 12 13 14 15")
+aaron = User.create!(first_name: 'Aaron', email: 'aaron@lewagon.fr', password: 'aaron123', phone_number: '06 01 02 03 04')
 puts "#{User.count} users created!"
 
 # puts 'Creating 2 cooparents...'
