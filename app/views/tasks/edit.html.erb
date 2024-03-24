@@ -1,2 +1,42 @@
-<h1>Tasks#edit</h1>
-<p>Find me in app/views/tasks/edit.html.erb</p>
+<div class="row justify-content-center main-container">
+  <div class="col-12 col-sm-4">
+    <div class="form-design">
+          <div class="header-show">
+            <p style="font-weight: bold; margin-top: 5px">Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
+            <%= link_to "Annuler", tasks_path, class: "btn-back" %>
+          </div>
+      <h3 class="mt-2 mb-5" style="font-weight: bold">Modification de tâche</h3>
+
+      <%= simple_form_for @task, url: task_path(@task), method: :patch, data: { controller: 'flatpickr' } do |f| %>
+        <%= f.input :category,
+                    label: 'Catégorie',
+                    as: :radio_buttons,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'category-wrapper',
+                    item_wrapper_class: 'category-item',
+                    input_html: {class: 'category-selector'},
+                    collection: Task::CATEGORIES %>
+        <%= f.input :title, :label => 'Intitulé de la tâche' %>
+        <%= f.association :parent_in_charge,
+                          as: :radio_buttons,
+                          collection:  @parents.map { |parent| [parent.email.split('@').first.capitalize, parent.id] } ,
+                          label: 'Qui sera en charge?',
+                          input_html: { class: "person-selector" },
+                          item_wrapper_class: 'person-item'%>
+        <%= f.association :child,
+                          as: :radio_buttons,
+                          label: 'Pour qui?',
+                          collection: @children.map { |child| [child.first_name, child.id] },
+                          input_html: { class: "person-selector" },
+                          item_wrapper_class: 'person-item' %>
+        <%= f.input :deadline, :label => "Date d'échéance", as: :string, input_html: { data: { flatpickr_target: "date" }, id: 'date' } %>
+        <%= f.input :details, :label => 'Détails' %>
+        <%= f.input :requirements, :label => "Prérequis", placeholder: "Indiquez les prérequis nécessaires à la réalisation de cette tâche" %>
+        <%= f.submit "Valider", class:"btn-delete" %>
+      <% end %>
+
+
+
+    </div>
+  </div>
+</div>
