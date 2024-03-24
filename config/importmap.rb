@@ -28,3 +28,5 @@ pin "nanoid" # @3.3.7
 pin "subtag" # @0.5.0
 pin "suggestions" # @1.7.1
 pin "xtend" # @4.0.2
+# pin "sweetalert2" # @11.10.7
+pin "sweetalert2", to: "https://ga.jspm.io/npm:sweetalert2@11.7.2/dist/sweetalert2.all.js"

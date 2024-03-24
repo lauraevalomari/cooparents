@@ -12,12 +12,19 @@
     </div>
 
     <div class="tasks">
-      <p style="font-size: 28px; margin-bottom: 0px !important;">Vous avez</p>
-      <p style="font-size: 28px; color: #F4B7B6"><%= @two_first_tasks_count %> tâches aujourd'hui</p>
+      <% if @all_pending_tasks_count >=2 %>
+        <p style="font-size: 28px; margin-bottom: 0px !important;">Vous avez</p>
+        <p style="font-size: 28px; color: #F4B7B6"><%= @all_pending_tasks_count %> tâches aujourd'hui</p>
+      <% elsif @all_pending_tasks_count == 1 %>
+        <p style="font-size: 28px; margin-bottom: 0px !important;">Vous avez</p>
+        <p style="font-size: 28px; color: #F4B7B6"><%= @all_pending_tasks_count %> tâche aujourd'hui</p>
+      <% elsif %>
+        <p style="font-size: 28px; margin-bottom: 0px !important;">Vous n'avez</p>
+        <p style="font-size: 28px; color: #F4B7B6">aucune tâche &#128526</p>
+      <% end %>
     </div>
 
     <div id="progressbar" data-controller="progressbar" data-progressbar-percentage-value="<%= @percentage_completed %>">
-      <%  %>
     </div>
 
     <div class="circle">
