@@ -1,7 +1,11 @@
 <div class="row justify-content-center main-container">
   <div class="col-12 col-sm-4">
     <div class="form-design">
-      <h3 class="mt-2" style="font-weight: bold">Nouvelle tâche</h3>
+          <div class="header-show">
+            <p style="font-weight: bold; margin-top: 5px">Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
+            <%= link_to "Annuler", tasks_path, class: "btn-back" %>
+          </div>
+      <h3 class="mt-2 mb-5" style="font-weight: bold">Nouvelle tâche</h3>
       <%= render "form", task: @task %>
     </div>
   </div>

@@ -3,8 +3,8 @@
   position: relative;
   margin-bottom: 50px;
   padding: 10px 20px;
-  background-color: #ddbea9;
-  border-color: #ddbea9;
+  background-color: #F4B7B6;
+  border-color: #F4B7B6;
   text-decoration: none;
   border-radius: 10px;
   text-align: center;
@@ -12,6 +12,9 @@
   font-weight: bolder;
   // margin-left: auto;
   // margin-right: auto;
+}
+.btn-delete:hover {
+  opacity: 0.7;
 }
 .btn-update {
   width: 90%;
@@ -44,9 +47,23 @@
   // text-align: center;
   justify-content: space-between;
   // font-weight: bolder;
-  align-items: flex-end;
+  align-items: center;
 }
 .card-task p {
   margin-bottom: 0px !important;
   font-size: 14px;
+}
+.card-task img {
+  padding-bottom: 5px;
+}
+.modify-icon {
+  color: black !important;
+  position: absolute;
+  top: 120px;
+  right: 80px;
+  cursor: pointer;
+}
+.show-icons {
+  display: flex;
+  justify-content: space-between;
 }
