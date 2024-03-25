@@ -1,0 +1,51 @@
+<div class="profile-design">
+  <div class="top-icons">
+    <%= link_to children_path, style: "color: black !important", class: "text-decoration-none" do %>
+      <i class="fa-solid fa-arrow-left return-icon" style="font-size: 25px; margin-top: 10px"></i>
+    <% end %>
+    <%= link_to edit_child_path, style: "color: black !important", class: "text-decoration-none" do %>
+      <i class="fas fa-ellipsis-vertical edit-icon" style="font-size: 25px; margin-top: 10px"></i>
+    <% end %>
+  </div>
+  <div class="mb-5">
+    <h3 class="mt-2 mb-3" style="font-weight: bold"><%= @child.first_name %></h3>
+    <%= image_tag "dessin.png", style: "width: 50%" %>
+  </div>
+
+
+   <div class="card-profile">
+      <div class="div">
+        <p><%= image_tag "carte-didentite", width: 30, height: 40 %></p>
+      </div>
+      <div class="div">
+        <p><%= @child.first_name %> <%= @child.last_name %></p>
+      </div>
+   </div>
+
+   <div class="card-profile">
+      <div class="div">
+        <p><%= image_tag "calendrier.png", width: 30, height: 40 %></p>
+      </div>
+      <div class="div">
+        <p><%= @child.birth_date.strftime ("%d/%m/%Y") %></p>
+      </div>
+   </div>
+
+    <div class="card-profile">
+      <div class="div">
+        <p><%= image_tag "lieu.png", width: 30, height: 40 %></p>
+      </div>
+      <div class="div">
+        <p><%= @child.birth_place %></p>
+      </div>
+   </div>
+
+   <div class="card-profile">
+      <div class="div">
+        <p><%= image_tag "ecole.png", width: 30, height: 40 %></p>
+      </div>
+      <div class="div">
+        <p><%= @child.school %></p>
+      </div>
+    </div>
+</div>
