@@ -21,6 +21,8 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
   def create
     @task = Task.new(task_params)
     @task.task_creator_id = current_user.id
+    @task.child_id = task_params[:child_id]
+    @task.status = false
     if @task.save
       redirect_to task_path(@task.id), notice: "Tâche créée avec succès."
     else
@@ -36,17 +38,16 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
   def update
 
     @task.update(status: true) if params[:status]
-    @task.update(params[:task]) if params[:task]
-    redirect_to task_path(@task)
+    @task.update(task_params) if params[:task]
 
-    if @task.update(task_params)
+    if @task.save
       redirect_to task_path(@task), notice: "Changements enregistrés avec succès."
     else
       render :edit, status: :unprocessable_entity
     end
 
-    @children = current_user.children
-    @parents = @children.map(&:parents).flatten.uniq
+    # @children = current_user.children
+    # @parents = @children.map(&:parents).flatten.uniq
 
   end
 
@@ -62,6 +63,6 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
   end
 
   def task_params
-    params.require(:task).permit(:title, :deadline, :requirements, :status, :rich_details, :category, :parent_in_charge_id, :attachment)
+    params.require(:task).permit(:title, :deadline, :child_id, :details, :requirements, :status, :rich_details, :category, :parent_in_charge_id, :attachment)
   end
 end
