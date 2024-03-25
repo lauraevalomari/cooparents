@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   has_many :custody_timeframes, class_name: "CustodyTimeframe", foreign_key: :parent_in_charge_id
 
+  has_one_attached :photo
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
