@@ -4,6 +4,7 @@
     <tr>
       <th>Prénom</th>
       <th>Nom</th>
+      <th>Téléphone</th>
       <th>Adresse</th>
       <th>Actions</th>
     </tr>
@@ -13,14 +14,22 @@
       <tr>
         <td><%= contact.first_name %></td>
         <td><%= contact.last_name %></td>
-        <td><%= contact.address %></td>
-        <td>
-          <%= link_to 'Afficher', contact %>
-          <%= link_to 'Supprimer', contact, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer ce contact?' } %>
+        <td><%= contact.phone_number %></td>
+        <td class="address-cell"><%= contact.address %></td>
+        <td class="action-buttons">
+          <%= link_to contact, class: 'btn-contact' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+          <%= button_to contact, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer ce contact?' }, class: "btn-contact" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to 'Nouveau Contact', new_contact_path %>
-<%= link_to "Retour à mon profil", profile_path,class: "btn-primary" %>
+
+  <%= link_to 'Nouveau Contact', new_contact_path, class: 'btn' %>
+</div>
+

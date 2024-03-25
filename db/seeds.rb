@@ -15,8 +15,23 @@ User.destroy_all
 puts "Database cleaned..."
 
 puts "Creating users..."
-anna = User.create!(email: 'anna@lewagon.fr', password: 'anna123')
-aaron = User.create!(email: 'aaron@lewagon.fr', password: 'aaron123')
+anna_photo = URI.open("https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+anna = User.new(
+  first_name: 'Anna',
+  email: 'anna@lewagon.fr',
+  password: 'anna123',
+  phone_number: "06 12 13 14 15")
+anna.photo.attach(io: anna_photo, filename: "anna", content_type: "image/avif")
+anna.save!
+
+aaron_photo = URI.open("https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+aaron = User.new(
+  first_name: 'Aaron',
+  email: 'aaron@lewagon.fr',
+  password: 'aaron123',
+  phone_number: '06 01 02 03 04')
+aaron.photo.attach(io: aaron_photo, filename: "aaron", content_type: "image/avif")
+aaron.save!
 puts "#{User.count} users created!"
 
 # puts 'Creating 2 cooparents...'

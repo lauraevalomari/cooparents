@@ -20,5 +20,10 @@ Rails.application.routes.draw do
   resources :children
   resources :contacts
   resources :documents
+
+  get "/appointments/all", to: "appointments#all"
+
   get "/profile", to: "profiles#show"
+  get "/profile/edit", to: "profiles#edit"
+  patch "/profile", to: "profiles#update"
 end

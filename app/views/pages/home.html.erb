@@ -1,14 +1,13 @@
-  <div class="container">
+<div class="container">
   <% if user_signed_in? %>
     <div class="welcome">
       <p>Bonjour <%= current_user.email.split('@').first.capitalize%></p>
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", class: "avatar", alt: "dropdown menu" %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
-
     </div>
 
     <div class="tasks">
@@ -24,55 +23,54 @@
       <% end %>
     </div>
 
-    <div id="progressbar" data-controller="progressbar" data-progressbar-percentage-value="<%= @percentage_completed %>">
-    </div>
-
-    <div class="circle">
-      <div class="percentage"></div>
-    </div>
+    <div id="progressbar" data-controller="progressbar" data-progressbar-percentage-value="<%= @percentage_completed %>"></div>
 
     <div class="dashboard">
       <p style="font-size: 24px; margin-bottom: 0px !important">Tableau de bord</p>
       <p style="font-size: 15px; color: #B3B3B3">Les tâches à réaliser</p>
-      <ol>
+        <ol>
           <% if @two_first_tasks_for_user.present? %>
             <% @two_first_tasks_for_user.each do |task| %>
               <div class="link-show"><li><p><%= link_to task.title, task_path(task.id) %></p></li></div>
             <% end %>
+        </ol>
           <% else %>
-            <p style="color: #bc6c25">Pas de tâche pour aujourd'hui!</p>
+            <div class="programme-free">
+              <p style="color: #bc6c25; margin-bottom: 0px !important">Pas de tâche pour aujourd'hui!</p>
+              <p><span style="color: #bc6c25">Bien joué</span> <span style="font-size: 20px">&#128170</span></p>
+            </div>
           <% end %>
-      </ol>
     </div>
 
 
       <% if user_signed_in? %>
-        <div class="appointment mt-4">
-          <p style="font-size: 24px; margin-bottom: 0px !important">Votre programme</p>
+        <div class="appointment mt-2">
+          <p style="font-size: 24px; margin-bottom: 0px !important;">Votre programme</p>
           <p style="color: #BDBDBD; margin-bottom: 20px !important">Les prochains rendez-vous</p>
           <!-- TODO : itérer sur l'ensemble des appointements d'un utilisateur -->
-          <div class="card-appointment">
-            <% @five_appointments_to_come.each do |appointment| %>
-                <div class="card-appointment <%= appointment.set_category_color %>">
-                <div class="card-appointment-infos">
-                  <p style="font-size: 17px"><%= link_to appointment.title, appointment_path(appointment.id) %></p>
-                  <p><%= appointment.category %></p>
-                </div>
+          <% if @all_appointments_for_count == 0 %>
+            <div class="programme-free">
+              <p style="color: #bc6c25">Libre comme l'air...</p>
+              <p style="width: 25%"><%= image_tag "des-pierres.png" %></p>
+            </div>
+          <% elsif %>
+            <div class="card-appointment">
+              <% @three_appointments_to_come.each do |appointment| %>
+                  <div class="card-appointment <%= appointment.set_category_color %>">
+                    <div class="card-appointment-infos">
+                      <p style="font-size: 17px"><%= link_to appointment.title, appointment_path(appointment.id) %></p>
+                      <p><%= appointment.category %></p>
+                    </div>
 
-                <p><i class="fa-solid fa-calendar-days" style="color: white"></i> <%= appointment.date.strftime ("%d/%m/%Y") %></p>
-                <p><i class="fa-solid fa-clock" style="color: white"></i> <%= appointment.start_time.strftime('%H:%M') %></p>
-              </div>
-            <% end %>
-
-          </div>
-
+                    <p><i class="fa-solid fa-calendar-days" style="color: white"></i> <%= appointment.date.strftime ("%d/%m/%Y") %></p>
+                    <p><i class="fa-solid fa-clock" style="color: white"></i> <%= appointment.start_time.strftime('%H:%M') %></p>
+                  </div>
+              <% end %>
+            </div>
+          <% end %>
         </div>
+
       <% end %>
-
-
-  </div>
-
-<% else %>
-
-
-<% end %>
+  <% else %>
+  <% end %>
+</div>

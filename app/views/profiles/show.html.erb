@@ -1,15 +1,19 @@
 <div class="profile-design">
+  <%= link_to profile_edit_path, style: "color: black !important", class: "text-decoration-none" do %>
+    <i class="fas fa-ellipsis-vertical edit-icon" style="font-size: 25px; margin-top: 10px"></i>
+  <% end %>
   <div class="mb-5">
     <h3 class="mt-2 mb-3" style="font-weight: bold">Mon profil</h3>
-    <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", class: "avatar-profile"%>
+    <%= cl_image_tag current_user.photo.key, class: "avatar-profile"%>
   </div>
+
 
    <div class="card-profile">
       <div class="div">
         <p><%= image_tag "parent.png", width: 30, height: 40 %></p>
       </div>
       <div class="div">
-        <p><%= current_user.email.split('@').first.capitalize %></p>
+        <p><%= current_user.first_name %></p>
       </div>
    </div>
 
@@ -19,6 +23,24 @@
       </div>
       <div class="div">
         <p><%= current_user.email %></p>
+      </div>
+   </div>
+
+    <div class="card-profile">
+      <div class="div">
+        <p><%= image_tag "appel.png", width: 30, height: 40 %></p>
+      </div>
+      <div class="div">
+        <p><%= current_user.phone_number %></p>
+      </div>
+   </div>
+
+    <div class="card-profile">
+      <div class="div">
+        <p><%= image_tag "mot-de-passe.png", width: 30, height: 40 %></p>
+      </div>
+      <div class="div">
+        <p><%= current_user.password %></p>
       </div>
    </div>
 
@@ -60,5 +82,30 @@
       <%= link_to documents_path do %>
         <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
       <% end %>
+  </div>
+
+  <div class="user-access">
+    <div class="card-profile-task" style="background-color: #8ECAE6">
+      <div style="text-align: start">
+        <p ><%= link_to "Mes RDV", appointments_all_path %></p>
+        <% if @all_appointments_for_count >= 2 %>
+          <p style="font-size: 12px"><%= @all_appointments_for_count %> RDV en tout!</p>
+        <% elsif @all_appointments_for_count == 1%>
+          <p style="font-size: 12px"> 1 RDV seulement</p>
+        <% elsif %>
+        <p style="font-size: 12px"> Libre comme l'air!</p>
+        <% end %>
+      </div>
+      <%= link_to appointments_all_path do %>
+        <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
+      <% end %>
+   </div>
+
+    <div class="card-profile-task" style="background-color: #FFBF69">
+      <p style="text-align: start"><%= link_to "Mes enfants", contacts_path %></p>
+      <%= link_to contacts_path do %>
+        <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
+      <% end %>
+    </div>
   </div>
 </div>

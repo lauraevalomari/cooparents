@@ -65,7 +65,11 @@
 .link-show a:hover {
   opacity: 0.5;
 }
-
+.programme-free {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 // .form-design {
 //   // display: flex;
 //   align-items: center;

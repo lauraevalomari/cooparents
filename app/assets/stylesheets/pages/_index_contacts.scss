@@ -1,0 +1,105 @@
+
+h1 {
+  color: $gray;
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+th {
+  background-color: rgba($orange, 0.5); ;
+  text-align: left;
+  padding: 8px;
+}
+
+
+td {
+  padding: 8px;
+  background-color: rgba($light-yellow, 0.5);
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: $pink;
+  color: $white;
+}
+
+.btn-primary:hover {
+  background-color: $mint-green;
+}
+
+.btn-contact {
+  color: $pink;
+  font-size: 12px;
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin: 0 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-contact i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-contact:hover {
+  color: $mint-green;
+}
+
+.action-buttons {
+  text-align: center;
+}
+
+.address-cell {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 414px) {
+  th,
+  td {
+    padding: 4px;
+    font-size: 12px;
+  }
+  .btn-contact {
+    padding: 3px 8px;
+    font-size: 12px;
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
+}
