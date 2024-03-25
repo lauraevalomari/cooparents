@@ -8,6 +8,13 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def all
+    @appointments = Appointment.all
+
+    @all_appointments_for_user = Appointment.all_appointments_for_user(current_user) if current_user
+    @all_appointments_for_count = @all_appointments_for_user.count if current_user
+  end
+
   def my_appointments
     @appointments = Appointment.where(parent_in_charge_id: current_user.id)
   end

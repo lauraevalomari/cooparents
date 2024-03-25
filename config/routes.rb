@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :tasks
   resources :children
   resources :contacts
+  get "/appointments/all", to: "appointments#all"
   get "/profile", to: "profiles#show"
   get "/profile/edit", to: "profiles#edit"
   patch "/profile", to: "profiles#update"
