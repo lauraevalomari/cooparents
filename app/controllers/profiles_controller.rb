@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    if @profile.update(profile_params)
+    if current_user.update(profile_params)
       redirect_to profile_path, notice: "Changements enregistrés avec succès."
     else
       render :edit, status: :unprocessable_entity
@@ -25,6 +25,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:email, :first_name, :phone_number, :encrypted_password, :photo)
+    params.require(:user).permit(:email, :first_name, :phone_number, :encrypted_password, :photo)
   end
 end
