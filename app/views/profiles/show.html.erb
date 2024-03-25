@@ -77,4 +77,29 @@
       <% end %>
     </div>
   </div>
+
+  <div class="user-access">
+    <div class="card-profile-task" style="background-color: #8ECAE6">
+      <div style="text-align: start">
+        <p ><%= link_to "Mes RDV", appointments_all_path %></p>
+        <% if @all_appointments_for_count >= 2 %>
+          <p style="font-size: 12px"><%= @all_appointments_for_count %> RDV en tout!</p>
+        <% elsif @all_appointments_for_count == 1%>
+          <p style="font-size: 12px"> 1 RDV seulement</p>
+        <% elsif %>
+        <p style="font-size: 12px"> Libre comme l'air!</p>
+        <% end %>
+      </div>
+      <%= link_to appointments_all_path do %>
+        <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
+      <% end %>
+   </div>
+
+    <div class="card-profile-task" style="background-color: #FFBF69">
+      <p style="text-align: start"><%= link_to "Mes enfants", contacts_path %></p>
+      <%= link_to contacts_path do %>
+        <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
+      <% end %>
+    </div>
+  </div>
 </div>

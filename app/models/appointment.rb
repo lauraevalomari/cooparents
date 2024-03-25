@@ -9,7 +9,8 @@ class Appointment < ApplicationRecord
 
   scope :daily_appointments, ->(current_user) { where('start_time >= ? AND end_time <= ? AND parent_in_charge_id = ?', Date.today.beginning_of_day, Date.today.end_of_day, current_user)}
 
-  scope :five_appointments_to_come, ->(current_user) { where(parent_in_charge_id: current_user.id).order(start_time: :asc).first(5) }
+  scope :three_appointments_to_come, ->(current_user) { where(parent_in_charge_id: current_user.id).order(start_time: :asc).first(3) }
+  scope :all_appointments_for_user, ->(current_user) { where(parent_in_charge_id: current_user.id).order(start_time: :asc) }
 
   validates :title, presence: true
   validates :date, presence: true

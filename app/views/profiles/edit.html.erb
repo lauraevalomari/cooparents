@@ -5,7 +5,7 @@
   </div>
 
   <%= simple_form_for current_user, url: profile_path, method: :patch do |f| %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photo, as: :file, :label => 'Je modifie ma photo' %>
     <%= f.input :first_name, :label => 'Prénom' %>
     <%= f.input :email, :label => 'Adresse mail'%>
     <%= f.input :phone_number, :label => 'Numéro de téléphone' %>

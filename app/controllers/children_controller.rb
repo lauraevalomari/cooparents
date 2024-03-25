@@ -3,6 +3,7 @@ class ChildrenController < ApplicationController
 
   def index
     @children = Child.all
+    @all_children_for_user = Child.all_children_for_user(current_user) if current_user
   end
 
   def new

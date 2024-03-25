@@ -6,6 +6,8 @@ class Child < ApplicationRecord
   has_many :documents
   has_many :custody_timeframes
 
+  scope :all_children_for_user, ->(current_user) { where(parent_in_charge_id: child_id) }
+
   def parents
     [first_parent, second_parent]
   end

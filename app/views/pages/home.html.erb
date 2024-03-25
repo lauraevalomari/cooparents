@@ -1,4 +1,4 @@
-  <div class="container">
+<div class="container">
   <% if user_signed_in? %>
     <div class="welcome">
       <p>Bonjour <%= current_user.email.split('@').first.capitalize%></p>
@@ -8,7 +8,6 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
-
     </div>
 
     <div class="tasks">
@@ -24,30 +23,23 @@
       <% end %>
     </div>
 
-    <div id="progressbar" data-controller="progressbar" data-progressbar-percentage-value="<%= @percentage_completed %>">
-    </div>
-
-    <div class="circle">
-      <div class="percentage"></div>
-    </div>
+    <div id="progressbar" data-controller="progressbar" data-progressbar-percentage-value="<%= @percentage_completed %>"></div>
 
     <div class="dashboard">
       <p style="font-size: 24px; margin-bottom: 0px !important">Tableau de bord</p>
       <p style="font-size: 15px; color: #B3B3B3">Les tâches à réaliser</p>
-
+        <ol>
           <% if @two_first_tasks_for_user.present? %>
             <% @two_first_tasks_for_user.each do |task| %>
-            <ol>
               <div class="link-show"><li><p><%= link_to task.title, task_path(task.id) %></p></li></div>
-              <% end %>
-            </ol>
+            <% end %>
+        </ol>
           <% else %>
             <div class="programme-free">
               <p style="color: #bc6c25; margin-bottom: 0px !important">Pas de tâche pour aujourd'hui!</p>
               <p><span style="color: #bc6c25">Bien joué</span> <span style="font-size: 20px">&#128170</span></p>
             </div>
           <% end %>
-
     </div>
 
 
@@ -56,34 +48,29 @@
           <p style="font-size: 24px; margin-bottom: 0px !important;">Votre programme</p>
           <p style="color: #BDBDBD; margin-bottom: 20px !important">Les prochains rendez-vous</p>
           <!-- TODO : itérer sur l'ensemble des appointements d'un utilisateur -->
-          <% if @appointment.present? %>
-          <div class="card-appointment">
-            <% @five_appointments_to_come.each do |appointment| %>
-                <div class="card-appointment <%= appointment.set_category_color %>">
-                <div class="card-appointment-infos">
-                  <p style="font-size: 17px"><%= link_to appointment.title, appointment_path(appointment.id) %></p>
-                  <p><%= appointment.category %></p>
-                </div>
-
-                <p><i class="fa-solid fa-calendar-days" style="color: white"></i> <%= appointment.date.strftime ("%d/%m/%Y") %></p>
-                <p><i class="fa-solid fa-clock" style="color: white"></i> <%= appointment.start_time.strftime('%H:%M') %></p>
-              </div>
-            <% end %>
+          <% if @all_appointments_for_count == 0 %>
+            <div class="programme-free">
+              <p style="color: #bc6c25">Libre comme l'air...</p>
+              <p style="width: 25%"><%= image_tag "des-pierres.png" %></p>
+            </div>
           <% elsif %>
-          <div class="programme-free">
-            <p style="color: #bc6c25">Libre comme l'air...</p>
-            <p style="width: 25%"><%= image_tag "des-pierres.png" %></p>
-          </div>
+            <div class="card-appointment">
+              <% @three_appointments_to_come.each do |appointment| %>
+                  <div class="card-appointment <%= appointment.set_category_color %>">
+                    <div class="card-appointment-infos">
+                      <p style="font-size: 17px"><%= link_to appointment.title, appointment_path(appointment.id) %></p>
+                      <p><%= appointment.category %></p>
+                    </div>
 
-          </div>
+                    <p><i class="fa-solid fa-calendar-days" style="color: white"></i> <%= appointment.date.strftime ("%d/%m/%Y") %></p>
+                    <p><i class="fa-solid fa-clock" style="color: white"></i> <%= appointment.start_time.strftime('%H:%M') %></p>
+                  </div>
+              <% end %>
+            </div>
           <% end %>
         </div>
+
       <% end %>
-
-
-  </div>
-
-<% else %>
-
-
-<% end %>
+  <% else %>
+  <% end %>
+</div>
