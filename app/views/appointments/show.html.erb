@@ -29,8 +29,12 @@
 
       <p>Ce rendez-vous concerne: <%= @appointment.child.first_name %></p>
       <p class="appointments-details" id="details">Détails</p>
-      <p><%= @appointment.details %></p>
+      <p><%= @appointment.rich_details %></p>
+        <p>Documents utiles</p>
+              <%= @appointment.attachment %>
 
+        <p><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to "Télécharger le fichier", rails_blob_path(@document.attachment, disposition: "attachment"), class: "btn btn-primary" %></p>
+      <% end %>
       <p><i class="fa-solid fa-location-dot" style="color: #7F86FF; margin-top: 20px"></i> <%= @appointment.address %></p>
 
         <% if @appointment.address == "En Ligne" %>

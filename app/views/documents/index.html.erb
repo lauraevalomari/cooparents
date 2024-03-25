@@ -1,0 +1,56 @@
+<div class="row justify-content-center main-container">
+  <div class="col-12 col-sm-4">
+    <div class="form-design" style="min-height: 70%">
+          <div class="header-show">
+            <p style="font-weight: bold; margin-top: 5px">Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
+            <%= link_to "+Document", new_document_path, class: "btn-back" %>
+          </div>
+
+      <h3 class="mt-2 mb-3" style="font-weight: bold">Mes documents</h3>
+
+<% if @documents.present? %>
+        <% @documents.each_with_index do |document, index| %>
+          <div class="card-tasks-index">
+            <p class="text-end"><i class="fa-solid fa-eye"></i><%= link_to 'Voir', document_path(document) %></p>
+            <h4><%= link_to document.title, document_path(document) %></h4>
+            <div class="card-tasks-infos">
+              <div class="div">
+                <p><%= document.category %></p>
+                <p><%= document.doctype %></p>
+                <p><%= "Pour #{document.child.first_name}" if document.child.present? %></p>
+                <p>Créé par<%= document.document_creator.email.split('@').first.capitalize %></p>
+                <%# <p><%= link_to "Télécharger le document", rails_blob_path(document.attachment, disposition: "attachment") %>
+                <%# <p><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to "Télécharger le document", rails_blob_path(document.attachment, disposition: "attachment"), class: "btn btn-primary" %>
+              </div>
+                  <% if document.category == "Scolarité" %>
+                      <div class="category-class-violet">
+                        <p>Scolarité</p></div>
+                  <% elsif document.category == "Santé" %>
+                      <div class="category-class-turquoise">
+                        <p>Santé</p></div>
+                  <% elsif document.category == "Activités" %>
+                      <div class="category-class-pink">
+                        <p>Activités</p></div>
+                  <% elsif document.category == "Juridique" %>
+                      <div class="category-class-yellow">
+                       <p>Juridique</p></div>
+                  <% else %>
+                      <div class="category-class-green">
+                        <p>Autres</p></div>
+                </div>
+                 <% end %>
+              </div>
+        <% end %>
+            </div>
+          </div>
+
+
+  <% else %>
+    <div class="no-appointments">
+        <h2 class="text-center">Vous n'avez aucun document.</h2>
+    </div>
+  <% end %>
+            </div>
+        </div>
+    </div>
+</div>

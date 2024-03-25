@@ -1,0 +1,15 @@
+<div class="form-container">
+  <div class="form-design">
+    <%= simple_form_for @document do |f| %>
+      <div class="form-inputs">
+        <%= f.input :title, label: 'Titre du document', input_html: { id: 'title' } %>
+        <%= f.input :category, label: 'Catégorie', as: :radio_buttons, collection_wrapper_tag: 'div',collection_wrapper_class: 'category-wrapper', item_wrapper_class: 'category-item', input_html: {class: 'category-selector'}, collection: Document.categories.keys.map{ |key| [key.humanize, key] }, selected: @document.category, collection_wrapper_tag: 'div', collection_wrapper_class: 'category-wrapper', item_wrapper_class: 'category-item', input_html: {class: 'category-selector'} %>
+        <%= f.input :doctype, label: 'Type de document', as: :select, collection: Document.doctypes.keys.map{ |key| [key.humanize, key] }, selected: @document.doctype %>
+        <%= f.association :child, as: :radio_buttons, label: 'Enfant concerné (facultatif)',collection: @children.map { |child| [child.first_name, child.id] }, input_html: { class: "person-selector" }, item_wrapper_class: 'person-item' %>
+        <%= f.rich_text_area :rich_details, label: 'Détails', placeholder: "Commentaires (facultatif)", input_html: { id: 'details' } %>
+        <%= f.input :attachment, label: 'Ajouter le document', as: :file, input_html: { id: 'attachment' } %>
+      </div>
+      <%= f.submit 'Sauvegarder', class: "btn btn-primary btn-sm" %>
+    <% end %>
+  </div>
+</div>

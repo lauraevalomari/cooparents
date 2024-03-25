@@ -5,18 +5,23 @@
     <%= f.input :title, label: 'Objet', as: :string, input_html: { id: 'Objet' } %>
     <%= f.input :category, label: 'Catégorie', as: :radio_buttons, collection_wrapper_tag: 'div',collection_wrapper_class: 'category-wrapper', item_wrapper_class: 'category-item', input_html: {class: 'category-selector'}, collection: Appointment::CATEGORIES %>
     <%= f.association :child, as: :radio_buttons, label: 'Enfant concerné', collection: @children.map { |child| [child.first_name, child.id] }, input_html: { class: "person-selector" }, item_wrapper_class: 'person-item' %>
-    <%= f.input :child_presence_mandatory, label: 'Présence de l\'enfant obligatoire', as: :boolean, input_html: { class: "toggle" }, item_wrapper_class: 'tag-item' %>
+    <%= f.input :child_presence_mandatory, label: 'Enfant présent?', as: :boolean, input_html: { class: "toggle" }, item_wrapper_class: 'tag-item' %>
     <%= f.association :parent_in_charge, as: :radio_buttons, collection:  @parents.map { |parent| [parent.email.split('@').first.capitalize, parent.id] } , label: 'Parent en charge', input_html: { class: "person-selector" }, item_wrapper_class: 'person-item'%>
     <%= f.input :date, label: 'Date du rendez-vous', as: :string, input_html: { data: { flatpickr_target: "date" }, id: 'date' } %>
     <%= f.input :start_time, label: 'Heure de début', as: :string, input_html: { data: { flatpickr_target: "startTime" }, id: 'start_time' } %>
     <%= f.input :end_time, label: 'Heure de fin', as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
-          <%= f.input :address, :label => 'Adresse',
+    <%= f.input :contact, collection: Contact.all.map { |contact| [contact.first_name, contact.last_name, contact.id ]}, prompt: "Sélectionner un contact existant" %>
+
+    <%= f.input :address, :label => 'Adresse',
                       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
                       wrapper_html: {data: {controller: "address-autocomplete",
                                             address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
-    <%= f.input :details, label: 'Détails', as: :text, input_html: { id: 'détails' } %>
-    <%= f.submit 'Enregistrer le rendez-vous', class: "btn btn-primary btn-lg" %>
+    <%= f.rich_text_area :rich_details, label: 'Détails', placeholder: "Ajoutez les détails du rendez-vous si nécessaire", input_html: { id: 'détails' } %>
+    <%= f.input :attachment, as: :file, label: "Ajouter une pièce jointe (facultatif)" %>
+
+    <%= f.submit 'Enregistrer', class: "btn btn-primary btn-lg" %>
     <% end %>
 </form>
 </div>
   </div>
+</div>

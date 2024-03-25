@@ -1,8 +1,12 @@
 class Appointment < ApplicationRecord
   belongs_to :child
-  has_many :appointment_contacts
+  belongs_to :contact, optional: true
+  accepts_nested_attributes_for :contact
+  has_many :documents, as: :documentable
+  has_one_attached :attachment
   belongs_to :appointment_creator, class_name: "User"
   belongs_to :parent_in_charge, class_name: "User"
+  has_rich_text :rich_details
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   CATEGORIES = ['Santé', 'Scolarité', 'Activités', 'Juridique', 'Autres']

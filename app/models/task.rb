@@ -2,6 +2,9 @@ class Task < ApplicationRecord
   belongs_to :child
   belongs_to :task_creator, class_name: "User"
   belongs_to :parent_in_charge, class_name: "User"
+  has_many :documents, as: :documentable
+  has_one_attached :attachment
+  has_rich_text :rich_details
 
   CATEGORIES = ['Santé', 'Scolarité', 'Activités', 'Juridique', 'Autres']
 
