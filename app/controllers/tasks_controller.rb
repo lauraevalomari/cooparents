@@ -3,13 +3,11 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
 
   def index
     @tasks = Task.all
-    @tasks_to_do_today = Task.where("due_date = ?", Date.today).count
-    @tasks_preview = Task.where("due_date = ?", Date.today).order(created_at: :desc).limit(2)
-    @tasks_completed_today = Task.where("due_date = ? AND status = ?", Date.today, "completed").count
-    @percentage_completed = (@tasks_completed_today.to_f / @tasks_to_do_today.to_f) * 100
+    @all_tasks_for_user = Task.all_tasks_for_user(current_user) if current_user
   end
 
   def show
+
   end
 
   def new
@@ -31,7 +29,9 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
   end
 
   def update
-    @task.update(params[:task])
+    @task.update(status: true) if params[:status]
+    @task.update(params[:task]) if params[:task]
+    redirect_to task_path(@task)
   end
 
   def destroy
@@ -42,7 +42,7 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
   private
 
   def set_task
-    task = Task.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   def task_params

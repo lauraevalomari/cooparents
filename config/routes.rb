@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :tasks
   resources :children
   resources :contacts
+  get "/profile", to: "profiles#show"
 end

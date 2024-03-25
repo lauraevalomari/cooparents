@@ -1,40 +1,78 @@
-<h2>Bonjour <%# <%= current_user.email.split('@').first.capitalize %> </h2>
+  <div class="container">
+  <% if user_signed_in? %>
+    <div class="welcome">
+      <p>Bonjour <%= current_user.email.split('@').first.capitalize%></p>
+          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", class: "avatar", alt: "dropdown menu" %>
+          </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
 
-<div class="notification-icon">
-  <i class="fas fa-bell"></i>
-</div>
+    </div>
 
-<div class="container">
+    <div class="tasks">
+      <% if @all_pending_tasks_count >=2 %>
+        <p style="font-size: 28px; margin-bottom: 0px !important;">Vous avez</p>
+        <p style="font-size: 28px; color: #F4B7B6"><%= @all_pending_tasks_count %> tâches aujourd'hui</p>
+      <% elsif @all_pending_tasks_count == 1 %>
+        <p style="font-size: 28px; margin-bottom: 0px !important;">Vous avez</p>
+        <p style="font-size: 28px; color: #F4B7B6"><%= @all_pending_tasks_count %> tâche aujourd'hui</p>
+      <% elsif %>
+        <p style="font-size: 28px; margin-bottom: 0px !important;">Vous n'avez</p>
+        <p style="font-size: 28px; color: #F4B7B6">aucune tâche &#128526</p>
+      <% end %>
+    </div>
 
-  <div class="tasks">
-    <h2>Nombre de tâches à effectuer aujourd'hui : <%= @tasks_to_do_today %></h2>
-  </div>
+    <div id="progressbar" data-controller="progressbar" data-progressbar-percentage-value="<%= @percentage_completed %>">
+    </div>
 
-  <div class="circle">
-    <div class="percentage"><%= @percentage_completed %>%</div>
-  </div>
+    <div class="circle">
+      <div class="percentage"></div>
+    </div>
 
-  <div class="dashboard">
-    <h2>Aperçu des tâches pour aujourd'hui :</h2>
-    <ul>
-        <% if @tasks_preview.present? %>
-          <% @tasks_preview.each do |task| %>
-            <li><%= task.title %></li>
+    <div class="dashboard">
+      <p style="font-size: 24px; margin-bottom: 0px !important">Tableau de bord</p>
+      <p style="font-size: 15px; color: #B3B3B3">Les tâches à réaliser</p>
+      <ol>
+          <% if @two_first_tasks_for_user.present? %>
+            <% @two_first_tasks_for_user.each do |task| %>
+              <div class="link-show"><li><p><%= link_to task.title, task_path(task.id) %></p></li></div>
+            <% end %>
+          <% else %>
+            <p style="color: #bc6c25">Pas de tâche pour aujourd'hui!</p>
           <% end %>
-        <% else %>
-          <p>Aucune tâche à afficher pour aujourd'hui.</p>
-        <% end %>
-    </ul>
+      </ol>
+    </div>
+
+
+      <% if user_signed_in? %>
+        <div class="appointment mt-4">
+          <p style="font-size: 24px; margin-bottom: 0px !important">Votre programme</p>
+          <p style="color: #BDBDBD; margin-bottom: 20px !important">Les prochains rendez-vous</p>
+          <!-- TODO : itérer sur l'ensemble des appointements d'un utilisateur -->
+          <div class="card-appointment">
+            <% @five_appointments_to_come.each do |appointment| %>
+                <div class="card-appointment <%= appointment.set_category_color %>">
+                <div class="card-appointment-infos">
+                  <p style="font-size: 17px"><%= link_to appointment.title, appointment_path(appointment.id) %></p>
+                  <p><%= appointment.category %></p>
+                </div>
+
+                <p><i class="fa-solid fa-calendar-days" style="color: white"></i> <%= appointment.date.strftime ("%d/%m/%Y") %></p>
+                <p><i class="fa-solid fa-clock" style="color: white"></i> <%= appointment.start_time.strftime('%H:%M') %></p>
+              </div>
+            <% end %>
+
+          </div>
+
+        </div>
+      <% end %>
+
+
   </div>
 
-<div class="appointment">
-  <h2>Prochain rendez-vous à venir :</h2>
-  <% if @first_appointment_today.present? %>
-    <p><%= @first_appointment_today.title %></p>
-    <p>Date: <%= @first_appointment_today.date.strftime("%d/%m/%Y") %></p>
-    <p>Heure: <%= @first_appointment_today.start_time.strftime("%H:%M") %> - <%= @first_appointment_today.end_time.strftime("%H:%M") %></p>
-  <% else %>
-    <p>Aucun rendez-vous prévu pour aujourd'hui.</p>
-  <% end %>
-</div>
-</div>
+<% else %>
+
+
+<% end %>

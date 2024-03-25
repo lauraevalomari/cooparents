@@ -2,10 +2,33 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Antic&family=Protest+Riot&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora&family=Roboto:wght@100;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Antic", "Helvetica", "sans-serif";
-$headers-font: "Protect Riot", "Helvetica", "sans-serif";
+// $body-font: "Antic", "Helvetica", "sans-serif";
+// $headers-font: "Protect Riot", "Helvetica", "sans-serif";
+
+// p {
+//   font-family: "Archivo Black", sans-serif;
+//   font-weight: 400;
+//   font-style: normal;
+//   margin-bottom: 10px !important;
+//   line-height: 1.2;
+// }
+
+p, h3, h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 10px !important;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none !important;
+}
+
 
 // .antic-regular {
 //   font-family: "Antic", sans-serif;

@@ -13,3 +13,26 @@
 // Your CSS partials
 @import "components/index";
 @import "devise/devise_forms";
+
+.welcome-container {
+  background-color: #ecfaf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.logo {
+  max-width: 80%;
+  max-height: 80vh;
+}
+
+@media screen and (max-width: 428px) {
+  .logo {
+    max-width: 70%;
+  }
+}

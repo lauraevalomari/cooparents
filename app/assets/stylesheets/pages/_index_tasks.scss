@@ -1,0 +1,51 @@
+.card-tasks-index {
+  overflow: hidden;
+  border-radius: 10px;
+  border: #F9F9F9;
+  min-height: 100px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // display: flex;
+  // align-items: center;
+  text-align: start;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.card-tasks-index h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+.card-tasks-index a {
+  color: black;
+}
+.card-tasks-index p {
+  font-size: 12px;
+}
+.category-class-green {
+  background: #52b788;
+  color: #1b4332;
+  border-radius: 10px;
+  width: fit-content;
+  align-items: center;
+  padding-top: 7px;
+  padding-bottom: 0px;
+  padding-left: 7px;
+  padding-right: 8px;
+}
+.category-class-yellow {
+  background: #FFDEB4;
+  color: #FF9843;
+  border-radius: 10px;
+  width: fit-content;
+  align-items: center;
+  padding-top: 7px;
+  padding-bottom: 0px;
+  padding-left: 7px;
+  padding-right: 8px;
+}
+.card-tasks-infos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

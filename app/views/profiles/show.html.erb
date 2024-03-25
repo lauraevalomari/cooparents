@@ -1,0 +1,58 @@
+<div class="profile-design">
+  <div class="mb-5">
+    <h3 class="mt-2 mb-3" style="font-weight: bold">Mon profil</h3>
+    <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", class: "avatar-profile"%>
+  </div>
+
+   <div class="card-profile">
+      <div class="div">
+        <p><%= image_tag "parent.png", width: 30, height: 40 %></p>
+      </div>
+      <div class="div">
+        <p><%= current_user.email.split('@').first.capitalize %></p>
+      </div>
+   </div>
+
+   <div class="card-profile">
+      <div class="div">
+        <p><%= image_tag "email.png", width: 30, height: 40 %></p>
+      </div>
+      <div class="div">
+        <p><%= current_user.email %></p>
+      </div>
+   </div>
+
+   <div class="card-profile">
+      <div class="div">
+        <p><%= image_tag "children.png", width: 30, height: 40 %></p>
+      </div>
+      <div class="div">
+        <p><%= @list_children.join(", ") %></p>
+      </div>
+    </div>
+
+  <div class="user-access">
+    <div class="card-profile-task" style="background-color: #FFDEB4">
+      <div style="text-align: start">
+        <p ><%= link_to "Mes tâches", tasks_path %></p>
+        <% if @all_tasks_count >= 2 %>
+          <p style="font-size: 12px"><%= @all_tasks_count %> tâches en tout!</p>
+        <% elsif @all_tasks_count == 1%>
+          <p style="font-size: 12px"> 1 tâche seulement</p>
+        <% elsif %>
+        <p style="font-size: 12px"> Libre comme l'air!</p>
+        <% end %>
+      </div>
+      <%= link_to tasks_path do %>
+        <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
+      <% end %>
+   </div>
+
+    <div class="card-profile-task" style="background-color: #B2A4FF">
+      <p style="text-align: start"><%= link_to "Mes contacts", contacts_path %></p>
+      <%= link_to contacts_path do %>
+        <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
+      <% end %>
+    </div>
+  </div>
+</div>

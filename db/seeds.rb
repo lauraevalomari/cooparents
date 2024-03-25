@@ -9,6 +9,7 @@
 #   end
 puts "Cleaning Database..."
 Appointment.destroy_all
+Task.destroy_all
 Child.destroy_all
 User.destroy_all
 puts "Database cleaned..."
@@ -51,9 +52,9 @@ jade = Child.create!(
 puts "...and appointments..."
 foot_appointment = Appointment.create!(
   title: "Match de foot",
-  date: Date.new(2024,03,14),
-  start_time: DateTime.parse("14/03/2024 20:40"),
-  end_time: DateTime.parse("14/03/2024 22:00"),
+  date: Date.new(2024,04,04),
+  start_time: DateTime.parse("04/04/2024 20:40"),
+  end_time: DateTime.parse("04/04/2024 22:00"),
   category: "Activités",
   address: "261 Boulevard de Tournai, 59650 Villeneuve d'Ascq",
   appointment_creator_id: anna.id,
@@ -64,10 +65,10 @@ foot_appointment = Appointment.create!(
   )
 
   dentist_appointment = Appointment.create!(
-    title: "Dentist",
-    date: Date.new(2024,03,14),
-    start_time: DateTime.parse("14/03/2024 22:30"),
-    end_time: DateTime.parse("14/03/2024 23:00"),
+    title: "Dentiste",
+    date: Date.new(2024,04,02),
+    start_time: DateTime.parse("02/04/2024 22:30"),
+    end_time: DateTime.parse("02/04/2024 23:00"),
     category: "Santé",
     address: "4 Allée de la chambre, 33160 Bordeaux",
     appointment_creator_id: anna.id,
@@ -78,10 +79,10 @@ foot_appointment = Appointment.create!(
     )
 
     maths_appointment = Appointment.create!(
-      title: "Maths Class",
-      date: Date.new(2024,03,15),
-      start_time: DateTime.parse("14/03/2024 17:30"),
-      end_time: DateTime.parse("14/03/2024 19:00"),
+      title: "Soutien de maths",
+      date: Date.new(2024,03,23),
+      start_time: DateTime.parse("23/03/2024 17:30"),
+      end_time: DateTime.parse("23/03/2024 19:00"),
       category: "Scolarité",
       address: "En Ligne",
       appointment_creator_id: anna.id,
@@ -93,9 +94,9 @@ foot_appointment = Appointment.create!(
 
     birthday_appointment = Appointment.create!(
       title: "Anniversaire des 8 ans d'Inès",
-      date: Date.new(2024,03,16),
-      start_time: DateTime.parse("16/03/2024 14:00"),
-      end_time: DateTime.parse("16/03/2024 17:00"),
+      date: Date.new(2024,03,23),
+      start_time: DateTime.parse("23/03/2024 14:00"),
+      end_time: DateTime.parse("23/03/2024 17:00"),
       category: "Autres",
       address: "4 rue du Professeur Langevin, 59000 LILLE",
       appointment_creator_id: anna.id,
@@ -103,6 +104,56 @@ foot_appointment = Appointment.create!(
       user_id: anna.id,
       child_id: jade.id,
       details: "Anniversaire à l'Île de Tortuga. Prévoir un cadeau! Inès aime les activités manuelles. Prévoir une tenue décontractée (jogging + chaussettes).",
+    )
+
+    puts "...now tasks..."
+
+    homework_task = Task.create!(
+      title: "Devoir d'histoire",
+      category: "Scolarité",
+      details: "Préparer l'exposé sur la Révolution Française. Il faut que l'exposé repose sur 2 supports et dure maximum 15 minutes.",
+      requirements: "Livre d'histoire, ressources internet",
+      deadline: Date.new(2024,03,23),
+      status: false,
+      parent_in_charge_id: anna.id,
+      child_id: jade.id,
+      task_creator_id: anna.id
+    )
+
+    geek_task = Task.create!(
+      title: "Sortie exposition geek days",
+      category: "Autres",
+      details: "Prévoir une sortie pour cette fameuse expo! ",
+      requirements: "Avoir de bonnes notes à l'école...",
+      deadline: Date.new(2024,03,23),
+      status: false,
+      parent_in_charge_id: aaron.id,
+      child_id: jade.id,
+      task_creator_id: aaron.id
+    )
+
+    gift_task = Task.create!(
+      title: "Trouver un cadeau pour Inès",
+      category: "Autres",
+      details: "Chercher cadeau pour l'anniversaire",
+      requirements: "Elle aime les licornes. Et les bonbons.",
+      deadline: Date.new(2024,04,16),
+      status: false,
+      parent_in_charge_id: aaron.id,
+      child_id: jade.id,
+      task_creator_id: aaron.id
+    )
+
+    glasses_task = Task.create!(
+      title: "Récupérer les lunettes",
+      category: "Santé",
+      details: "Les lunettes sont arrivées chez l'opticien.",
+      requirements: "Ne pas oublier de prendre l'attestation de mutuelle",
+      deadline: Date.new(2024,04,06),
+      status: false,
+      parent_in_charge_id: aaron.id,
+      child_id: gabriel.id,
+      task_creator_id: aaron.id
     )
 
 puts '...Finished!'

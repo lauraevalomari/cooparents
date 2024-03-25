@@ -1,37 +1,97 @@
 // Specific CSS for your home-page
-.form-design {
-  // display: flex;
-  align-items: center;
-  background-color: white;
-  padding: 30px 30px 30px 30px;
-  margin-top: 50px;
-  margin-left: 30px;
-  margin-right: 30px;
-  border-radius: 16px;
-  box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
-  text-align: center;
-}
 
 .container {
   background-color: $white;
-  color: $purple;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  padding: 15px 15px 20px 20px;
 }
-
-.circle {
-  width: 100px;
+#progressbar{
+  margin: 30px;
+  width: 200px;
   height: 100px;
-  background-color: $light-yellow;
-  border-radius: 50%;
-  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+}
+.welcome p {
+  color: #8C8C8C;
+}
+.welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.img-avatar-home {
+  width: 50px;
+  height: 50px;
+}
+.card-appointment {
+  overflow: hidden;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // border: 1px solid $light-gray;
+  border-radius: 16px;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+}
+.card-appointment a {
+  color: white;
+}
+.violet {
+  background: #7F86FF;
+}
+.turquoise {
+  background: #96CCE2;
+}
+.pink {
+  background: #EFCED4;
+}
+.yellow {
+  background: #EACF99;
+}
+.green {
+  background: #588157;
+}
+.card-appointment-infos {
+  margin-bottom: 30px;
+}
+.link-show a {
+  color: black;
+}
+.link-show a:hover {
+  opacity: 0.5;
 }
 
-.percentage {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  color: $mint-green;
-}
+// .form-design {
+//   // display: flex;
+//   align-items: center;
+//   background-color: white;
+//   padding: 30px 30px 30px 30px;
+//   margin-top: 50px;
+//   margin-left: 30px;
+//   margin-right: 30px;
+//   border-radius: 16px;
+//   box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
+//   text-align: center;
+// }
+
+// .circle {
+//   width: 100px;
+//   height: 100px;
+//   background-color: $light-yellow;
+//   border-radius: 50%;
+//   position: relative;
+// }
+
+// .percentage {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   font-size: 24px;
+//   color: $mint-green;
+// }

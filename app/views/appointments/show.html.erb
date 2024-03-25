@@ -1,7 +1,11 @@
 <div class="row justify-content-center main-container">
   <div class="col-12 col-sm-4">
   <div class="form-design">
-       <div class="mb-2 flexbox">
+        <div class="header-show">
+          <p>Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
+          <%= link_to "Retour", :back, class: "btn-back" %>
+        </div>
+        <div class="mb-2 mt-2 flexbox">
         <% if @appointment.category == "Activités" %>
           <img src="https://images.teamshirts.net/image/upload/c_crop,w_5184,h_2206,x_0,y_231/q_auto,fl_lossy,f_auto,w_1920/New%20Landingpages/FR/maillots-enfant-personnalises" alt="">
         <% elsif @appointment.category == 'Scolarité'%>
@@ -20,17 +24,17 @@
         <p><img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-circle img-avatar"> <%= @appointment.parent_in_charge.email.split('@').first.capitalize %></p>
       </div>
 
-      <p><i class="fa-solid fa-calendar-days" style="color: #81EDAE"></i> <%= @appointment.date.strftime ("%d/%m/%Y") %></p>
-      <p><i class="fa-regular fa-clock" style="color: #FDF7C8"></i> <%= @appointment.start_time.strftime("%H:%M") %> à <%= @appointment.end_time.strftime("%H:%M") %></p>
+      <p><i class="fa-solid fa-calendar-days" style="color: #588157"></i> <%= @appointment.date.strftime ("%d/%m/%Y") %></p>
+      <p><i class="fa-regular fa-clock" style="color: #EACF99"></i> <%= @appointment.start_time.strftime("%H:%M") %> à <%= @appointment.end_time.strftime("%H:%M") %></p>
 
-      <p>Ce rendez-vous concerne: <%= @appointment.child.first_name %> <img src="https://images.unsplash.com/photo-1570045006801-08ec03621a42?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-circle img-avatar"></p>
-      <p class="appointments-details">Détails</p>
+      <p>Ce rendez-vous concerne: <%= @appointment.child.first_name %></p>
+      <p class="appointments-details" id="details">Détails</p>
       <p><%= @appointment.details %></p>
 
-      <p><i class="fa-solid fa-location-dot" style="color: #AFA6F9"></i> <%= @appointment.address %></p>
+      <p><i class="fa-solid fa-location-dot" style="color: #7F86FF; margin-top: 20px"></i> <%= @appointment.address %></p>
 
         <% if @appointment.address == "En Ligne" %>
-          <img src="https://www.gigamedia.fr/images/blog/20201216-informatique-enfant.jpg" alt="" style="width: 300px; height: 200px">
+          <img src="https://www.gigamedia.fr/images/blog/20201216-informatique-enfant.jpg" alt="" style="width: 230px; height: 160px">
         <% elsif %>
         <div id="map" class="mt-3 mb-5" style="width: 230px; height: 160px;"
           data-controller="map"
@@ -39,7 +43,7 @@
         <% end %>
     </div>
     <div class="d-flex justify-content-center mt-3 mb-5">
-      <%= link_to "Retour à ma liste de rendez-vous", appointments_path, class: "btn" %>
+
     </div>
   </div>
 
