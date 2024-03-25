@@ -3,7 +3,7 @@ class ChildrenController < ApplicationController
 
   def index
     @children = Child.all
-    @all_children_for_user = Child.all_children_for_user(current_user) if current_user
+    @all_children_for_user = current_user.children
   end
 
   def new
@@ -22,7 +22,6 @@ class ChildrenController < ApplicationController
   end
 
   def show
-    set_child
   end
 
   def edit
@@ -41,7 +40,7 @@ class ChildrenController < ApplicationController
   private
 
   def set_child
-    @child = Child.find(params[:child_id])
+    @child = Child.find(params[:id])
   end
 
   def child_params

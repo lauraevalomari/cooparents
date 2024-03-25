@@ -35,15 +35,6 @@
       </div>
    </div>
 
-    <div class="card-profile">
-      <div class="div">
-        <p><%= image_tag "mot-de-passe.png", width: 30, height: 40 %></p>
-      </div>
-      <div class="div">
-        <p><%= current_user.password %></p>
-      </div>
-   </div>
-
    <div class="card-profile">
       <div class="div">
         <p><%= image_tag "children.png", width: 30, height: 40 %></p>
@@ -96,8 +87,8 @@
    </div>
 
     <div class="card-profile-task" style="background-color: #FFBF69">
-      <p style="text-align: start"><%= link_to "Mes enfants", contacts_path %></p>
-      <%= link_to contacts_path do %>
+      <p style="text-align: start"><%= link_to "Mes enfants", children_path %></p>
+      <%= link_to children_path do %>
         <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
       <% end %>
     </div>
