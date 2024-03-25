@@ -10,7 +10,7 @@
                                             address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
     <%= f.input :phone_number, label: 'Numéro de téléphone', input_html: { id: 'phone_number' } %>
     <%= f.input :email, label: 'Email', input_html: { id: 'email' } %>
-    <%= f.input :category, label: 'Catégorie', as: :radio_buttons, collection_wrapper_tag: 'div',collection_wrapper_class: 'category-wrapper', item_wrapper_class: 'category-item', input_html: {class: 'category-selector'}, collection: Contact::CATEGORIES %>
+    <%= f.input :category, label: 'Catégorie', as: :radio_buttons, collection_wrapper_tag: 'div',collection_wrapper_class: 'category-wrapper', item_wrapper_class: 'category-item', input_html: {class: 'category-selector'}, collection: Contact::CATEGORIES,label_method: lambda { |category| render "appointments/category_label", category: category } %>
     <%= f.rich_text_area :rich_details, placeholder: "Ajoutez des commentaires si nécessaire", label: "Commentaires (facultatif)", input_html: { id: 'details' } %>
     <%= f.input :attachment, label: "Pièce jointe (facultatif)", as: :file, input_html: { id: 'attachment' } %>
     <%= f.submit 'Enregistrer', class: "btn btn-primary btn-lg" %>

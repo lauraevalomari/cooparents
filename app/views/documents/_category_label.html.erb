@@ -1,0 +1,14 @@
+<div>
+<%= category %>
+<% if category == 'Santé' %>
+  <i class="fa-solid fa-staff-snake"></i>
+<% elsif category == 'Scolarité'%>
+  <i class="fa-solid fa-graduation-cap"></i>
+<% elsif category == 'Activités'%>
+  <i class="fa-regular fa-futbol"></i>
+<% elsif category == 'Juridique'%>
+  <i class="fa-solid fa-gavel"></i>
+<% else %>
+  <i class="fa-solid fa-rocket"></i>
+<% end %>
+</div>
