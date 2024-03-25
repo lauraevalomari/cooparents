@@ -9,19 +9,18 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :appointments
-    # collection do
-    #   get :my_appointments
-    #   get :childs_appointments
-
-  # end
+  resources :appointments do
+    collection do
+      get :my_appointments
+      get :childs_appointments
+    end
+  end
 
   resources :tasks
   resources :children
   resources :contacts
   resources :documents
 
-  get "/appointments/all", to: "appointments#all"
 
   get "/profile", to: "profiles#show"
   get "/profile/edit", to: "profiles#edit"

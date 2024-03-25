@@ -1,4 +1,5 @@
 <h1>Mes rendez-vous</h1>
 
 <% @appointments.each do |appointment| %>
-<%= render appointment %>
+  <%= render "appointment", appointment: appointment %>
+<% end %>

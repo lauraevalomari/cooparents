@@ -87,7 +87,7 @@
   <div class="user-access">
     <div class="card-profile-task" style="background-color: #8ECAE6">
       <div style="text-align: start">
-        <p ><%= link_to "Mes RDV", appointments_all_path %></p>
+        <p ><%= link_to "Mes RDV", my_appointments_appointments_path %></p>
         <% if @all_appointments_for_count >= 2 %>
           <p style="font-size: 12px"><%= @all_appointments_for_count %> RDV en tout!</p>
         <% elsif @all_appointments_for_count == 1%>
@@ -96,7 +96,7 @@
         <p style="font-size: 12px"> Libre comme l'air!</p>
         <% end %>
       </div>
-      <%= link_to appointments_all_path do %>
+      <%= link_to my_appointments_appointments_path do %>
         <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
       <% end %>
    </div>
