@@ -3,7 +3,7 @@
    <%= simple_form_for @appointment, data: { controller: 'flatpickr' } do |f| %>
   <div class="form-inputs">
     <%= f.input :title, label: 'Objet', as: :string, input_html: { id: 'Objet' } %>
-    <%= f.input :category, label: 'Catégorie', as: :radio_buttons, collection_wrapper_tag: 'div',collection_wrapper_class: 'category-wrapper', item_wrapper_class: 'category-item', input_html: {class: 'category-selector'}, collection: Appointment::CATEGORIES %>
+    <%= f.input :category, label: 'Catégorie', as: :radio_buttons, collection_wrapper_tag: 'div',collection_wrapper_class: 'category-wrapper', item_wrapper_class: 'category-item', input_html: {class: 'category-selector'}, collection: Appointment::CATEGORIES, label_method: lambda { |category| render "appointments/category_label", category: category } %>
     <%= f.association :child, as: :radio_buttons, label: 'Enfant concerné', collection: @children.map { |child| [child.first_name, child.id] }, input_html: { class: "person-selector" }, item_wrapper_class: 'person-item' %>
     <%= f.input :child_presence_mandatory, label: 'Enfant présent?', as: :boolean, input_html: { class: "toggle" }, item_wrapper_class: 'tag-item' %>
     <%= f.association :parent_in_charge, as: :radio_buttons, collection:  @parents.map { |parent| [parent.email.split('@').first.capitalize, parent.id] } , label: 'Parent en charge', input_html: { class: "person-selector" }, item_wrapper_class: 'person-item'%>

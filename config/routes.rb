@@ -9,13 +9,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :appointments
     # collection do
     #   get :my_appointments
     #   get :childs_appointments
 
   # end
 
+  resources :appointments
   resources :tasks
   resources :children
   resources :contacts
