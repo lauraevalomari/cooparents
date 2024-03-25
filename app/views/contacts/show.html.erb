@@ -1,12 +1,44 @@
-<h1>Détails du contact</h1>
-<p><strong>Prénom:</strong> <%= @contact.first_name %></p>
-<p><strong>Nom:</strong> <%= @contact.last_name %></p>
-<p><strong>Adresse:</strong> <%= @contact.address %></p>
-<p><strong>Latitude:</strong> <%= @contact.latitude %></p>
-<p><strong>Longitude:</strong> <%= @contact.longitude %></p>
-<p><strong>Numéro de téléphone:</strong> <%= @contact.phone_number %></p>
-<p><strong>Email:</strong> <%= @contact.email %></p>
-<p><strong>Catégorie:</strong> <%= @contact.category %></p>
-<%= link_to 'Modifier', edit_contact_path(@contact) %> |
-<%= link_to 'Supprimer', @contact, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer ce contact?' } %> |
-<%= link_to 'Retour', contacts_path %>
+<!-- app/views/contacts/show.html.erb -->
+
+<div class="contact-details">
+  <h1 class="heading">Détails du contact</h1>
+  <div class="contact-info">
+    <div class="detail-row">
+      <div class="detail-label">Prénom:</div>
+      <div class="detail-value"><%= @contact.first_name %></div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-label">Nom:</div>
+      <div class="detail-value"><%= @contact.last_name %></div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-label">Adresse:</div>
+      <div class="detail-value"><%= @contact.address %></div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-label">Latitude:</div>
+      <div class="detail-value"><%= @contact.latitude %></div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-label">Longitude:</div>
+      <div class="detail-value"><%= @contact.longitude %></div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-label">Numéro de téléphone:</div>
+      <div class="detail-value"><%= @contact.phone_number %></div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-label">Email:</div>
+      <div class="detail-value"><%= @contact.email %></div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-label">Catégorie:</div>
+      <div class="detail-value"><%= @contact.category %></div>
+    </div>
+  </div>
+  <div class="buttons">
+    <%= link_to 'Modifier', edit_contact_path(@contact), class: 'btn btn-edit' %>
+    <%= link_to 'Supprimer', @contact, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer ce contact?' }, class: 'btn btn-delete' %>
+    <%= link_to 'Retour', contacts_path, class: 'btn btn-back' %>
+  </div>
+</div>
