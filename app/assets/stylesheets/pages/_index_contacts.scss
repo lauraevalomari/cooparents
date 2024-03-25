@@ -82,17 +82,24 @@ td {
   text-align: center;
 }
 
+.address-cell {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @media screen and (max-width: 414px) {
   th,
   td {
     padding: 4px;
-    font-size: 12px; /* Réduire la taille de la police */
+    font-size: 12px;
   }
   .btn-contact {
-    padding: 3px 8px; /* Réduire la taille des boutons */
-    font-size: 12px; /* Réduire la taille de la police des boutons */
-    width: auto; /* Réinitialiser la largeur */
-    height: auto; /* Réinitialiser la hauteur */
-    margin: 0; /* Réinitialiser les marges */
+    padding: 3px 8px;
+    font-size: 12px;
+    width: auto;
+    height: auto;
+    margin: 0;
   }
 }
