@@ -14,7 +14,11 @@ class PagesController < ApplicationController
 
     total_tasks = Task.where(parent_in_charge: current_user).count
     completed_tasks = Task.where(parent_in_charge: current_user, status: true).count
-    @percentage_completed = ((completed_tasks.to_f / total_tasks.to_f)*100).to_i
+    if total_tasks != 0
+      @percentage_completed = ((completed_tasks.to_f / total_tasks.to_f) * 100).to_i
+    else
+      @percentage_completed = 0
+    end
     redirect_to new_user_session_path unless current_user
   end
 end
