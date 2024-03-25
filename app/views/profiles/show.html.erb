@@ -68,20 +68,14 @@
       <%= link_to tasks_path do %>
         <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
       <% end %>
-   </div>
+    </div>
 
     <div class="card-profile-task" style="background-color: #B2A4FF">
       <p style="text-align: start"><%= link_to "Mes contacts", contacts_path %></p>
       <%= link_to contacts_path do %>
         <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
       <% end %>
-
     </div>
-        <div class="card-profile-task" style="background-color: #F4B7B6">
-      <p style="text-align: start"><%= link_to "Mes documents", documents_path %></p>
-      <%= link_to documents_path do %>
-        <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
-      <% end %>
   </div>
 
   <div class="user-access">
@@ -104,6 +98,16 @@
     <div class="card-profile-task" style="background-color: #FFBF69">
       <p style="text-align: start"><%= link_to "Mes enfants", contacts_path %></p>
       <%= link_to contacts_path do %>
+        <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="user-access">
+    <div class="card-profile-task" style="background-color: #F4B7B6">
+      <p style="text-align: start"><%= link_to "Mes documents", documents_path %></p>
+      <%= link_to documents_path do %>
         <p style="text-align: end; font-size: 25px"><i class="fa-solid fa-arrow-right" style="color: white;"></i></p>
       <% end %>
     </div>
