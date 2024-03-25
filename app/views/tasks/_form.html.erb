@@ -1,9 +1,27 @@
-<% simple_form_for(@task) do |f| %>
+<%= simple_form_for @task, data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :category,
+              label: 'Catégorie',
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'category-wrapper',
+              item_wrapper_class: 'category-item',
+              input_html: {class: 'category-selector'},
+              collection: Task::CATEGORIES %>
   <%= f.input :title, :label => 'Intitulé de la tâche' %>
-  <%= f.input :requirements, :label => "Prérequis", placeholder: "Indiquez les prérequis nécessaires à la réalisation de cette tâche" %>
-  <%= f.input :category, :label => 'Catégorie' %>
+  <%= f.association :parent_in_charge,
+                    as: :radio_buttons,
+                    collection:  @parents.map { |parent| [parent.email.split('@').first.capitalize, parent.id] } ,
+                    label: 'Qui sera en charge?',
+                    input_html: { class: "person-selector" },
+                    item_wrapper_class: 'person-item'%>
+  <%= f.association :child,
+                    as: :radio_buttons,
+                    label: 'Pour qui?',
+                    collection: @children.map { |child| [child.first_name, child.id] },
+                    input_html: { class: "person-selector" },
+                    item_wrapper_class: 'person-item' %>
+  <%= f.input :deadline, :label => "Date d'échéance", as: :string, input_html: { data: { flatpickr_target: "date" }, id: 'date' } %>
   <%= f.input :details, :label => 'Détails' %>
-  <%= f.input :parent_in_charge_id, :label => 'Parent en charge de cette tâche' %>
-  <%= f.input :deadline, :label => "Date d'échéance" %>
-  <%= f.input :status, :label => 'Statut' %>
+  <%= f.input :requirements, :label => "Prérequis", placeholder: "Indiquez les prérequis nécessaires à la réalisation de cette tâche" %>
+  <%= f.submit "Valider", class:"btn-delete" %>
 <% end %>

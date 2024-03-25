@@ -3,7 +3,7 @@
     <div class="welcome">
       <p>Bonjour <%= current_user.email.split('@').first.capitalize%></p>
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", class: "avatar", alt: "dropdown menu" %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
@@ -12,12 +12,19 @@
     </div>
 
     <div class="tasks">
-      <p style="font-size: 28px; margin-bottom: 0px !important;">Vous avez</p>
-      <p style="font-size: 28px; color: #F4B7B6"><%= @two_first_tasks_count %> tâches aujourd'hui</p>
+      <% if @all_pending_tasks_count >=2 %>
+        <p style="font-size: 28px; margin-bottom: 0px !important;">Vous avez</p>
+        <p style="font-size: 28px; color: #F4B7B6"><%= @all_pending_tasks_count %> tâches aujourd'hui</p>
+      <% elsif @all_pending_tasks_count == 1 %>
+        <p style="font-size: 28px; margin-bottom: 0px !important;">Vous avez</p>
+        <p style="font-size: 28px; color: #F4B7B6"><%= @all_pending_tasks_count %> tâche aujourd'hui</p>
+      <% elsif %>
+        <p style="font-size: 28px; margin-bottom: 0px !important;">Vous n'avez</p>
+        <p style="font-size: 28px; color: #F4B7B6">aucune tâche &#128526</p>
+      <% end %>
     </div>
 
     <div id="progressbar" data-controller="progressbar" data-progressbar-percentage-value="<%= @percentage_completed %>">
-      <%  %>
     </div>
 
     <div class="circle">
@@ -27,23 +34,29 @@
     <div class="dashboard">
       <p style="font-size: 24px; margin-bottom: 0px !important">Tableau de bord</p>
       <p style="font-size: 15px; color: #B3B3B3">Les tâches à réaliser</p>
-      <ol>
+
           <% if @two_first_tasks_for_user.present? %>
             <% @two_first_tasks_for_user.each do |task| %>
+            <ol>
               <div class="link-show"><li><p><%= link_to task.title, task_path(task.id) %></p></li></div>
-            <% end %>
+              <% end %>
+            </ol>
           <% else %>
-            <p style="color: #bc6c25">Pas de tâche pour aujourd'hui!</p>
+            <div class="programme-free">
+              <p style="color: #bc6c25; margin-bottom: 0px !important">Pas de tâche pour aujourd'hui!</p>
+              <p><span style="color: #bc6c25">Bien joué</span> <span style="font-size: 20px">&#128170</span></p>
+            </div>
           <% end %>
-      </ol>
+
     </div>
 
 
       <% if user_signed_in? %>
-        <div class="appointment mt-4">
-          <p style="font-size: 24px; margin-bottom: 0px !important">Votre programme</p>
+        <div class="appointment mt-2">
+          <p style="font-size: 24px; margin-bottom: 0px !important;">Votre programme</p>
           <p style="color: #BDBDBD; margin-bottom: 20px !important">Les prochains rendez-vous</p>
           <!-- TODO : itérer sur l'ensemble des appointements d'un utilisateur -->
+          <% if @appointment.present? %>
           <div class="card-appointment">
             <% @five_appointments_to_come.each do |appointment| %>
                 <div class="card-appointment <%= appointment.set_category_color %>">
@@ -56,9 +69,14 @@
                 <p><i class="fa-solid fa-clock" style="color: white"></i> <%= appointment.start_time.strftime('%H:%M') %></p>
               </div>
             <% end %>
-
+          <% elsif %>
+          <div class="programme-free">
+            <p style="color: #bc6c25">Libre comme l'air...</p>
+            <p style="width: 25%"><%= image_tag "des-pierres.png" %></p>
           </div>
 
+          </div>
+          <% end %>
         </div>
       <% end %>
 

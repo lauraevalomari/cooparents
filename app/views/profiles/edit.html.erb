@@ -1,0 +1,19 @@
+<div class="profile-design">
+  <div class="mb-5">
+    <h3 class="mt-2 mb-3" style="font-weight: bold">Modification de profil</h3>
+    <%= cl_image_tag current_user.photo.key , class: "avatar-profile"%>
+  </div>
+
+  <%= simple_form_for current_user, url: profile_path, method: :patch do |f| %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :first_name, :label => 'Prénom' %>
+    <%= f.input :email, :label => 'Adresse mail'%>
+    <%= f.input :phone_number, :label => 'Numéro de téléphone' %>
+    <%= f.input :encrypted_password, :label => 'Mon nouveau mot de passe' %>
+    <%= f.submit 'Valider', class: "btn-update", style: "width: 100%" %>
+  <% end %>
+
+  <div style="width: 100%">
+    <%= link_to "Annuler les modifications", profile_path, class: "btn-update", style: " margin-bottom: 10px; width: 200px" %>
+  </div>
+</div>

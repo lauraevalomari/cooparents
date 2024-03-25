@@ -18,7 +18,7 @@ body {
     font-weight: bolder;
     margin-bottom: 30px;
     text-align: center;
-    font-family: 'Protest Riot';
+    font-family: 'Poppins';
   }
 
   .form-design {
@@ -35,15 +35,15 @@ body {
 }
 
 input {
-  border-color: #F4B7B6;
+  border-color: grey;
 }
 
-input:hover {
-  border-color: #AFA6F9;
-}
+// input:hover {
+//   border-color: #AFA6F9;
+// }
 
 .form-control {
-  border-color: #F4B7B6;
+  border-color: grey;
   background-color: white;
 }
 
@@ -52,21 +52,27 @@ input:hover {
   box-shadow: 0 0 0 0.25rem rgba(129, 237, 174, 0.25);
 }
 
-.form-control:focus {
-  border-color: #81EDAE;
-  box-shadow: 0 0 0 0.25rem rgba(129, 237, 174, 0.25);
-}
+// .form-control:focus {
+//   border-color: #81EDAE;
+//   box-shadow: 0 0 0 0.25rem rgba(129, 237, 174, 0.25);
+// }
 
 .form-check-input:checked {
   background-color: #81EDAE;
   border-color: #81EDAE;
   box-shadow: 0 0 0 0.25rem rgba(129, 237, 174, 0.25);
 }
-
-.form-check-input {
-  background-color: white;
-  border-color: #F4B7B6;
+.form-check-input.is-valid ~ .form-check-label {
+  color: #588157;
 }
+.form-control.is-valid {
+  border: 2px solid #7DC776;
+}
+
+// .form-check-input {
+//   background-color: white;
+//   border-color: #F4B7B6;
+// }
 
 .btn {
   width: 80%;
@@ -243,6 +249,8 @@ input:hover {
 .person-item {
   display: inline-block;
   text-align: center;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .person-selector {
@@ -266,7 +274,7 @@ input:hover {
 }
 
 .person-selector:checked + label {
-  background-color: #81EDAE;
-  border-color: #81EDAE;
-  color: white;
+  background-color: #AFA6F9;
+  border-color: #AFA6F9;
+  color: #ECEAFF;
 }

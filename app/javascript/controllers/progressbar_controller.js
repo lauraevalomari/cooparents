@@ -21,16 +21,16 @@ export default class extends Controller {
         value: '',
         alignToBottom: false
       },
-      from: {color: '#FFEA82'},
-      to: {color: '#ED6A5A'},
+      from: {color: '#ED6A5A'},
+      to: {color: '#2bf424'},
       // Set default step function for all animate calls
       step: (state, bar) => {
         bar.path.setAttribute('stroke', state.color);
         var value = this.percentageValue;
         if (value === 0) {
-          bar.setText('0');
+          bar.setText('0%');
         } else {
-          bar.setText(value);
+          bar.setText(`${value}%`);
         }
 
         bar.text.style.color = state.color;
@@ -39,6 +39,6 @@ export default class extends Controller {
     bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
     bar.text.style.fontSize = '2rem';
 
-    bar.animate(1.0);  // Number from 0.0 to 1.0
+    bar.animate(this.percentageValue/100);  // Number from 0.0 to 1.0
   }
 }

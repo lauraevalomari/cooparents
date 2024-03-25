@@ -12,6 +12,8 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
 
   def new
     @task = Task.new
+    @children = current_user.children
+    @parents = @children.map(&:parents).flatten.uniq
   end
 
   def create
@@ -25,13 +27,25 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
   end
 
   def edit
-
+    @children = current_user.children
+    @parents = @children.map(&:parents).flatten.uniq
   end
 
   def update
+
     @task.update(status: true) if params[:status]
     @task.update(params[:task]) if params[:task]
     redirect_to task_path(@task)
+
+    if @task.update(task_params)
+      redirect_to task_path(@task), notice: "Changements enregistrés avec succès."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+
+    @children = current_user.children
+    @parents = @children.map(&:parents).flatten.uniq
+
   end
 
   def destroy
@@ -46,6 +60,6 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
   end
 
   def task_params
-    params.require(:task).permit(:title, :deadline, :requirements, :status, :details, :category, :parent_in_charge_id)
+    params.require(:task).permit(:title, :deadline, :requirements, :child_id, :details, :category, :parent_in_charge_id)
   end
 end
