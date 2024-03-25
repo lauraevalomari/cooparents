@@ -32,15 +32,16 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
   end
 
   def update
+
+    @task.update(status: true) if params[:status]
+    @task.update(params[:task]) if params[:task]
+    redirect_to task_path(@task)
+
     if @task.update(task_params)
       redirect_to task_path(@task), notice: "Changements enregistrés avec succès."
     else
       render :edit, status: :unprocessable_entity
     end
-
-    @task.update(status: true) if params[:status]
-    @task.update(params[:task]) if params[:task]
-    redirect_to task_path(@task)
 
     @children = current_user.children
     @parents = @children.map(&:parents).flatten.uniq
