@@ -1,0 +1,64 @@
+
+.contact-details {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: $light-gray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: rgba($light-yellow,0.1);
+}
+
+.detail-row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.detail-label {
+  flex: 1;
+  font-weight: bold;
+}
+
+.detail-value {
+  flex: 2;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: $purple;
+  color: $white;
+}
+
+.btn-delete {
+  background-color: $orange;
+  color: $white;
+}
+
+.btn-back {
+  background-color: $pink;
+  color: $white;
+}
