@@ -1,0 +1,69 @@
+<div class="row justify-content-center main-container">
+  <div class="col-12 col-sm-4">
+    <div class="form-design">
+        <div class="header-show">
+          <p>Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
+          <%= link_to "Retour", :back, class: "btn-back" %>
+        </div>
+
+      <h3 class="mt-2" style="font-weight: bold">Mon document</h3>
+      <h4 class="mt-2" style="font-size: 18px"><%= @document.title %></h4>
+      <div class="flexbox card-task pt-4">
+        <p style="color: grey"><i class="fa-solid fa-folder-tree"style="color: #adafb3"></i> Catégorie</p>
+        <% if @document.category == "Scolarité" %>
+            <div class="category-class-violet">
+            <p>Scolarité</p></div>
+        <% elsif @document.category == "Santé" %>
+            <div class="category-class-turquoise">
+            <p>Santé</p></div>
+        <% elsif @document.category == "Activités" %>
+            <div class="category-class-pink">
+            <p>Activités</p></div>
+        <% elsif @document.category == "Juridique" %>
+            <div class="category-class-yellow">
+            <p>Juridique</p></div>
+        <% else %>
+            <div class="category-class-green">
+            <p>Autres</p></div>
+        <% end %>
+      </div>
+
+    <% if @document.doctype.present? %>
+      <div class="flexbox card-task">
+        <p style="color: grey"><i class="fa-solid fa-file-circle-question"style="color: #adafb3"></i> Nature du document</p>
+        <p><%= @document.doctype %></p>
+      </div>
+    <% end %>
+
+
+        <div class="flexbox card-task">
+          <p style="color: grey"><i class="fa-solid fa-file-circle-question"style="color: #adafb3"></i> Document ajouté par <%= @document.document_creator.email.split('@').first.capitalize %></p>
+
+        </div>
+
+      <% if @document.child.present? %>
+        <div class="flexbox card-task">
+          <p style="color: grey"><i class="fa-solid fa-fa-children"style="color: #adafb3"></i> Ce document concerne <%= @document.child.first_name %> </p>
+        </div>
+      <% end %>
+
+      <% if @document.rich_details.present? %>
+        <div class="flexbox card-task">
+          <p style="color: grey"><i class="fa-duotone fa-comments"style="color: #adafb3"></i> Commentaires <%= @document.rich_details %> </p>
+        </div>
+      <% end %>
+
+        <div class="flexbox card-task">
+          <p style="color: grey"><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to "Télécharger le document", rails_blob_path(@document.attachment, disposition: "attachment") %></p>
+      </div>
+
+      <div class="mt-4 form-links"><%= link_to "Modifier ce document",
+        edit_document_path(@document) %>
+    </div>
+      <div class="mt-4"><%= link_to "Supprimer ce document",
+        document_path(@document),
+        class: "btn-delete",
+        data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr(e)?"} %>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,8 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
   end
 
   def new
+    @children = current_user.children
+    @parents = @children.map(&:parents).flatten.uniq
     @task = Task.new
     @children = current_user.children
     @parents = @children.map(&:parents).flatten.uniq
@@ -60,6 +62,6 @@ before_action :set_task, only: [:show, :destroy, :edit, :update]
   end
 
   def task_params
-    params.require(:task).permit(:title, :deadline, :requirements, :child_id, :details, :category, :parent_in_charge_id)
+    params.require(:task).permit(:title, :deadline, :requirements, :status, :rich_details, :category, :parent_in_charge_id, :attachment)
   end
 end

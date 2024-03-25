@@ -32,6 +32,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.user_id = current_user.id
     @appointment.appointment_creator_id = current_user.id
+
     if @appointment.save
       redirect_to appointment_path(@appointment)
     else
@@ -81,6 +82,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:title, :category, :child_id, :child_presence_mandatory, :date, :start_time, :end_time, :parent_in_charge_id, :address, :details)
+    params.require(:appointment).permit(:title, :category, :child_id, :child_presence_mandatory, :date, :start_time, :end_time, :parent_in_charge_id, :address, :rich_details, :contact_id, :attachment)
   end
 end
