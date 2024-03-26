@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_25_111649) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_25_162133) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -147,6 +147,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_111649) do
     t.index ["child_id"], name: "index_documents_on_child_id"
     t.index ["document_creator_id"], name: "index_documents_on_document_creator_id"
     t.index ["documentable_type", "documentable_id"], name: "index_documents_on_documentable"
+  end
+
+  create_table "fichiers", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
