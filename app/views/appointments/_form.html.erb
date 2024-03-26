@@ -14,8 +14,8 @@
                       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
                       wrapper_html: {data: {controller: "address-autocomplete",
                                             address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
-    <%= f.rich_text_area :rich_details, label: 'Détails', placeholder: "Ajoutez les détails du rendez-vous si nécessaire", input_html: { class: 'détails' } %>
-    <%= f.input :attachment, as: :file, label: "Ajouter une pièce jointe" %>
+    <%= f.rich_text_area :rich_details, label: 'Détails', placeholder: "Ajoutez les détails du rendez-vous si nécessaire", input_html: { id: 'détails' } %>
+    <%= f.input :attachment, as: :file, label: "Ajouter une pièce jointe (facultatif)" %>
 
     <%= f.submit 'Enregistrer', class: "btn btn-primary btn-lg" %>
     <% end %>

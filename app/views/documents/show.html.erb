@@ -3,7 +3,7 @@
     <div class="form-design">
         <div class="header-show">
           <p>Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
-          <%= link_to "Retour", documents_path, class: "btn-back" %>
+          <%= link_to "Retour", :back, class: "btn-back" %>
         </div>
 
       <h3 class="mt-2" style="font-weight: bold">Mon document</h3>
