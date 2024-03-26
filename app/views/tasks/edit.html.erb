@@ -32,7 +32,7 @@
         <%= f.input :deadline, :label => "Date d'échéance", as: :string, input_html: { data: { flatpickr_target: "date" }, id: 'date' } %>
         <%= f.input :details, :label => 'Détails' %>
         <%= f.input :requirements, :label => "Prérequis", placeholder: "Indiquez les prérequis nécessaires à la réalisation de cette tâche" %>
-        <%= f.submit "Valider", class: "btn-delete" %>
+        <%= f.submit "Valider", class: "btn btn-primary", style: "margin-bottom: 40px;" %>
       <% end %>
 
 
