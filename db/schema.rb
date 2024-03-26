@@ -156,6 +156,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_162133) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "action"
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
+    t.bigint "document_id", null: false
+    t.bigint "contact_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_notifications_on_contact_id"
+    t.index ["document_id"], name: "index_notifications_on_document_id"
+    t.index ["task_id"], name: "index_notifications_on_task_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.date "deadline"
