@@ -9,7 +9,7 @@
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
     </div>
-
+  <div class="container-task">
     <div class="tasks">
       <% if @all_pending_tasks_count >=2 %>
         <p style="font-size: 28px; margin-bottom: 0px !important;">Vous avez</p>
@@ -41,6 +41,7 @@
             </div>
           <% end %>
     </div>
+  </div>
 
 
       <% if user_signed_in? %>
