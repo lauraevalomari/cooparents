@@ -97,9 +97,9 @@ foot_appointment = Appointment.create!(
 
     maths_appointment = Appointment.create!(
       title: "Soutien de maths",
-      date: Date.new(2024,03,23),
-      start_time: DateTime.parse("23/03/2024 17:30"),
-      end_time: DateTime.parse("23/03/2024 19:00"),
+      date: Date.new(2024,03,26),
+      start_time: DateTime.parse("26/03/2024 17:30"),
+      end_time: DateTime.parse("26/03/2024 19:00"),
       category: "Scolarité",
       address: "En Ligne",
       appointment_creator_id: anna.id,
@@ -111,9 +111,9 @@ foot_appointment = Appointment.create!(
 
     birthday_appointment = Appointment.create!(
       title: "Anniversaire des 8 ans d'Inès",
-      date: Date.new(2024,03,23),
-      start_time: DateTime.parse("23/03/2024 14:00"),
-      end_time: DateTime.parse("23/03/2024 17:00"),
+      date: Date.new(2024,03,26),
+      start_time: DateTime.parse("26/03/2024 14:00"),
+      end_time: DateTime.parse("26/03/2024 17:00"),
       category: "Autres",
       address: "4 rue du Professeur Langevin, 59000 LILLE",
       appointment_creator_id: anna.id,
