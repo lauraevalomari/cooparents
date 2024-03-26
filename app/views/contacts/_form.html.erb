@@ -1,4 +1,6 @@
-    <%= simple_form_for @contact do |f| %>
+<div class="form-container">
+  <div class="form-design">
+  <%= simple_form_for @contact do |f| %>
   <div class="form-inputs">
     <%= f.input :first_name, label: 'Prénom', input_html: { id: 'first_name' } %>
     <%= f.input :last_name, label: 'Nom', input_html: { id: 'last_name' } %>
@@ -11,6 +13,9 @@
     <%= f.input :category, label: 'Catégorie', as: :radio_buttons, collection_wrapper_tag: 'div',collection_wrapper_class: 'category-wrapper', item_wrapper_class: 'category-item', input_html: {class: 'category-selector'}, collection: Contact::CATEGORIES,label_method: lambda { |category| render "appointments/category_label", category: category } %>
     <%= f.rich_text_area :rich_details, placeholder: "Ajoutez des commentaires si nécessaire", label: "Commentaires (facultatif)", input_html: { id: 'details' } %>
     <%= f.input :attachment, label: "Pièce jointe (facultatif)", as: :file, input_html: { id: 'attachment' } %>
-    </div>
     <%= f.submit 'Enregistrer', class: "btn btn-primary btn-lg" %>
     <% end %>
+</form>
+</div>
+  </div>
+</div>
