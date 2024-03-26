@@ -31,7 +31,11 @@
       <p class="appointments-details" id="details">Détails</p>
       <p><%= @appointment.rich_details %></p>
         <p>Documents utiles</p>
-        <p><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to "Télécharger le fichier", rails_blob_path(@appointment.attachment, disposition: "attachment"), class: "btn btn-primary" %></p>
+          <% if @appointment.attachment.attached? %>
+            <p><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to "Télécharger le fichier", rails_blob_path(@appointment.attachment, disposition: "attachment"), class: "btn btn-primary" %></p>
+          <% else %>
+            <p>Aucun fichier attaché</p>
+          <% end %>
       <p><i class="fa-solid fa-location-dot" style="color: #7F86FF; margin-top: 20px"></i> <%= @appointment.address %></p>
 
         <% if @appointment.address == "En Ligne" %>
