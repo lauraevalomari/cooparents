@@ -1,5 +1,28 @@
-<h1>Mes rendez-vous</h1>
+<div class="row justify-content-center main-container">
+  <div class="col-12 col-sm-4">
+    <div class="form-design" style="min-height: 70%">
+          <div class="header-show">
+            <p style="font-weight: bold; margin-top: 5px">Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
+            <%= link_to "Retour", profile_path, class: "btn-back" %>
+          </div>
 
-<% @appointments.each do |appointment| %>
-  <%= render "appointment", appointment: appointment %>
-<% end %>
+      <h3 class="mt-2 mb-3" style="font-weight: bold">Mes RDV</h3>
+
+
+        <% @appointments.each do |appointment| %>
+          <div class="card-tasks-index">
+            <h4><%= link_to appointment.title, appointment_path(appointment) %></h4>
+            <div class="card-tasks-infos">
+              <div class="div">
+                <p>Pour: <%= appointment.child.first_name %></p>
+                <p><i class="fa-solid fa-calendar-days" style="color: #EACF99"></i> <%= appointment.date.strftime ("%d/%m/%Y") %></p>
+                <p><i class="fa-solid fa-clock" style="color: #B197FC;"></i> <%= appointment.start_time.strftime("%H:%M") %> à <%= appointment.end_time.strftime("%H:%M") %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+
+    </div>
+  </div>
+</div>

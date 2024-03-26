@@ -54,14 +54,39 @@
 .card-task img {
   padding-bottom: 5px;
 }
+
+.card-task-details {
+  margin-top: 20px !important;
+  // display: flex;
+  position: relative;
+  margin-bottom: 20px;
+  padding: 5px;
+  // background-color: #DDA15E;
+  // border: 1px solid grey;
+  text-decoration: none;
+  border-radius: 5px;
+  // text-align: center;
+  // justify-content: space-between;
+  // font-weight: bolder;
+  align-items: center;
+}
+
+.card-task-details p {
+  margin-bottom: 0px !important;
+  font-size: 14px;
+  font-weight: bold;
+}
 .modify-icon {
   color: black !important;
   position: absolute;
-  top: 120px;
-  right: 80px;
   cursor: pointer;
 }
 .show-icons {
   display: flex;
+  justify-content: space-between;
+}
+.status-flag {
+  display: flex;
+  text-align: end;
   justify-content: space-between;
 }
