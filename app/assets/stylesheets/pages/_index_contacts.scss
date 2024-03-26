@@ -17,7 +17,7 @@ table {
 
 
 th {
-  background-color: rgba($orange, 0.5); ;
+  background-color: rgba($purple, 0.1) ;
   text-align: left;
   padding: 8px;
 }
@@ -25,7 +25,14 @@ th {
 
 td {
   padding: 8px;
-  background-color: rgba($light-yellow, 0.5);
+  background-color: $white;
+}
+
+.container {
+  background-color: $white;
+  margin: 8px;
+  width: auto;
+
 }
 
 
@@ -83,7 +90,7 @@ td {
 }
 
 .address-cell {
-  max-width: 150px;
+  max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
