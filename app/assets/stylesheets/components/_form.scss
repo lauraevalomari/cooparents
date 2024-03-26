@@ -1,6 +1,37 @@
 body {
   background-color: white;
 }
+
+// #appointment_contact > option {
+//   text-transform: none;
+//   word-wrap:break-word;
+//   line-height: 1.5;
+//   line-width: 40%;
+//   color: var(--bs-body-color);
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+//   font-size: 10px;
+//   width: 10px;
+
+// }
+
+
+
+
+#form-design-appointments {
+  background-color: white;
+  padding: 30px 30px 50px 30px;
+  margin-top: 50px;
+  margin-left: 30px;
+  margin-bottom: 80px;
+  margin-right: 30px;
+  border-radius: 16px;
+  box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
+  text-align: center;
+
+}
+
 .form-container {
   // display: flex;
   height: 100%;
@@ -22,8 +53,6 @@ body {
   }
 
   .form-design {
-    // display: flex;
-    align-items: center;
     background-color: white;
     padding: 30px 30px 30px 30px;
     margin-top: 50px;
@@ -31,7 +60,6 @@ body {
     margin-right: 30px;
     border-radius: 16px;
     box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
-    text-align: center;
 }
 
 input {
@@ -252,6 +280,7 @@ input {
   text-align: center;
   margin-right: 5px;
   margin-left: 5px;
+
 }
 
 .person-selector {
@@ -272,7 +301,7 @@ input {
   border: 1px solid #AFA6F9;
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
-}
+  }
 
 .person-selector:checked + label {
   background-color: #AFA6F9;
@@ -394,4 +423,9 @@ input {
   background-color: #F4B7B6;
   border-color: #F4B7B6;
   color: white;
+}
+
+.contact-selector {
+font-size: 0.8rem;
+
 }

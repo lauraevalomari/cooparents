@@ -1,6 +1,4 @@
-<div class="form-container">
-  <div class="form-design">
-   <%= simple_form_for @appointment, data: { controller: 'flatpickr' } do |f| %>
+  <%= simple_form_for @appointment, data: { controller: 'flatpickr' } do |f| %>
   <div class="form-inputs">
     <%= f.input :title, label: 'Objet', as: :string, input_html: { id: 'Objet' } %>
     <%= f.input :category, label: 'Catégorie', as: :radio_buttons, collection_wrapper_tag: 'div',collection_wrapper_class: 'category-wrapper', item_wrapper_class: 'category-item', input_html: {class: 'category-selector'}, collection: Appointment::CATEGORIES, label_method: lambda { |category| render "appointments/category_label", category: category } %>
@@ -10,7 +8,7 @@
     <%= f.input :date, label: 'Date du rendez-vous', as: :string, input_html: { data: { flatpickr_target: "date" }, id: 'date' } %>
     <%= f.input :start_time, label: 'Heure de début', as: :string, input_html: { data: { flatpickr_target: "startTime" }, id: 'start_time' } %>
     <%= f.input :end_time, label: 'Heure de fin', as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
-    <%= f.input :contact, collection: Contact.all.map { |contact| [contact.first_name, contact.last_name, contact.id ]}, prompt: "Sélectionner un contact existant" %>
+    <%= f.input :contact, collection: Contact.all.map { |contact| [contact.first_name, contact.last_name, contact.id ]}, prompt: "Sélectionner un contact existant", input_html: { class: "contact-selector "}, item_wrapper_class: 'contact-item'%>
 
     <%= f.input :address, :label => 'Adresse',
                       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
