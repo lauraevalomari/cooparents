@@ -12,9 +12,10 @@
         <% @documents.each_with_index do |document, index| %>
           <div class="card-tasks-index">
             <p class="text-end"><i class="fa-solid fa-eye"></i><%= link_to 'Voir', document_path(document) %></p>
-            <h4><%= link_to document.title, document_path(document) %></h4>
             <div class="card-tasks-infos">
               <div class="div">
+                          <h4><%= link_to document.title, document_path(document) %></h4>
+
                 <p><%= document.category %></p>
                 <p><%= document.doctype %></p>
                 <p><%= "Pour #{document.child.first_name}" if document.child.present? %></p>
