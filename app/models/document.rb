@@ -4,7 +4,7 @@ class Document < ApplicationRecord
   belongs_to :child, optional: true
   belongs_to :document_creator, class_name: "User"
   CATEGORIES = ['Santé', 'Scolarité', 'Activités', 'Juridique', 'Autres']
-  enum doctype: { "Etat civil" => 0, "Assurance" => 1, "Résultats" => 2, "Bulletin scolaire" => 3, "Liste de pièces" => 4, "Ordonnance" => 5, "Résultats d'analyse/ Compte-rendu médical" => 6, "Jugement" => 7, "Sortie du territoire" => 8, "Photo" => 9, "Autre" => 10 }
+  DOCS = ["Etat civil", "Bulletin scolaire", "Liste de pièces", "Ordonnance", "Résultats médicaux", "Jugement", "Photo", "Autre"]
   has_rich_text :rich_details
 #
   before_validation :set_title_if_not_given

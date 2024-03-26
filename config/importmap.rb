@@ -10,7 +10,7 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
 pin "process" # @2.0.1
-pin "flatpickr" # @4.6.13
+pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.9/dist/flatpickr.js"
 pin "mapbox-gl" # @3.1.2
 pin "@mapbox/mapbox-gl-geocoder", to: "@mapbox--mapbox-gl-geocoder.js" # @5.0.0
 pin "#lib/client.js", to: "#lib--client.js.js" # @0.13.7
@@ -32,3 +32,4 @@ pin "xtend" # @4.0.2
 pin "sweetalert2", to: "https://ga.jspm.io/npm:sweetalert2@11.7.2/dist/sweetalert2.all.js"
 pin "trix"
 pin "@rails/actiontext", to: "actiontext.esm.js"
+pin "flatpickr/dist/l10n/fr.js", to: "flatpickr--dist--l10n--fr.js.js" # @4.6.13
