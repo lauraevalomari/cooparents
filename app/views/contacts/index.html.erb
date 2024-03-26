@@ -1,35 +1,39 @@
-<h1>Liste des contacts</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Prénom</th>
-      <th>Nom</th>
-      <th>Téléphone</th>
-      <th>Adresse</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.first_name %></td>
-        <td><%= contact.last_name %></td>
-        <td><%= contact.phone_number %></td>
-        <td class="address-cell"><%= contact.address %></td>
-        <td class="action-buttons">
-          <%= link_to contact, class: 'btn-contact' do %>
-            <i class="fas fa-search"></i>
-          <% end %>
-          <%= button_to contact, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer ce contact?' }, class: "btn-contact" do %>
-            <i class="fas fa-trash-alt"></i>
-          <% end %>
+<div class="container">
+  <h1>Liste des contacts</h1>
+  <div class="container-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>Téléphone</th>
+          <th>Adresse</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @contacts.each do |contact| %>
+          <tr>
+            <td><%= contact.first_name %></td>
+            <td><%= contact.last_name %></td>
+            <td><%= contact.phone_number %></td>
+            <td class="address-cell"><%= contact.address %></td>
+            <td class="action-buttons">
+              <%= link_to contact, class: 'btn-contact' do %>
+                <i class="fas fa-search"></i>
+              <% end %>
+              <%= button_to contact, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer ce contact?' }, class: "btn-contact" do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
 
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-  <%= link_to 'Nouveau Contact', new_contact_path, class: 'btn' %>
+    <%= link_to 'Nouveau Contact', new_contact_path, class: 'btn' %>
+
+
 </div>
-
