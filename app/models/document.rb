@@ -6,7 +6,7 @@ class Document < ApplicationRecord
   CATEGORIES = ['Santé', 'Scolarité', 'Activités', 'Juridique', 'Autres']
   DOCS = ["Etat civil", "Bulletin scolaire", "Liste de pièces", "Ordonnance", "Résultats médicaux", "Jugement", "Photo", "Autre"]
   has_rich_text :rich_details
-
+#
   before_validation :set_title_if_not_given
 
   def set_category_color
