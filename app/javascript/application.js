@@ -11,4 +11,5 @@ import "mapbox-gl";
 import "sweetalert2";
 
 import "trix"
-import "@rails/actiontext"
+import "@rails/actiontext";
+import "flatpickr";
