@@ -1,7 +1,5 @@
-<div class="form-container">
-  <div class="form-design">
     <%= simple_form_for @document do |f| %>
-      <div class="form-inputs">
+  <div class="form-inputs">
         <%= f.input :title, label: 'Titre du document', input_html: { id: 'title' } %>
         <%= f.input :category, label: 'Catégorie', as: :radio_buttons, collection_wrapper_tag: 'div',collection_wrapper_class: 'category-wrapper', item_wrapper_class: 'category-item', input_html: {class: 'category-selector'}, collection: Document::CATEGORIES, label_method: lambda { |category| render "appointments/category_label", category: category } %>
         <%= f.input :doctype, label: 'Type de document', as: :select, collection: Document.doctypes.keys.map{ |key| [key.humanize, key] }, selected: @document.doctype %>
@@ -11,5 +9,3 @@
       </div>
       <%= f.submit 'Sauvegarder', class: "btn btn-primary btn-sm" %>
     <% end %>
-  </div>
-</div>
