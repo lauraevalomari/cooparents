@@ -68,7 +68,7 @@ input {
 .form-control {
   border-color: grey;
   background-color: white;
-    text-align: center;
+  text-align: center;
 
 }
 
@@ -117,9 +117,7 @@ input {
 }
 
 .btn:hover {
-  background-color: #81EDAE;
-  background-blend-mode: lighten;
-  border-color: #81EDAE;
+  opacity: 0.9;
 }
 
 .form-actions {

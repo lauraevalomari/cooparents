@@ -2,7 +2,7 @@
   <div class="col-12 col-sm-4">
     <div class="form-design">
         <div class="header-show">
-          <p>Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
+          <p style="font-weight: bold">Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
           <%= link_to "Retour", appointments_path, class: "btn-back" %>
         </div>
         <div class="mb-2 mt-2 flexbox">
@@ -31,9 +31,9 @@
       <p><%= @appointment.rich_details %></p>
         <p class="appointments-details" id="details">Documents utiles</p>
           <% if @appointment.attachment.attached? %>
-                      <p><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to " Télécharger le fichier", rails_blob_path(@appointment.attachment, disposition: "attachment"), class: "btn-telecharger" %></p>
+              <p><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to " Télécharger le fichier", rails_blob_path(@appointment.attachment, disposition: "attachment"), class: "btn-telecharger" %></p>
           <% else %>
-            <p>Aucun fichier attaché</p>
+            <p class="pt-2">Aucun fichier attaché</p>
           <% end %>
           <% if @appointment.address.present? %>
             <p><i class="fa-solid fa-location-dot" style="color: #7F86FF; margin-top: 20px"></i> <%= @appointment.address %></p>

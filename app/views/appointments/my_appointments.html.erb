@@ -8,7 +8,7 @@
 
       <h3 class="mt-2 mb-3" style="font-weight: bold">Mes RDV</h3>
 
-
+      <% if @appointments.present? %>
         <% @appointments.each do |appointment| %>
           <div class="card-tasks-index">
             <h4><%= link_to appointment.title, appointment_path(appointment) %></h4>
@@ -21,6 +21,12 @@
             </div>
           </div>
         <% end %>
+      <% elsif %>
+        <div class="programme-free-tasks">
+          <p style="color: #bc6c25">Libre comme l'air...</p>
+          <p style="width: 75%"><%= image_tag "des-pierres.png" %></p>
+        </div>
+      <% end %>
 
 
     </div>
