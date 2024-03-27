@@ -1,11 +1,16 @@
 // Specific CSS for your home-page
 
-.container {
-  background-color: $dark-white;
+.container-profile {
+  background-color: $white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 15px 15px 20px 20px;
 }
+// .container {
+//   background-color: #FFFFFF;
+//   margin: 0;
+//   width: auto;
+// }
 #progressbar{
   margin: 30px;
   width: 200px;
@@ -80,6 +85,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.dropdown-item {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 // .form-design {
 //   // display: flex;

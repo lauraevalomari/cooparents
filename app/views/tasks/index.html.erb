@@ -8,7 +8,7 @@
 
       <h3 class="mt-2 mb-3" style="font-weight: bold">Mes tâches</h3>
 
-
+      <% if @all_tasks_for_user.present? %>
         <% @all_tasks_for_user.each do |task| %>
           <div class="card-tasks-index">
             <h4><%= link_to task.title, task_path(task) %></h4>
@@ -27,6 +27,12 @@
             </div>
           </div>
         <% end %>
+      <% elsif %>
+        <div class="programme-free-tasks">
+              <p style="color: #bc6c25">Léger comme une plume</p>
+              <p style="width: 75%"><%= image_tag "plume.png" %></p>
+            </div>
+      <% end %>
 
 
     </div>
