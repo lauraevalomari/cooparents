@@ -219,8 +219,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_230523) do
   add_foreign_key "custody_timeframes", "users", column: "parent_in_charge_id"
   add_foreign_key "documents", "children"
   add_foreign_key "documents", "users", column: "document_creator_id"
-  add_foreign_key "messages", "chatrooms"
-  add_foreign_key "messages", "users"
   add_foreign_key "tasks", "children"
   add_foreign_key "tasks", "users", column: "parent_in_charge_id"
   add_foreign_key "tasks", "users", column: "task_creator_id"
