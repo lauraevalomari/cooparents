@@ -60,7 +60,6 @@ h1 {
 }
 
 .appointment-section {
-  position: fixed;
   background-color: white;
   border-radius: 16px;
   padding: 20px;
@@ -68,6 +67,7 @@ h1 {
   margin-top: 15px;
   max-height: calc(100vh - 200px);
   overflow-y: auto;
+  margin-bottom: 30px;
   }
 
 .text-center {
