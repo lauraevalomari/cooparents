@@ -24,6 +24,8 @@ class DocumentsController < ApplicationController
   end
 
   def edit
+    @children = current_user.children
+    @parents = @children.map(&:parents).flatten.uniq
   end
 
   def update

@@ -15,11 +15,11 @@ class Document < ApplicationRecord
     elsif category == "Santé"
       "turquoise"
     elsif category == "Activités"
-      "pink"
+      "green"
     elsif category == "Juridique"
       "yellow"
     elsif category == "Autres"
-      "green"
+      "pink"
     end
   end
 

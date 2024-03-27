@@ -3,9 +3,9 @@
     <div class="form-design">
         <div class="header-show">
           <p>Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
-            <%# <%= link_to edit_document_path(@document), style: "color: black !important", class: "text-decoration-none" do %>
+            <%= link_to edit_document_path(@document), style: "color: black !important", class: "text-decoration-none" do %>
             <i class="fas fa-ellipsis-vertical" title="Cliquer pour modifier" style="font-size: 25px; margin-top: 10px"></i>
-            <%# <% end %>
+            <% end %>
           </div>
 
     <div>
@@ -35,29 +35,29 @@
       <% end %>
       </div>
 
-    <% if @document.doctype.present? %>
-      <div class="flexbox card-task">
-        <p style="color: grey"><i class="fa-solid fa-file-circle-question"style="color: #adafb3"></i> Nature du document</p>
-        <p><%= @document.doctype %></p>
-      </div>
-    <% end %>
+  <% if @document.doctype.present? %>
+    <div class="flexbox card-task">
+      <p style="color: grey"><i class="fa-solid fa-file-circle-question"style="color: #adafb3"></i> Nature</p>
+      <p><%= @document.doctype %></p>
+    </div>
+  <% end %>
 
 
       <div class="flexbox card-task">
-        <p style="color: grey"><i class="fa-solid fa-file-circle-question"style="color: #adafb3"></i> Document ajouté par</p>
+        <p style="color: grey"><i class="fa-solid fa-file-circle-question"style="color: #adafb3"></i> Ajouté par</p>
         <p> <%= @document.document_creator.email.split('@').first.capitalize %></p>
       </div>
 
     <% if @document.child.present? %>
       <div class="flexbox card-task">
-        <p style="color: grey"><i class="fa-solid fa-children"style="color: #adafb3"></i> Ce document concerne</p>
+        <p style="color: grey"><i class="fa-solid fa-children"style="color: #adafb3"></i> À propos de</p>
         <p><%= @document.child.first_name %></p>
       </div>
     <% end %>
 
     <% if @document.rich_details.present? %>
       <div class="flexbox card-task">
-        <p style="color: grey"><i class="fa-duotone fa-comments"style="color: #adafb3"></i> Commentaires <%= @document.rich_details %> </p>
+        <p> <%= @document.rich_details %></p>
       </div>
     <% end %>
 

@@ -10,20 +10,24 @@ export default class extends Controller {
       dateFormat: "d-m-Y",
       weekNumbers: true,
       time_24hr: true,
-      parseDate: true,
+      // parseDate: true,
+      allowInput: true,
       locale : "fr",
+
     });
 
     flatpickr(this.startTimeTarget, {
       enableTime: true,
       noCalendar: true,
       time_24hr: true,
+      allowInput: true,
     });
 
     flatpickr(this.endTimeTarget, {
       enableTime: true,
       noCalendar: true,
       time_24hr: true,
+      allowInput: true,
     });
   }
 }
