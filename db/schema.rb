@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_25_162133) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_26_230523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,6 +89,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_162133) do
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "children", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -139,11 +145,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_162133) do
     t.bigint "document_creator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "doctype"
-    t.integer "category"
     t.string "documentable_type"
     t.bigint "documentable_id"
     t.string "attachment"
+    t.string "category"
+    t.string "doctype"
     t.index ["child_id"], name: "index_documents_on_child_id"
     t.index ["document_creator_id"], name: "index_documents_on_document_creator_id"
     t.index ["documentable_type", "documentable_id"], name: "index_documents_on_documentable"
