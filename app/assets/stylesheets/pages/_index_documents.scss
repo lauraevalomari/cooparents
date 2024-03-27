@@ -1,6 +1,6 @@
 .card-tasks-index {
   position: relative;
-
+  margin-left: 1px;
 
 }
 
@@ -14,11 +14,13 @@
   align-items: flex-start;
   margin-right: 5px;
   padding: 0;
+  margin-bottom: 5px;
+  padding-top: 5px;
 }
 
 .card-icones p {
   margin: 0;
-  margin-top: 5px !important;
+  // margin-top: 5px !important;
   margin-bottom: 2px !important;
 
 

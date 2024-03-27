@@ -11,7 +11,7 @@
 <% if @documents.present? %>
         <% @documents.each_with_index do |document, index| %>
           <div class="card-tasks-index">
-            <h4 style="font-size: 12px; margin-top: 45px"><%= link_to document.title, document_path(document) %></h4>
+            <h4 style="font-size: 14px; margin-top: 40px"><%= link_to document.title, document_path(document) %></h4>
             <div class="card-icones" style="padding-right: 5px">
               <p class="text-end"><i class="fa-solid fa-eye"></i><%= link_to ' Apercu', document_path(document) %></p>
               <p class= "text-end" style="padding-top: 0"><i class="fa-solid fa-cloud-arrow-down"></i><%= link_to " Télécharger", rails_blob_path(document.attachment, disposition: "attachment") %></p>
