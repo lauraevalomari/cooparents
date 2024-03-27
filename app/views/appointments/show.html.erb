@@ -31,7 +31,7 @@
       <p><%= @appointment.rich_details %></p>
         <p>Documents utiles</p>
           <% if @appointment.attachment.attached? %>
-            <p><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to "Télécharger le fichier", rails_blob_path(@appointment.attachment, disposition: "attachment"), class: "btn btn-primary" %></p>
+                      <p><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to " Télécharger le fichier", rails_blob_path(@appointment.attachment, disposition: "attachment"), class: "btn-telecharger" %></p>
           <% else %>
             <p>Aucun fichier attaché</p>
           <% end %>
