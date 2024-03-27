@@ -1,11 +1,9 @@
 <div class="profile-design">
   <div class="top-icons">
     <%= link_to children_path, style: "color: black !important", class: "text-decoration-none" do %>
-      <i class="fa-solid fa-arrow-left return-icon" style="font-size: 25px; margin-top: 10px"></i>
+      <i class="fa-solid fa-arrow-left return-icon" style="font-size: 25px; margin-top: 20px"></i>
     <% end %>
-    <%= link_to edit_child_path, style: "color: black !important", class: "text-decoration-none" do %>
-      <i class="fas fa-ellipsis-vertical edit-icon" style="font-size: 25px; margin-top: 10px"></i>
-    <% end %>
+    <p></p>
   </div>
   <div class="mb-5">
     <h3 class="mt-2 mb-3" style="font-weight: bold"><%= @child.first_name %></h3>

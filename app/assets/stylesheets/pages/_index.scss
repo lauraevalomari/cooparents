@@ -119,9 +119,9 @@ h1 {
 }
 
 .btn-primary:hover {
-  background-color: #81edae;
+    opacity: 0.9;
+    color: white;
 }
-
 .no-appointments {
   text-align: center;
   color: #777;
@@ -151,7 +151,7 @@ h1 {
 }
 
 .current-date-selected .date-number:hover {
-  background-color: #81edae;
+  opacity: 0.8;
 }
 
 .flex-hour {

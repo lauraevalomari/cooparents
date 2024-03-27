@@ -47,9 +47,9 @@
         <p><%= @task.deadline.strftime ("%d/%m/%Y") %></p>
       </div>
 
-      <% if @task.details.present? %>
-        <div class="card-task-details">
-          <p><%= @task.details %></p>
+      <% if @task.rich_details.present? %>
+        <div class="card-task-details" style="font-size: 15px !important">
+          <p><strong><%= @task.rich_details %></p></strong>
         </div>
       <% elsif %>
 
@@ -60,7 +60,7 @@
             task_path(id: @task, status: true),
             class: "btn-update",
             style: "width: 100% !important",
-            data: { turbo_method: :patch, turbo_confirm: "Êtes-vous sûr(e)?"} %></div>
+            data: { turbo_method: :patch } %></div>
        <% else %>
 
        <% end %>
