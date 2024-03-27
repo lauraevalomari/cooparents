@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import flatpickr from "flatpickr";
+import "flatpickr/dist/l10n/fr.js"
 
 export default class extends Controller {
   static targets = ["date", "startTime", "endTime"];
@@ -10,6 +11,7 @@ export default class extends Controller {
       weekNumbers: true,
       time_24hr: true,
       parseDate: true,
+      locale : "fr",
     });
 
     flatpickr(this.startTimeTarget, {

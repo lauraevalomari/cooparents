@@ -2,8 +2,18 @@ body {
   background-color: white;
 }
 
+// .form-input {
+//   text-align: center;
+//   align-items: center;
+//   justify-content: space-between;
+// }
 
-#form-design-appointments-documents {
+// .details {
+//   padding-top: 50px;
+//   padding-bottom: 50px;
+// }
+
+#form-design-appointments-documents-contacts {
   background-color: white;
   padding: 30px 30px 50px 30px;
   margin-top: 50px;
@@ -43,6 +53,7 @@ body {
     margin-right: 30px;
     border-radius: 16px;
     box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
 input {
@@ -56,11 +67,14 @@ input {
 .form-control {
   border-color: grey;
   background-color: white;
+    text-align: center;
+
 }
 
 .form-check-input:hover {
   border-color: #81EDAE;
   box-shadow: 0 0 0 0.25rem rgba(129, 237, 174, 0.25);
+  text-align: center;
 }
 
 // .form-control:focus {
@@ -72,9 +86,12 @@ input {
   background-color: #81EDAE;
   border-color: #81EDAE;
   box-shadow: 0 0 0 0.25rem rgba(129, 237, 174, 0.25);
+  text-align: center;
 }
 .form-check-input.is-valid ~ .form-check-label {
   color: #588157;
+  text-align: center;
+
 }
 .form-control.is-valid {
   border: 2px solid #7DC776;
