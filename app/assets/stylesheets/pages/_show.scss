@@ -24,10 +24,11 @@ img {
   font-size: 12px;
 }
 .appointments-title-parent {
-  display: flex;
+  // display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 16px;
+  // text-align: center;
 }
 .appointments-title-parent p {
   font-size: 14px

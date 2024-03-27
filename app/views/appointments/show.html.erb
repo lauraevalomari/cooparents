@@ -29,7 +29,7 @@
       <p>Ce rendez-vous concerne: <strong><%= @appointment.child.first_name %></strong></p>
       <p class="appointments-details" id="details">Détails</p>
       <p><%= @appointment.rich_details %></p>
-        <p>Documents utiles</p>
+        <p class="appointments-details" id="details">Documents utiles</p>
           <% if @appointment.attachment.attached? %>
                       <p><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to " Télécharger le fichier", rails_blob_path(@appointment.attachment, disposition: "attachment"), class: "btn-telecharger" %></p>
           <% else %>
