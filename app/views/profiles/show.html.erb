@@ -45,7 +45,7 @@
     </div>
 
   <div class="user-access">
-    <div class="card-profile-task" style="background-color: #FFDEB4">
+    <div class="card-profile-task" style="background-color: #ddb892">
       <div style="text-align: start">
         <p ><%= link_to "Mes tâches", tasks_path %></p>
         <% if @all_tasks_count >= 2 %>
@@ -53,7 +53,7 @@
         <% elsif @all_tasks_count == 1%>
           <p style="font-size: 12px"> 1 tâche seulement</p>
         <% elsif %>
-        <p style="font-size: 12px"> Libre comme l'air!</p>
+        <p style="font-size: 12px"> Tranquille!</p>
         <% end %>
       </div>
       <%= link_to tasks_path do %>
