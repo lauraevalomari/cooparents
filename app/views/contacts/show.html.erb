@@ -16,7 +16,7 @@
       <div class="detail-value"><%= @contact.address %></div>
     </div>
     <div class="detail-row">
-      <div class="detail-label">Numéro de téléphone:</div>
+      <div class="detail-label">Téléphone:</div>
       <div class="detail-value"><%= @contact.phone_number %></div>
     </div>
     <div class="detail-row">
@@ -27,10 +27,25 @@
       <div class="detail-label">Catégorie:</div>
       <div class="detail-value"><%= @contact.category %></div>
     </div>
+    <div class="detail-row">
+      <div class="detail-label">Document:</div>
+      <div class="detail-value">
+        <% if @contact.attachment.attached? %>
+          <p><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to " Télécharger le fichier", rails_blob_path(@contact.attachment, disposition: "attachment"), class: "btn-telecharger" %></p>
+        <% else %>
+          <p>Aucun fichier attaché</p>
+        <% end %>
+      </div>
+    </div>
   </div>
   <div class="buttons">
     <%= link_to 'Modifier', edit_contact_path(@contact), class: 'btn btn-edit' %>
-    <%= link_to 'Supprimer', @contact, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer ce contact?' }, class: 'btn btn-delete' %>
+    <%= link_to contact_path(@contact),
+            style: "color: white !important",
+            class: "btn btn-danger",
+            data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr(e)?" } do %>
+      Supprimer
+    <% end %>
     <%= link_to 'Retour', contacts_path, class: 'btn btn-back' %>
   </div>
 </div>

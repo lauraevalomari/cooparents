@@ -37,7 +37,8 @@ td {
 
 
 .btn {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
@@ -45,8 +46,18 @@ td {
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s;
-  margin-right: 10px;
   text-align: center;
+}
+
+.btn-center {
+  display: flex;
+  justify-content: center;
+  background-color: $purple;
+  color: $white;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 30px 30px;
+  padding: 10px 10px;
 }
 
 .btn-primary {
@@ -55,7 +66,7 @@ td {
 }
 
 .btn-primary:hover {
-  background-color: $mint-green;
+  background-color: $orange;
 }
 
 .btn-contact {

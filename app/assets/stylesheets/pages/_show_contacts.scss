@@ -2,22 +2,31 @@
 .contact-details {
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: $light-gray;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+  background-color: $dark-white;
+  border: none;
+
 }
 
 .heading {
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 
 .contact-info {
+  margin: 10px;
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  background-color: rgba($light-yellow,0.1);
+  background-color: $white;
+}
+
+.btn-telecharger {
+  color: $gray;
+}
+
+.btn-telecharger:hover {
+  color: $pink;
 }
 
 .detail-row {
@@ -53,7 +62,7 @@
   color: $white;
 }
 
-.btn-delete {
+.btn-danger {
   background-color: $orange;
   color: $white;
 }
