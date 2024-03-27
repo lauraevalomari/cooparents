@@ -11,15 +11,10 @@
 <% if @documents.present? %>
         <% @documents.each_with_index do |document, index| %>
           <div class="card-tasks-index">
-            <p class="text-end"><i class="fa-solid fa-eye"></i><%= link_to 'Voir', document_path(document) %></p>
-            <p class= "text-end"><i class="fa-solid fa-cloud-arrow-down"></i><%= link_to "Télécharger", rails_blob_path(document.attachment, disposition: "attachment") %></p>
             <h4><%= link_to document.title, document_path(document) %></h4>
-            <div class="card-tasks-infos">
-              <div class="div">
-                <p><%= document.doctype %> </p>
-                <p><%= "Pour #{document.child.first_name}" if document.child.present? %></p>
-                <%# <p>Créé par <%= document.document_creator.email.split('@').first.capitalize %>
-              </div>
+            <div class="card-icones">
+              <p class="text-end"><i class="fa-solid fa-eye"></i><%= link_to ' Apercu', document_path(document) %></p>
+              <p class= "text-end"><i class="fa-solid fa-cloud-arrow-down"></i><%= link_to " Télécharger", rails_blob_path(document.attachment, disposition: "attachment") %></p>
                   <% if document.category == "Scolarité" %>
                       <div class="category-class-violet">
                         <p class="text-end">Scolarité</p></div>
@@ -36,6 +31,14 @@
                       <div class="category-class-pink">
                         <p class="text-end">Autres</p></div>
                   <% end %>
+          </div>
+            <div class="card-tasks-infos">
+              <div class="div">
+                <p><%= document.doctype %> </p>
+                <p><%= "Pour #{document.child.first_name}" if document.child.present? %></p>
+                <%# <p>Créé par <%= document.document_creator.email.split('@').first.capitalize %>
+              </div>
+
                 </div>
 
               </div>

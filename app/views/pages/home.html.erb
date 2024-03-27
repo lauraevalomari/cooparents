@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-profile">
   <% if user_signed_in? %>
     <div class="welcome">
       <p>Bonjour <%= current_user.email.split('@').first.capitalize%></p>
@@ -9,7 +9,7 @@
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
     </div>
-  <div class="container-task">
+
     <div class="tasks">
       <% if @all_pending_tasks_count >=2 %>
         <p style="font-size: 28px; margin-bottom: 0px !important;">Vous avez</p>
@@ -26,10 +26,11 @@
     <div id="progressbar" data-controller="progressbar" data-progressbar-percentage-value="<%= @percentage_completed %>"></div>
 
     <div class="dashboard">
-      <p style="font-size: 24px; margin-bottom: 0px !important">Tableau de bord</p>
+      <p style="font-size: 24px; margin-bottom: 0px !important; padding-top: 30px">Tableau de bord</p>
       <p style="font-size: 15px; color: #B3B3B3">Les tâches à réaliser</p>
-        <ol>
+
           <% if @two_first_tasks_for_user.present? %>
+          <ol>
             <% @two_first_tasks_for_user.each do |task| %>
               <div class="link-show"><li><p><%= link_to task.title, task_path(task.id) %></p></li></div>
             <% end %>
@@ -41,12 +42,11 @@
             </div>
           <% end %>
     </div>
-  </div>
 
 
       <% if user_signed_in? %>
-        <div class="appointment mt-2">
-          <p style="font-size: 24px; margin-bottom: 0px !important;">Votre programme</p>
+
+          <p style="font-size: 24px; margin-bottom: 0px !important; padding-top: 20px">Votre programme</p>
           <p style="color: #BDBDBD; margin-bottom: 20px !important">Les prochains rendez-vous</p>
           <!-- TODO : itérer sur l'ensemble des appointements d'un utilisateur -->
           <% if @all_appointments_for_count == 0 %>
@@ -60,16 +60,16 @@
                   <div class="card-appointment <%= appointment.set_category_color %>">
                     <div class="card-appointment-infos">
                       <p style="font-size: 17px"><%= link_to appointment.title, appointment_path(appointment.id) %></p>
-                      <p><%= appointment.category %></p>
+                      <p style="font-size: 15px"><%= appointment.category %></p>
                     </div>
 
-                    <p><i class="fa-solid fa-calendar-days" style="color: white"></i> <%= appointment.date.strftime ("%d/%m/%Y") %></p>
-                    <p><i class="fa-solid fa-clock" style="color: white"></i> <%= appointment.start_time.strftime('%H:%M') %></p>
+                    <p style="font-size: 16px"><i class="fa-solid fa-calendar-days" style="color: white; font-size: 16px"></i> <%= appointment.date.strftime ("%d/%m/%Y") %></p>
+                    <p style="font-size: 16px"><i class="fa-solid fa-clock" style="color: white; font-size: 16px"></i> <%= appointment.start_time.strftime('%H:%M') %></p>
                   </div>
               <% end %>
             </div>
           <% end %>
-        </div>
+
 
       <% end %>
   <% else %>

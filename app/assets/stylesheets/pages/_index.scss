@@ -12,6 +12,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: $dark-white;
+  overflow-y: scroll;
 }
 
 .date-header {
@@ -21,9 +22,13 @@ body {
 }
 
 .calendar-container {
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 15px;
   margin-left: 8px;
   padding: 8px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 h1 {
@@ -55,11 +60,15 @@ h1 {
 }
 
 .appointment-section {
+  position: fixed;
   background-color: white;
   border-radius: 16px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+  margin-top: 15px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  }
 
 .text-center {
   text-align: center;
@@ -175,4 +184,8 @@ h1 {
 .delete-icon {
   top: auto;
   bottom: 10px;
+}
+
+.card-title, .card-text {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
