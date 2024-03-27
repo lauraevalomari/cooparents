@@ -35,12 +35,12 @@
       <% end %>
       </div>
 
-    <% if @document.doctype.present? %>
-      <div class="flexbox card-task">
-        <p style="color: grey"><i class="fa-solid fa-file-circle-question"style="color: #adafb3"></i> Nature du document</p>
-        <p><%= @document.doctype %></p>
-      </div>
-    <% end %>
+  <% if @document.doctype.present? %>
+    <div class="flexbox card-task">
+      <p style="color: grey"><i class="fa-solid fa-file-circle-question"style="color: #adafb3"></i> Nature</p>
+      <p><%= @document.doctype %></p>
+    </div>
+  <% end %>
 
 
       <div class="flexbox card-task">
