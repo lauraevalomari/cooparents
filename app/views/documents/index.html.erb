@@ -12,14 +12,14 @@
         <% @documents.each_with_index do |document, index| %>
           <div class="card-tasks-index">
             <p class="text-end"><i class="fa-solid fa-eye"></i><%= link_to 'Voir', document_path(document) %></p>
-            <div class="card-tasks-infos">
-              <div class="div">
-                          <h4><%= link_to document.title, document_path(document) %></h4>
+              <div class="card-tasks-infos">
+                <h4><%= link_to document.title, document_path(document) %></h4>
 
-                <p><%= document.category %></p>
-                <p><%= document.doctype %></p>
-                <p><%= "Pour #{document.child.first_name}" if document.child.present? %></p>
-                <p>Créé par<%= document.document_creator.email.split('@').first.capitalize %></p>
+
+                  <div class="div">
+                    <p><%= document.doctype %></p>
+                    <p><%= "Pour #{document.child.first_name}" if document.child.present? %></p>
+                    <p>Créé par<%= document.document_creator.email.split('@').first.capitalize %></p>
                 <%# <p><%= link_to "Télécharger le document", rails_blob_path(document.attachment, disposition: "attachment") %>
                 <%# <p><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to "Télécharger le document", rails_blob_path(document.attachment, disposition: "attachment"), class: "btn btn-primary" %>
               </div>
@@ -42,8 +42,8 @@
                  <% end %>
               </div>
         <% end %>
-            </div>
-          </div>
+    </div>
+  </div>
 
 
   <% else %>
