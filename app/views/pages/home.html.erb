@@ -26,7 +26,7 @@
     <div id="progressbar" data-controller="progressbar" data-progressbar-percentage-value="<%= @percentage_completed %>"></div>
 
     <div class="dashboard">
-      <p style="font-size: 24px; margin-bottom: 0px !important">Tableau de bord</p>
+      <p style="font-size: 24px; margin-bottom: 0px !important; padding-top: 30px">Tableau de bord</p>
       <p style="font-size: 15px; color: #B3B3B3">Les tâches à réaliser</p>
 
           <% if @two_first_tasks_for_user.present? %>
@@ -46,7 +46,7 @@
 
       <% if user_signed_in? %>
 
-          <p style="font-size: 24px; margin-bottom: 0px !important; padding-top: 10px">Votre programme</p>
+          <p style="font-size: 24px; margin-bottom: 0px !important; padding-top: 20px">Votre programme</p>
           <p style="color: #BDBDBD; margin-bottom: 20px !important">Les prochains rendez-vous</p>
           <!-- TODO : itérer sur l'ensemble des appointements d'un utilisateur -->
           <% if @all_appointments_for_count == 0 %>
