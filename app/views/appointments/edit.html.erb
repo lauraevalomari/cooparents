@@ -1,6 +1,10 @@
 <div class="row justify-content-center main-container">
   <div class="col-12 col-sm-4">
     <div id="form-design-appointments-documents-contacts">
+          <div class="header-show">
+            <p style="font-weight: bold; margin-top: 5px">Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
+            <%= link_to "Annuler", appointment_path(@appointment), class: "btn-back" %>
+          </div>
       <h3 class="mt-2" style="font-weight: bold">Modifier le rendez-vous</h3>
         <%= render "form", appointment: @appointment %>
       </div>
