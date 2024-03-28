@@ -29,4 +29,9 @@ class User < ApplicationRecord
   def tasks
     Task.where("parent_in_charge_id = ?", id)
   end
+
+  def coparent
+    children.map(&:parents).flatten.uniq.reject { |parent| parent == self }.first
+  end
+
 end
