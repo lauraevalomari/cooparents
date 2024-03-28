@@ -15,7 +15,7 @@
             <div class="card-tasks-infos">
               <div class="div">
                 <p>Pour: <%= task.child.first_name %></p>
-                <p><i class="fa-solid fa-hourglass-start" style="color: #EACF99"></i> <%= task.deadline.strftime ("%d/%m/%Y") %></p>
+                <p><i class="fa-solid fa-hourglass-start" style="color: #EACF99"></i> <%= task.deadline.strftime("%d/%m/%Y") %></p>
               </div>
                 <% if task.status == false %>
                  <div class="category-class-yellow">
