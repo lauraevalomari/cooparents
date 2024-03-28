@@ -10,8 +10,8 @@
 require "open-uri"
 
 puts "Cleaning Database..."
-# Contact.destroy_all
-# Document.destroy_all
+Contact.destroy_all
+Document.destroy_all
 Appointment.destroy_all
 Task.destroy_all
 Child.destroy_all
