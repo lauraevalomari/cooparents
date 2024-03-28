@@ -49,21 +49,21 @@ puts "#{User.count} users created!"
 puts "Now creating children..."
 
 gabriel = Child.create!(
-    first_name: Faker::Name.first_name,
+    first_name: "Gabriel",
     last_name: Faker::Name.last_name,
-    birth_date: Faker::Date.birthday(min_age: 0, max_age: 12),
+    birth_date: Faker::Date.birthday(min_age: 6, max_age: 11),
     birth_place: "Paris",
-    school: Faker::Educator.primary_school,
+    school: "École élémentaire Jules Ferry",
     first_parent_id: anna.id,
     second_parent_id: aaron.id
   )
 
 jade = Child.create!(
-  first_name: Faker::Name.first_name,
+  first_name: "Jade",
   last_name: Faker::Name.last_name,
-  birth_date: Faker::Date.birthday(min_age: 0, max_age: 12),
+  birth_date: Faker::Date.birthday(min_age: 6, max_age: 11),
   birth_place: "Paris",
-  school: Faker::Educator.primary_school,
+  school: "École élémentaire Jules Ferry",
   first_parent_id: anna.id,
   second_parent_id: aaron.id
 )
@@ -71,9 +71,9 @@ jade = Child.create!(
 puts "...and appointments..."
 foot_appointment = Appointment.create!(
   title: "Match de foot",
-  date: Date.new(2024,04,04),
-  start_time: DateTime.parse("04/04/2024 20:40"),
-  end_time: DateTime.parse("04/04/2024 22:00"),
+  date: Date.new(2024,03,30),
+  start_time: DateTime.parse("30/03/2024 16:30"),
+  end_time: DateTime.parse("30/03/2024 18:00"),
   category: "Activités",
   address: "261 Boulevard de Tournai, 59650 Villeneuve d'Ascq",
   appointment_creator_id: anna.id,
@@ -86,43 +86,43 @@ foot_appointment = Appointment.create!(
   dentist_appointment = Appointment.create!(
     title: "Dentiste",
     date: Date.new(2024,04,02),
-    start_time: DateTime.parse("02/04/2024 22:30"),
-    end_time: DateTime.parse("02/04/2024 23:00"),
+    start_time: DateTime.parse("02/04/2024 11:00"),
+    end_time: DateTime.parse("02/04/2024 12:00"),
     category: "Santé",
     address: "4 Allée de la chambre, 33160 Bordeaux",
     appointment_creator_id: anna.id,
-    parent_in_charge_id: aaron.id,
+    parent_in_charge_id: anna.id,
     user_id: anna.id,
     child_id: gabriel.id,
     rich_details: "La prochaine fois tu te laveras les dents",
     )
 
-    maths_appointment = Appointment.create!(
-      title: "Soutien de maths",
-      date: Date.new(2024,03,27),
-      start_time: DateTime.parse("27/03/2024 17:30"),
-      end_time: DateTime.parse("27/03/2024 19:00"),
-      category: "Scolarité",
-      address: "En Ligne",
-      appointment_creator_id: anna.id,
-      parent_in_charge_id: aaron.id,
-      user_id: anna.id,
-      child_id: gabriel.id,
-      rich_details: "Préparation pour le partiel de maths à la fin du mois",
-      )
+    # maths_appointment = Appointment.create!(
+    #   title: "Soutien de maths",
+    #   date: Date.new(2024,04,27),
+    #   start_time: DateTime.parse("06/04/2024 17:30"),
+    #   end_time: DateTime.parse("06/04/2024 19:00"),
+    #   category: "Scolarité",
+    #   address: "En Ligne",
+    #   appointment_creator_id: anna.id,
+    #   parent_in_charge_id: aaron.id,
+    #   user_id: anna.id,
+    #   child_id: jade.id,
+    #   rich_details: "Préparation pour le devoir de maths à la fin du mois",
+    #   )
 
     birthday_appointment = Appointment.create!(
       title: "Anniversaire des 8 ans d'Inès",
-      date: Date.new(2024,03,27),
-      start_time: DateTime.parse("27/03/2024 14:00"),
-      end_time: DateTime.parse("27/03/2024 17:00"),
+      date: Date.new(2024,03,30),
+      start_time: DateTime.parse("30/03/2024 14:00"),
+      end_time: DateTime.parse("30/03/2024 17:00"),
       category: "Autres",
       address: "4 rue du Professeur Langevin, 59000 LILLE",
       appointment_creator_id: anna.id,
-      parent_in_charge_id: aaron.id,
+      parent_in_charge_id: anna.id,
       user_id: anna.id,
       child_id: jade.id,
-      rich_details: "Anniversaire à l'Île de Tortuga. Prévoir un cadeau! Inès aime les activités manuelles. Prévoir une tenue décontractée (jogging + chaussettes).",
+      rich_details: "Anniversaire à l'Île de Tortuga. Le cadeau a été acheté et sera dans le sac de Jade. Prévoir une tenue décontractée (jogging + chaussettes).",
     )
 
     puts "...now tasks..."
@@ -131,34 +131,31 @@ foot_appointment = Appointment.create!(
       title: "Devoir d'histoire",
       category: "Scolarité",
       rich_details: "Préparer l'exposé sur la Révolution Française. Il faut que l'exposé repose sur 2 supports et dure maximum 15 minutes.",
-      requirements: "Livre d'histoire, ressources internet",
-      deadline: Date.new(2024,03,23),
+      # deadline: Date.new(2024,04,08),
       status: false,
       parent_in_charge_id: anna.id,
-      child_id: jade.id,
+      child_id: gabriel.id,
       task_creator_id: anna.id
     )
 
-    geek_task = Task.create!(
-      title: "Sortie exposition geek days",
-      category: "Autres",
-      rich_details: "Prévoir une sortie pour cette fameuse expo! ",
-      requirements: "Avoir de bonnes notes à l'école...",
-      deadline: Date.new(2024,03,23),
-      status: false,
-      parent_in_charge_id: aaron.id,
-      child_id: jade.id,
-      task_creator_id: aaron.id
-    )
+    # geek_task = Task.create!(
+    #   title: "Sortie exposition geek days",
+    #   category: "Autres",
+    #   rich_details: "Prévoir une sortie pour cette fameuse expo avant qu'elle ne se termine ! Et rappeler à Jade la condition : avoir de bonnes notes à l'école...",
+    #   deadline: Date.new(2024,04,12),
+    #   status: false,
+    #   parent_in_charge_id: aaron.id,
+    #   child_id: jade.id,
+    #   task_creator_id: aaron.id
+    # )
 
     gift_task = Task.create!(
       title: "Trouver un cadeau pour Inès",
       category: "Autres",
-      rich_details: "Chercher cadeau pour l'anniversaire",
-      requirements: "Elle aime les licornes. Et les bonbons.",
-      deadline: Date.new(2024,04,16),
+      rich_details: "Chercher cadeau pour l'anniversaire. Elle aime les licornes. Et les bonbons.",
+      # deadline: Date.new(2024,03,30),
       status: false,
-      parent_in_charge_id: aaron.id,
+      parent_in_charge_id: anna.id,
       child_id: jade.id,
       task_creator_id: aaron.id
     )
@@ -166,9 +163,8 @@ foot_appointment = Appointment.create!(
     glasses_task = Task.create!(
       title: "Récupérer les lunettes",
       category: "Santé",
-      rich_details: "Les lunettes sont arrivées chez l'opticien.",
-      requirements: "Ne pas oublier de prendre l'attestation de mutuelle",
-      deadline: Date.new(2024,04,06),
+      rich_details: "Les lunettes sont arrivées chez l'opticien (celui du centre commercial). Ne pas oublier de prendre l'attestation de mutuelle",
+      # deadline: Date.new(2024,04,06),
       status: false,
       parent_in_charge_id: aaron.id,
       child_id: gabriel.id,

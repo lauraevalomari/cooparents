@@ -89,6 +89,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_230523) do
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "children", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -156,18 +162,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_230523) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.string "action"
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "task_id", null: false
-    t.bigint "document_id", null: false
-    t.bigint "contact_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["contact_id"], name: "index_notifications_on_contact_id"
-    t.index ["document_id"], name: "index_notifications_on_document_id"
-    t.index ["task_id"], name: "index_notifications_on_task_id"
-    t.index ["user_id"], name: "index_notifications_on_user_id"
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
