@@ -10,8 +10,8 @@
 require "open-uri"
 
 puts "Cleaning Database..."
-Contact.destroy_all
-Document.destroy_all
+# Contact.destroy_all
+# Document.destroy_all
 Appointment.destroy_all
 Task.destroy_all
 Child.destroy_all
@@ -131,7 +131,7 @@ foot_appointment = Appointment.create!(
       title: "Devoir d'histoire",
       category: "Scolarité",
       rich_details: "Préparer l'exposé sur la Révolution Française. Il faut que l'exposé repose sur 2 supports et dure maximum 15 minutes.",
-      # deadline: Date.new(2024,04,08),
+      deadline: Date.new(2024,04,08),
       status: false,
       parent_in_charge_id: anna.id,
       child_id: gabriel.id,
@@ -153,7 +153,7 @@ foot_appointment = Appointment.create!(
       title: "Trouver un cadeau pour Inès",
       category: "Autres",
       rich_details: "Chercher cadeau pour l'anniversaire. Elle aime les licornes. Et les bonbons.",
-      # deadline: Date.new(2024,03,30),
+      deadline: Date.new(2024,03,30),
       status: false,
       parent_in_charge_id: anna.id,
       child_id: jade.id,
@@ -164,7 +164,7 @@ foot_appointment = Appointment.create!(
       title: "Récupérer les lunettes",
       category: "Santé",
       rich_details: "Les lunettes sont arrivées chez l'opticien (celui du centre commercial). Ne pas oublier de prendre l'attestation de mutuelle",
-      # deadline: Date.new(2024,04,06),
+      deadline: Date.new(2024,04,06),
       status: false,
       parent_in_charge_id: aaron.id,
       child_id: gabriel.id,
