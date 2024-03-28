@@ -120,6 +120,7 @@ input {
   opacity: 0.9;
 }
 
+
 .form-actions {
   text-align: center;
 }
@@ -200,11 +201,11 @@ input {
 }
 
 #appointment_category_activités + label {
-  color: #81EDAE;
+  color: #588157;
 }
 #appointment_category_activités:checked + label {
-  background-color: #81EDAE;
-  border-color: #81EDAE;
+  background-color: #588157;
+  border-color: #588157;
   color: white;
 }
 
@@ -218,12 +219,12 @@ input {
 }
 
 #appointment_category_autres + label {
-  color: #F4B7B6;
+  color: #EFCED4;
 }
 
 #appointment_category_autres:checked + label {
-  background-color: #F4B7B6;
-  border-color: #F4B7B6;
+  background-color: #EFCED4;
+  border-color: #EFCED4;
   color: white;
 }
 
@@ -344,11 +345,11 @@ input {
 }
 
 #document_category_activités + label {
-  color: #81EDAE;
+  color: #588157;
 }
 #document_category_activités:checked + label {
-  background-color: #81EDAE;
-  border-color: #81EDAE;
+  background-color: #588157;
+  border-color: #588157;
   color: white;
 }
 
@@ -397,11 +398,11 @@ input {
 }
 
 #contact_category_activités + label {
-  color: #81EDAE;
+  color: #588157;
 }
 #contact_category_activités:checked + label {
-  background-color: #81EDAE;
-  border-color: #81EDAE;
+  background-color: #588157;
+  border-color: #588157;
   color: white;
 }
 

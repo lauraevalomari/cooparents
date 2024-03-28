@@ -11,10 +11,18 @@
 <% if @documents.present? %>
         <% @documents.each_with_index do |document, index| %>
           <div class="card-tasks-index">
-            <h4 style="font-size: 14px; margin-top: 40px"><%= link_to document.title, document_path(document) %></h4>
+            <% if document.rich_details.present? %>
+              <h4 style="font-size: 14px; margin-top: 40px"><%= link_to document.title, document_path(document) %>   <i class="fa-solid fa-comments" style="color: #F4B7B6"></i></h4>
+              <%# <p style="text-align: right"> <%= %>
+            <% else %>
+              <h4 style="font-size: 14px; margin-top: 40px"><%= document.title %></h4>
+            <% end %>
             <div class="card-icones" style="padding-right: 5px">
               <p class="text-end"><i class="fa-solid fa-eye"></i><%= link_to ' Apercu', document_path(document) %></p>
               <p class= "text-end" style="padding-top: 0"><i class="fa-solid fa-cloud-arrow-down"></i><%= link_to " Télécharger", rails_blob_path(document.attachment, disposition: "attachment") %></p>
+
+
+
 
           </div>
               <div class="docs-cats">
