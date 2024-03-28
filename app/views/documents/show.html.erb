@@ -3,20 +3,26 @@
     <div class="form-design">
         <div class="header-show">
           <p>Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
-            <%= link_to edit_document_path(@document), style: "color: black !important", class: "text-decoration-none" do %>
-            <i class="fas fa-ellipsis-vertical" title="Cliquer pour modifier" style="font-size: 25px; margin-top: 10px"></i>
+          <%= link_to "Retour", documents_path, class: "btn-back" %>
+        </div>
+      <div class="top-icons">
+        <%= link_to document_path(@document),
+                style: "color: black !important; margin-bottom: 5px",
+                class: "text-decoration-none",
+                data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr(e)?" } do %>
+              <i class="fa-solid fa-trash" style="font-size: 20px; margin-top: 10px"></i>
             <% end %>
-          </div>
+        <h3 style="font-weight: bold; margin-top: 10px">Mon document</h3>
+        <%= link_to edit_document_path(@document), style: "color: black !important", class: "text-decoration-none" do %>
+          <i class="fas fa-ellipsis-vertical" title="Clique pour modifier" style="font-size: 25px; margin-top: 10px"></i>
+        <% end %>
+      </div>
+      <div>
+        <h4 class="mt-3" style="font-size: 18px"><%= @document.title %></h4>
+      </div>
 
-    <div>
-      <h3 class="mt-2" style="font-weight: bold">Mon document</h3>
-      <h4 class="mt-2" style="font-size: 18px"><%= @document.title %></h4>
-    </div>
-    <div>
-
-    </div>
     <div class="flexbox card-task pt-4 doc-card">
-      <p style="color: grey"><i class="fa-solid fa-folder-tree"style="color: #adafb3"></i> Catégorie</p>
+        <p> <%= image_tag "dossier.png", width: 30, height: 25 %></p>
       <% if @document.category == "Scolarité" %>
             <div class="category-class-violet">
             <p style="padding-bottom: 5px">Scolarité</p></div>
@@ -24,51 +30,58 @@
             <div class="category-class-turquoise">
             <p style="padding-bottom: 5px">Santé</p></div>
       <% elsif @document.category == "Activités" %>
-            <div class="category-class-pink">
+            <div class="category-class-green">
             <p style="padding-bottom: 5px">Activités</p></div>
       <% elsif @document.category == "Juridique" %>
             <div class="category-class-yellow">
             <p style="padding-bottom: 5px">Juridique</p></div>
       <% else %>
-            <div class="category-class-green">
+            <div class="category-class-pink">
             <p style="padding-bottom: 5px">Autres</p></div>
       <% end %>
       </div>
 
   <% if @document.doctype.present? %>
     <div class="flexbox card-task">
-      <p style="color: grey"><i class="fa-solid fa-file-circle-question"style="color: #adafb3"></i> Nature</p>
+      <p> <%= image_tag "document.png", width: 30, height: 40 %></p>
       <p><%= @document.doctype %></p>
     </div>
   <% end %>
 
 
       <div class="flexbox card-task">
-        <p style="color: grey"><i class="fa-solid fa-file-circle-question"style="color: #adafb3"></i> Ajouté par</p>
+        <p> <%= image_tag "parent.png", width: 30, height: 40 %></p>
         <p> <%= @document.document_creator.email.split('@').first.capitalize %></p>
       </div>
 
     <% if @document.child.present? %>
       <div class="flexbox card-task">
-        <p style="color: grey"><i class="fa-solid fa-children"style="color: #adafb3"></i> À propos de</p>
+        <p><%= image_tag "children.png", width: 30, height: 40 %></p>
         <p><%= @document.child.first_name %></p>
       </div>
     <% end %>
 
+
     <% if @document.rich_details.present? %>
       <div class="flexbox card-task">
-        <p> <%= @document.rich_details %></p>
+        <p> <%= image_tag "comment.png", width: 40, height: 40 %></p>
+        <p style="text-bold">Commentaires</p>
       </div>
+        <div class="card-task-details">
+         <p> <%= @document.rich_details %></p>
+        </div>
     <% end %>
 
-      <div class="flexbox card-task">
-          <p style="color: grey"><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i> </p>
-          <p > <%= link_to "Télécharger le document", rails_blob_path(@document.attachment, disposition: "attachment") %></p>
-      </div>
 
-      <div class="show-icons mt-5">
+    <%# <div class="flexbox card-task"> %>
+    <p><i class="fa-solid fa-cloud-arrow-down" style="color: #F0000 download-icon"></i><%= link_to " Télécharger", rails_blob_path(@document.attachment, disposition: "attachment"), class: "btn-telecharger" %></p>
+    </div>
+
+      </div>
+‹
+      <%# <div class="show-icons mt-5">
             <%= link_to documents_path, style: "color: black !important", class: "text-decoration-none" do %>
-              <i class="fa-solid fa-arrow-left" style="color: #89DB93; font-size: 30px; margin-top: 10px"></i>
+          <%#     <i class="fa-solid fa-arrow-left" style="color: #89DB93; font-size: 30px; margin-top: 10px"></i>
             <% end %>
 
     </div>
