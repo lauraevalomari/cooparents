@@ -80,7 +80,7 @@ foot_appointment = Appointment.create!(
   parent_in_charge_id: aaron.id,
   user_id: anna.id,
   child_id: gabriel.id,
-  details: "Match de foot avec Paul en entraîneur (groupe 2B). Ne pas oublier le sac avec la tenue, les crampons, serviette et gourde!",
+  rich_details: "Match de foot avec Paul en entraîneur (groupe 2B). Ne pas oublier le sac avec la tenue, les crampons, serviette et gourde!",
   )
 
   dentist_appointment = Appointment.create!(
@@ -94,35 +94,35 @@ foot_appointment = Appointment.create!(
     parent_in_charge_id: aaron.id,
     user_id: anna.id,
     child_id: gabriel.id,
-    details: "La prochaine fois tu te laveras les dents",
+    rich_details: "La prochaine fois tu te laveras les dents",
     )
 
     maths_appointment = Appointment.create!(
       title: "Soutien de maths",
-      date: Date.new(2024,03,26),
-      start_time: DateTime.parse("26/03/2024 17:30"),
-      end_time: DateTime.parse("26/03/2024 19:00"),
+      date: Date.new(2024,03,27),
+      start_time: DateTime.parse("27/03/2024 17:30"),
+      end_time: DateTime.parse("27/03/2024 19:00"),
       category: "Scolarité",
       address: "En Ligne",
       appointment_creator_id: anna.id,
       parent_in_charge_id: aaron.id,
       user_id: anna.id,
       child_id: gabriel.id,
-      details: "Préparation pour le partiel de maths à la fin du mois",
+      rich_details: "Préparation pour le partiel de maths à la fin du mois",
       )
 
     birthday_appointment = Appointment.create!(
       title: "Anniversaire des 8 ans d'Inès",
-      date: Date.new(2024,03,26),
-      start_time: DateTime.parse("26/03/2024 14:00"),
-      end_time: DateTime.parse("26/03/2024 17:00"),
+      date: Date.new(2024,03,27),
+      start_time: DateTime.parse("27/03/2024 14:00"),
+      end_time: DateTime.parse("27/03/2024 17:00"),
       category: "Autres",
       address: "4 rue du Professeur Langevin, 59000 LILLE",
       appointment_creator_id: anna.id,
       parent_in_charge_id: aaron.id,
       user_id: anna.id,
       child_id: jade.id,
-      details: "Anniversaire à l'Île de Tortuga. Prévoir un cadeau! Inès aime les activités manuelles. Prévoir une tenue décontractée (jogging + chaussettes).",
+      rich_details: "Anniversaire à l'Île de Tortuga. Prévoir un cadeau! Inès aime les activités manuelles. Prévoir une tenue décontractée (jogging + chaussettes).",
     )
 
     puts "...now tasks..."
@@ -130,7 +130,7 @@ foot_appointment = Appointment.create!(
     homework_task = Task.create!(
       title: "Devoir d'histoire",
       category: "Scolarité",
-      details: "Préparer l'exposé sur la Révolution Française. Il faut que l'exposé repose sur 2 supports et dure maximum 15 minutes.",
+      rich_details: "Préparer l'exposé sur la Révolution Française. Il faut que l'exposé repose sur 2 supports et dure maximum 15 minutes.",
       requirements: "Livre d'histoire, ressources internet",
       deadline: Date.new(2024,03,23),
       status: false,
@@ -142,7 +142,7 @@ foot_appointment = Appointment.create!(
     geek_task = Task.create!(
       title: "Sortie exposition geek days",
       category: "Autres",
-      details: "Prévoir une sortie pour cette fameuse expo! ",
+      rich_details: "Prévoir une sortie pour cette fameuse expo! ",
       requirements: "Avoir de bonnes notes à l'école...",
       deadline: Date.new(2024,03,23),
       status: false,
@@ -154,7 +154,7 @@ foot_appointment = Appointment.create!(
     gift_task = Task.create!(
       title: "Trouver un cadeau pour Inès",
       category: "Autres",
-      details: "Chercher cadeau pour l'anniversaire",
+      rich_details: "Chercher cadeau pour l'anniversaire",
       requirements: "Elle aime les licornes. Et les bonbons.",
       deadline: Date.new(2024,04,16),
       status: false,
@@ -166,7 +166,7 @@ foot_appointment = Appointment.create!(
     glasses_task = Task.create!(
       title: "Récupérer les lunettes",
       category: "Santé",
-      details: "Les lunettes sont arrivées chez l'opticien.",
+      rich_details: "Les lunettes sont arrivées chez l'opticien.",
       requirements: "Ne pas oublier de prendre l'attestation de mutuelle",
       deadline: Date.new(2024,04,06),
       status: false,

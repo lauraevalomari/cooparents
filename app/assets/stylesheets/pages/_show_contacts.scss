@@ -61,13 +61,24 @@
   background-color: $purple;
   color: $white;
 }
+.btn-edit:hover {
+  background-color: #A663CC;
+  color: white;
+}
 
 .btn-danger {
-  background-color: $orange;
+  background-color: #FFBF69;
   color: $white;
+}
+.btn-danger:hover {
+  background-color: #E85D04;
 }
 
 .btn-back {
   background-color: $pink;
   color: $white;
+}
+.btn-back:hover {
+  background-color: #FF99AC;
+  color: white;
 }

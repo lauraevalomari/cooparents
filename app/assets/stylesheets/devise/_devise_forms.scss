@@ -77,11 +77,11 @@ input:hover {
   font-weight: bolder;
 }
 
-// .btn:hover {
-//   background-color: #81EDAE;
-//   background-blend-mode: lighten;
-//   border-color: #81EDAE;
-// }
+
+.btn:hover {
+  opacity: 0.9;
+}
+
 
 .form-actions {
   text-align: center;

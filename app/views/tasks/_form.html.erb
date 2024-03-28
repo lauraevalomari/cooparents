@@ -24,6 +24,5 @@
                     item_wrapper_class: 'person-item' %>
   <%= f.input :deadline, :label => "Date d'échéance", as: :string, input_html: { data: { flatpickr_target: "date" }, id: 'date' } %>
   <%= f.rich_text_area :rich_details, label: 'Détails', placeholder: "Ajoutez les détails si nécessaire" %>
-  <%= f.input :attachment, label: "Pièce jointe (facultatif)", as: :file, input_html: { id: 'attachment' } %>
-  <%= f.submit "Valider", class: "btn btn-primary", style: "margin-bottom: 70px;" %>
+  <%= f.submit "Valider", class: "btn btn-primary", style: "margin-bottom: 70px; margin-top: 30px" %>
 <% end %>

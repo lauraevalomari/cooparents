@@ -60,7 +60,6 @@ h1 {
 }
 
 .appointment-section {
-  position: fixed;
   background-color: white;
   border-radius: 16px;
   padding: 20px;
@@ -68,6 +67,7 @@ h1 {
   margin-top: 15px;
   max-height: calc(100vh - 200px);
   overflow-y: auto;
+  margin-bottom: 30px;
   }
 
 .text-center {
@@ -118,9 +118,11 @@ h1 {
   color: #fff;
 }
 
-// .btn-primary:hover {
-//   background-color: #81edae;
-// }
+
+.btn-primary:hover {
+    opacity: 0.9;
+    color: white;
+}
 
 .no-appointments {
   text-align: center;
@@ -151,7 +153,7 @@ h1 {
 }
 
 .current-date-selected .date-number:hover {
-  background-color: #81edae;
+  opacity: 0.8;
 }
 
 .flex-hour {
