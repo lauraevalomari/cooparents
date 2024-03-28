@@ -5,6 +5,19 @@
           <p style="font-weight: bold">Aujourd'hui, <%= I18n.l Date.today, format: '%-d %B', locale: :fr %></p>
           <%= link_to "Retour", appointments_path, class: "btn-back" %>
         </div>
+        <div class="top-icons">
+          <%= link_to appointment_path(@appointment),
+                  style: "color: black !important; margin-bottom: 5px",
+                  class: "text-decoration-none",
+                  data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr(e)?" } do %>
+                <i class="fa-solid fa-trash" style="font-size: 20px; margin-top: 10px"></i>
+              <% end %>
+          <h3 style="font-weight: bold; margin-top: 10px">Mon RDV</h3>
+          <%= link_to edit_appointment_path(@appointment), style: "color: black !important", class: "text-decoration-none" do %>
+            <i class="fas fa-ellipsis-vertical" title="Clique pour modifier" style="font-size: 25px; margin-top: 10px"></i>
+          <% end %>
+      </div>
+      <div>
         <div class="mb-2 mt-2 flexbox">
         <% if @appointment.category == "Activités" %>
           <img src="https://images.teamshirts.net/image/upload/c_crop,w_5184,h_2206,x_0,y_231/q_auto,fl_lossy,f_auto,w_1920/New%20Landingpages/FR/maillots-enfant-personnalises" alt="">
